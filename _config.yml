@@ -14,7 +14,6 @@ future: true
 # SNS settings
 RSS: false
 github_username: Ilikectrlmusic
-youtube_username: @RichardHuang-ig8rb
 
 
 # Build settings
