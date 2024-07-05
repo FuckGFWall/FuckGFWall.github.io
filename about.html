@@ -7,42 +7,10 @@ header-mask: 0.3
 multilingual: true
 ---
 
-{% include multilingual-sel.html %}
+中国政府通过防火墙（the Great Fire Wall，简称GFW）让我们只能使用由他们控制的社交软件、流媒体、短视频平台，以达到统一意识形态、控制舆论、网络监察的目的。        
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
-</div>
+如果一个政府只能通过控制国民信息接受与发表才能维护它的统治，相比于其它没有防火墙的民主国家，其独裁制度的脆弱和对自己统治力的不自信已经暴露无遗了。          
 
-<!-- English Version -->
-<div class="en post-container">
-    {% capture about_en %}{% include about/en.md %}{% endcapture %}
-    {{ about_en | markdownify }}
-</div>
+我们没有能力去改变它，了解更广阔的世界与观点才是我们的目的。理解，但仍坚守自己的价值观，对其心怀不满。愤慨，但仍以自己和家人的安全为首，不要自投罗网。          
 
-
-{% if site.disqus_username %}
-<!-- disqus 评论框 start -->
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
-    </div>
-</div>
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function () {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-{% endif %}
+防火墙视频简介：[中国防火墙究竟是怎么运作的？](https://www.youtube.com/watch?v=i8Iiv9yFTdM)
