@@ -1,7 +1,7 @@
 # Site settings
 title: Leo's Blog
 SEOTitle: Leo's Blog
-header-img: img/main.JPG
+header-img: img/main.jpg
 email: richardhuang0714@gmail.com
 description: "欢迎订阅我的YouTube频道：http://www.youtube.com/@RichardHuang-ig8rb"
 keyword: ""
@@ -9,11 +9,12 @@ url: "http://www.youtube.com/@RichardHuang-ig8rb"
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
-future: false
+future: true
 
 # SNS settings
 RSS: false
 github_username: Ilikectrlmusic
+
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -53,8 +54,6 @@ kramdown:
       line_numbers: true
       start_line: 1
 
-# Netease settings
-netease_comment: false
 
 # Analytics settings
 # Baidu Analytics
@@ -63,6 +62,11 @@ netease_comment: false
 # Google Analytics
 ga_track_id: "UA-49627206-1" # Format: UA-xxxxxx-xx
 ga_domain: 
+
+# Sidebar settings
+sidebar: false # whether or not using Sidebar.
+sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
+sidebar-avatar: https://github.com/Huxpro.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: false # whether or not using Feature-Tags
