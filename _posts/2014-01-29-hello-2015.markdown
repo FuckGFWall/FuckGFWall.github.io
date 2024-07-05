@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      "各个平台订阅制软件"
-subtitle:   " ""
+subtitle:   "\"Hello World, Hello Blog\""
 date:       2024-07-06
 author:     "Leo"
-header-img: "img/post-bg-2015.jpg"
+header-img: ""
 catalog: true
 tags:
     - Meta
