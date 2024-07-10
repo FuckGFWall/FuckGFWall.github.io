@@ -54,6 +54,8 @@ kramdown:
       line_numbers: true
       start_line: 1
 
+# Disqus settings
+disqus_username: huang_richard
 
 # Analytics settings
 # Baidu Analytics
