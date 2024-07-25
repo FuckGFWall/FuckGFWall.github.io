@@ -3,7 +3,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="{{ site.description }}">
     <meta name="keywords" content="{{ site.keyword }}">
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
 
@@ -13,7 +12,6 @@
     {% case page.layout %}
     {% when 'post' %}
     <meta property="og:type" content="article">
-    <meta property="og:description" content="{{ page.excerpt | strip_html | truncate:200 }}">
     {% if page.date %}
     <meta property="article:published_time" content="{{ page.date | date: " %Y-%m-%dT%H:%M:%SZ" }}">
     {% endif %}
@@ -25,8 +23,6 @@
     {% endfor %}
     {% else %}
     <meta property="og:type" content="website">
-    <meta property="og:description"
-        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     {% endcase %}
     <meta property="og:image" content="{{ site.url }}{{ site.sidebar-avatar }}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
