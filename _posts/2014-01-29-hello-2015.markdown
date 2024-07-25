@@ -1,43 +1,17 @@
----
+[---
 layout:     post
-title:      "各个平台订阅制软件"
+title:      "一键代理cloudflare CDN"
 subtitle:   "\"\""
-date:       2024-07-06
+date:       2024-07-25
 author:     "Leo"
 header-img: ""
 catalog: true
 tags:
 ---
 
-# Windows：
-Clash Verge：https://github.com/zzzgydi/clash-verge/releases  
-WinXray：https://github.com/woohong666/win-xray/raw/master/release/winXray.7z  
-wireguard：https://www.wireguard.com/install/  
-V2rayN：https://github.com/2dust/v2rayN/releases  
-nekoray：https://github.com/MatsuriDayo/nekoray/releases  
-# 安卓：
-nekobox：https://github.com/MatsuriDayo/NekoBoxForAndroid/releases  
-wireguard：https://www.wireguard.com/install/  
-v2rayNG：https://github.com/2dust/v2rayNG/releases  
-Clash Meta：https://github.com/MetaCubeX/ClashMetaForAndroid/releases  
-Sing-Box：https://github.com/SagerNet/sing-box/releases  
-Surfboard：https://manual.getsurfboard.com/  
-SagerNet：https://github.com/SagerNet/SagerNet/releases  
-OneClick：https://oneclick.earth/help/android.html  
-# IOS：
-V2Box、FoXray、Sing-Box、wireguard、Streisand（不支持订阅导入）、Npv Tunnel（不支持订阅导入）、Surge 5（无法扫码）、OneClick、Potatso
-# MacOS：
-ClashX：https://github.com/MetaCubeX/ClashX.Meta/releases
-V2RayX：https://github.com/Cenmrev/V2RayX/releases
-Qv2Ray（停止维护）：https://github.com/Qv2ray/Qv2ray/releases
-V2RayXS：https://github.com/tzmax/v2rayXS/releases
-V2BOX、FoXray、Sing-Box、surege、V2RayU、wireguard
 
-___
-
-# 订阅转换：
-Clash系列：Clash Verge、Clash Meta、ClashX
-V2ray系列：V2rayN、V2rayNG、V2Box、FoXray、V2rayU、V2rayX、WinXray、Qv2Ray、V2RayXS：
-neko系列：nekobox、nekoray：Socks/HTTP/Shadowsocks/VMess/Trojan/Hysteria/Vless/WireGuard
-wireguard：wireguard
-Sing-Box：Shadowsocks/Trojan/Hysteria/Vmess/Vless/Reality/HTTP
+#链接
+项目地址：*[https://github.com/FuckGFWall/CloudflareST_3proxy/releases](https://github.com/FuckGFWall/CloudflareST_3proxy/releases)*
+Proxy SwitchyOmega浏览器拓展：
+edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*
+chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif](https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)*
