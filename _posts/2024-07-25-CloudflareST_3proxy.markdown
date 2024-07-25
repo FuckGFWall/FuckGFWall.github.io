@@ -15,7 +15,7 @@ tags:
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
 chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif](https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)*    
-# 软件安装：
+# 软件安装
 下载并解压：*[https://github.com/FuckGFWall/CloudflareST_3proxy/releases](https://github.com/FuckGFWall/CloudflareST_3proxy/releases)*  
 1.jpg
 运行**cfst_3proxy.bat**，脚本会先优选ip，再自动替换代理服务器的ip  
@@ -27,7 +27,7 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 启动服务：双击**启动服务.bat**  
 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 如果报错，请重启电脑  
-# 拓展安装与设置：
+# 拓展安装与设置
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
 chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif](https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)*    
