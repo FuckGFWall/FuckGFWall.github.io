@@ -1,4 +1,4 @@
-[---
+---
 layout:     post
 title:      "一键代理cloudflare CDN"
 subtitle:   "\"\""
