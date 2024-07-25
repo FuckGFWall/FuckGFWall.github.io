@@ -25,7 +25,7 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 3.jpg
 停止服务：不要去任务管理器结束任务，双击**停止.bat**  
 启动服务：双击**启动服务.bat**  
-卸载服务：先确保服务正在运行再双击**卸载服务.bat**，否则会报错. 最后删掉文件夹  
+卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 如果报错，请重启电脑  
 # 拓展安装与设置：
 Proxy SwitchyOmega浏览器拓展：  
