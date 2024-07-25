@@ -4,13 +4,13 @@ title:      "一键优选ip并用本地服务器代理cloudflare CDN网站"
 subtitle:   "\"\""
 date:       2024-07-25
 author:     "Leo"
-header-img: "/img/post/2024-07-25-CloudflareST_3proxy/title.png"
+header-img: "img/in post img/2024-07-25-CloudflareST_3proxy/title.png"
 catalog: true
 tags:
 ---
 
 
-# 链接  
+# 视频链接  [点击查看视频教程](https://www.youtube.com/watch?v=wJfDWZFUo1c)
 项目地址：*[https://github.com/FuckGFWall/CloudflareST_3proxy/releases](https://github.com/FuckGFWall/CloudflareST_3proxy/releases)*  
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
