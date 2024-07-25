@@ -10,7 +10,7 @@ tags:
 ---
 
 
-# 视频链接  [点击查看视频教程](https://www.youtube.com/watch?v=wJfDWZFUo1c)
+# 视频链接  [视频教程](https://www.youtube.com/watch?v=wJfDWZFUo1c)
 项目地址：*[https://github.com/FuckGFWall/CloudflareST_3proxy/releases](https://github.com/FuckGFWall/CloudflareST_3proxy/releases)*  
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
