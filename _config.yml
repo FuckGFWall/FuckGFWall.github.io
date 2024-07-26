@@ -12,7 +12,7 @@ baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 future: true
 
 # SNS settings
-RSS: false
+RSS: true
 github_username: FuckGFWall
 youtube_username: RichardHuang-ig8rb
 
@@ -55,9 +55,6 @@ kramdown:
       line_numbers: true
       start_line: 1
 
-# Disqus settings
-disqus_username: 
-
 # Analytics settings
 # Baidu Analytics
 # ba_track_id: [your track id]
@@ -68,8 +65,8 @@ ga_domain:
 
 # Sidebar settings
 sidebar: false # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
-sidebar-avatar: https://github.com/Huxpro.png # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: " <br> React Team @ Meta"
+sidebar-avatar: https://www.youtube.com/@RichardHuang-ig8rb/ # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: false # whether or not using Feature-Tags
