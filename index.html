@@ -9,11 +9,6 @@ description: "「海无涯而深沉，天无壑而博大」"
         <h2 class="post-title">
             {{ post.title }}
         </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
         <div class="post-content-preview">
             {% if post.lang == 'en' %}
                 {{ post.content | strip_html | truncate:300 }}
@@ -22,9 +17,6 @@ description: "「海无涯而深沉，天无壑而博大」"
             {% endif %}
         </div>
     </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
 </div>
 <hr>
 {% endfor %}
