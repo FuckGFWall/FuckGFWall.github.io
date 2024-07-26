@@ -26,7 +26,7 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 - 安装服务：打开**3proxy**文件夹，双击**安装服务.bat**  
 在弹出的提示中选**yes**  
 ![3.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/3.jpg)   
-- 停止服务：不要去任务管理器结束任务，双击**停止.bat**  
+- 停止服务：不要去任务管理器结束任务，双击**停止.bat**（否则会报错）     
 - 启动服务：双击**启动服务.bat**  
 - 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 - 如果报错，请重启电脑  
