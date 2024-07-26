@@ -28,12 +28,12 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 ![3.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/3.jpg)   
 - 停止服务：不要去任务管理器结束任务，双击**停止.bat**（否则会报错）     
 - 启动服务：双击**启动服务.bat**，且软件会开机自启动，重启电脑后不用再启动一次了  
-！[7.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/7.jpg)  
+![7.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/7.jpg)  
 出现**3proxy.exe**即说明启动成功  
 - 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 - 如果报错，请重启电脑  
 # 拓展安装与设置
-先确保3proxy
+先确保3proxy已正常运行
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
 chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif](https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)*    
