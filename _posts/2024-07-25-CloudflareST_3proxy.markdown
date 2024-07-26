@@ -20,7 +20,7 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 ![1.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/1.jpg)  
 运行**cfst_3proxy.bat**，脚本会先优选ip，再自动替换代理服务器的ip  
 ![2.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/2.jpg)  
-出现**完成**即说明替换成功    
+出现**完成**即说明替换成功，且隔段时间就要再次优选，以确保一直使用的是最快ip   
    
 软件使用：  
 - 安装服务：打开**3proxy**文件夹，双击**安装服务.bat**  
