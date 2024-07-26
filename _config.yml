@@ -12,7 +12,7 @@ baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 future: true
 
 # SNS settings
-RSS: true
+RSS: false
 github_username: FuckGFWall
 youtube_username: RichardHuang-ig8rb
 
