@@ -20,14 +20,16 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 ![1.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/1.jpg)  
 运行**cfst_3proxy.bat**，脚本会先优选ip，再自动替换代理服务器的ip  
 ![2.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/2.jpg)  
-打开**3proxy**文件夹，双击**安装服务.bat**  
+出现**完成**即说明替换成功    
+   
+软件使用：  
+- 安装服务：打开**3proxy**文件夹，双击**安装服务.bat**  
 在弹出的提示中选**yes**  
-![3.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/3.jpg)  
-使用方法:  
+![3.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/3.jpg)   
 - 停止服务：不要去任务管理器结束任务，双击**停止.bat**  
 - 启动服务：双击**启动服务.bat**  
 - 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
-如果报错，请重启电脑  
+- 如果报错，请重启电脑  
 # 拓展安装与设置
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
