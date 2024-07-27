@@ -10,8 +10,7 @@ tags:
 ---
 
 
-   
-   
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wJfDWZFUo1c?si=pvG4GJKFHv4VfQbW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
 
 # 链接  
@@ -37,7 +36,7 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 - 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 - 如果报错，请重启电脑  
 # 拓展安装与设置
-先确保3proxy已正常运行
+先确保3proxy已正常运行   
 Proxy SwitchyOmega浏览器拓展：  
 edge：*[https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc )*  
 chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif](https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)*    
