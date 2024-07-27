@@ -50,8 +50,8 @@ chrome：*[https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcem
 关闭代理：点击拓展图标，选**system proxy**
 ![6.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/6.jpg)   
 # 注意   
-1. 只能代理托管到cloudflare的网站，不能访问其它外网. 所以使用后要及时关掉
-2. 默认开启国内外分流，国内网站会直连
-3. 直接修改3proxy.cfg后要重启服务（双击**重启.bat**）才能应用
+1.只能代理托管到cloudflare的网站，不能访问其它外网. 所以使用后要及时关掉  
+2.默认开启国内外分流，国内网站会直连  
+3.直接修改3proxy.cfg后要重启服务（双击**重启.bat**）才能应用   
    
 
