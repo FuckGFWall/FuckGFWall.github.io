@@ -10,7 +10,7 @@ tags:
 ---
 
 
-#链接
+# 链接
 项目地址：*<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>*    
 参数：  
     -cfcolo HKG,NRT,KHH,DEL,ICN,KIX,OKA,FUK
