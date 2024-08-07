@@ -4,7 +4,7 @@ title:      "用参数自定义优选cloudflare官方IP"
 subtitle:   "\"\""
 date:       2024-07-25
 author:     "Leo"
-header-img: "img/in post img/2024-07-25-CloudflareST_3proxy/title.png"
+header-img: "img/in post img/2024-08-06-CloudflareST/title.png"
 catalog: true
 tags:
 ---
@@ -14,7 +14,7 @@ tags:
 项目地址：*<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>*    
 参数：  
     -cfcolo HKG,SJC,SFO,NRT,DEL,BLR,TPE,KHH,ICN,SIN,LHR,AMS  
-        匹配指定地区；地区名为机场3字码，英文逗号分隔，支持小写，支持 Cloudflare、AWS CloudFront，会强制切换为 HTTPing模式 ；(默认 所有地区)  
+        匹配指定地区，会强制切换为 HTTPing模式（因为要访问网页获得地址信息）；地区名为机场3字码，英文逗号分隔，支持小写，支持 Cloudflare、AWS CloudFront ；(默认 所有地区)  
     -tp 8080  
         指定测速端口；延迟测速/下载测速时使用的端口；(默认 443 端口)    
     -p 10  
@@ -59,6 +59,7 @@ tags:
         打印程序版本 + 检查版本更新  
     -h  
         打印帮助说明  
+  
 机场3字码：  
 所有cloudflare机场3字码：*<a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>*     
 常用：  
