@@ -63,7 +63,7 @@ tags:
   
 ## 机场3字码：  
 所有cloudflare机场3字码：**<a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>**   
-浏览器中按**ctrl+f**可搜索页面内容，查找需要的国家即可       
+浏览器中按**ctrl+f**可查找页面内容，搜索需要的国家即可       
 常用：  
 - 美国：SJC,SFO
 - 日本：NRT
@@ -84,11 +84,13 @@ tags:
 双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出   
 # 带参数优选：    
 cmd：   
-1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
+1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  
+法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
 2.输入**CloudflareST.exe+空格+参数**（如CloudflareST.exe -tp 8080），多个参数间用空格隔开（如CloudflareST.exe -tp 8080 -dd）  
 powershell：   
-1.进入文件夹：法一：在文件夹空白处右键，选在此处运行终端  法二：在powershell同样输入*cd 文件夹地址*   
+1.进入文件夹：法一：在文件夹空白处右键，选在此处运行终端  
+法二：在powershell同样输入**cd 文件夹地址**   
 2.输入**./CloudflareST.exe+空格+参数**，即把cmd中的**Cloudflare.exe**前面加上**./**，其它一样  
-**[参数见 链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#链接)**
+**[参数见：链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#%E5%8F%82%E6%95%B0)**
 
 
