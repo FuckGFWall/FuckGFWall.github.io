@@ -54,7 +54,7 @@ chrome：*<a href="https://chromewebstore.google.com/detail/proxy-switchyomega/p
 ![6.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/6.jpg)   
 # 注意   
 1.只能代理托管到cloudflare的网站，国内网站和其它外网（如YouTube）会直连. 所以使用后要及时关掉  
-2.因为用自己电脑作为代理服务器，ip仍在国内，不能访问对地区有限制的网站（如ChatGPT）
+2.因为用自己电脑作为代理服务器，ip仍在国内，不能访问对地区有限制的网站（如ChatGPT）     
 3.直接修改3proxy.cfg后要重启服务（双击**重启.bat**）才能应用   
    
 
