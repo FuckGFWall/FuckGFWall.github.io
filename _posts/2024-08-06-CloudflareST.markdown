@@ -11,7 +11,7 @@ tags:
 
 
 # 链接
-项目地址：*<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>*    
+项目地址：**<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>**    
 参数：  
     -cfcolo HKG,SJC,SFO,NRT,DEL,BLR,TPE,KHH,ICN,SIN,LHR,AMS  
         匹配指定地区，会强制切换为 HTTPing模式（因为要访问网页获得地址信息）；地区名为机场3字码，英文逗号分隔，支持小写，支持 Cloudflare、AWS CloudFront ；(默认 所有地区)  
@@ -61,7 +61,8 @@ tags:
         打印帮助说明  
   
 机场3字码：  
-所有cloudflare机场3字码：*<a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>*     
+所有cloudflare机场3字码：**<a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>**   
+浏览器中按**ctrl+f**可搜索页面内容，查找需要的国家即可       
 常用：  
 - 美国：SJC,SFO
 - 日本：NRT
@@ -75,17 +76,17 @@ tags:
 
 --- 
 
-项目地址：*<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>*      
-选*CloudflareST_windows_amd64*下载并解压    
+项目地址：**<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>**         
+选**CloudflareST_windows_amd64**下载并解压    
 # 直接优选：   
-双击运行*CloudflareST.exe*,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度进行排序输出   
+双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出   
 # 带参数优选：    
 cmd：   
-1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  法二：在cmd输入*cd 文件夹地址*（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
-2.输入*CloudflareST.exe 参数*（如CloudflareST.exe -tp 8080），多个参数间用空格隔开（如CloudflareST.exe -tp 8080 -dd）  
+1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
+2.输入**CloudflareST.exe 参数**（如CloudflareST.exe -tp 8080），多个参数间用空格隔开（如CloudflareST.exe -tp 8080 -dd）  
 powershell：   
 1.进入文件夹：法一：在文件夹空白处右键，选在此处运行终端  法二：在powershell同样输入*cd 文件夹地址*   
-2.输入*./CloudflareST.exe 参数*，即把cmd中的*Cloudflare.exe*前面加上*./*，其它一样  
-*[参数见上](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#链接)*
+2.输入**./CloudflareST.exe 参数**，即把cmd中的**Cloudflare.exe*前面加上**./**，其它一样  
+**[参数见链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#链接)**
 
 
