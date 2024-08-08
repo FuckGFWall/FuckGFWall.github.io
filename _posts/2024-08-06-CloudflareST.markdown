@@ -11,9 +11,9 @@ tags:
 
 
 # 链接
-# 项目地址：
+## 项目地址：
 **<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>**    
-# 参数：  
+## 参数：  
     -cfcolo HKG,SJC,SFO,NRT,DEL,BLR,TPE,KHH,ICN,SIN,LHR,AMS  
         匹配指定地区，会强制切换为 HTTPing模式（因为要访问网页获得地址信息）；地区名为机场3字码，英文逗号分隔，支持小写，支持 Cloudflare、AWS CloudFront ；(默认 所有地区)  
     -tp 8080  
@@ -61,7 +61,7 @@ tags:
     -h  
         打印帮助说明  
   
-# 机场3字码：  
+## 机场3字码：  
 所有cloudflare机场3字码：**<a href="https://www.cloudflarestatus.com" target="_blank">https://www.cloudflarestatus.com</a>**   
 浏览器中按**ctrl+f**可搜索页面内容，查找需要的国家即可       
 常用：  
