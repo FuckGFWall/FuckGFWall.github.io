@@ -75,14 +75,14 @@ tags:
 - 英国：LHR
 - 荷兰：AMS
 
---- 
 
-# 项目地址：
+# 图文教程  
+## 项目地址：
 **<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>**         
 选**CloudflareST_windows_amd64**下载并解压    
-# 直接优选：   
+## 直接优选：   
 双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出   
-# 带参数优选：    
+## 带参数优选：    
 cmd：   
 1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  
 法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
