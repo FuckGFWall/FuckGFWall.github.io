@@ -28,7 +28,7 @@ chrome：*<a href="https://chromewebstore.google.com/detail/proxy-switchyomega/p
 ![2.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/2.jpg)  
 出现**完成**即说明替换成功，且隔段时间就要再次运行脚本进行优选，以确保使用的是最快的ip   
    
-软件使用：  
+# 软件使用：  
 - 安装服务：打开**3proxy**文件夹，双击**安装服务.bat**  
 在弹出的提示中选**yes**  
 ![3.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/3.jpg)   
@@ -38,8 +38,7 @@ chrome：*<a href="https://chromewebstore.google.com/detail/proxy-switchyomega/p
 出现**3proxy.exe**即说明启动成功  
 - 卸载服务：先确保服务正在运行再双击**卸载服务.bat**（否则会报错）， 最后删掉文件夹  
 - 如果报错，请重启电脑  
-# 拓展安装与设置
-先确保3proxy已正常运行   
+# 拓展安装与设置     
 Proxy SwitchyOmega浏览器拓展：  
 edge：*<a href="https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc" target="_blank">https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega/fdbloeknjpnloaggplaobopplkdhnikc</a>*  
 chrome：*<a href="https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif" target="_blank">https://chromewebstore.google.com/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif</a>*    
@@ -48,6 +47,9 @@ chrome：*<a href="https://chromewebstore.google.com/detail/proxy-switchyomega/p
 2. server改为**127.0.0.1**，port改为**2088**  
 3. 点左下角**apply changes**  
 ![4.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/4.jpg)  
+  
+**使用前先确保3proxy已正常运行！！！！**   
+  
 开启代理：点击拓展图标，选**proxy**
 ![5.jpg](/img/in post img/2024-07-25-CloudflareST_3proxy/5.jpg)  
 关闭代理：点击拓展图标，选**system proxy**
