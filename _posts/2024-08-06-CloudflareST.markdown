@@ -81,7 +81,7 @@ tags:
 **<a href="https://github.com/XIU2/CloudflareSpeedTest/releases" target="_blank">https://github.com/XIU2/CloudflareSpeedTest/releases</a>**         
 点**Show all 17assets**，选**CloudflareST_windows_amd64**下载并解压    
 ## 直接优选     
-双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出   
+双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出，也可在**result.csv**中查看   
 ## 带参数优选      
 cmd：   
 1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  
