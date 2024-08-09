@@ -91,7 +91,7 @@ powershell：
 1.进入文件夹：法一：在文件夹空白处右键，选在此处运行终端  
 法二：在powershell同样输入**cd 文件夹地址**   
 2.输入**./CloudflareST.exe+空格+参数**，即把cmd中的**Cloudflare.exe**前面加上**./**，其它一样  
-**[参数见：链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#%E5%8F%82%E6%95%B0)**   
-**[指定地区优选中用到的机场3字码见：链接-机场3字码](https://github.com/FuckGFWall/FuckGFWall.github.io/blob/master/_posts/2024-08-06-CloudflareST.markdown#%E5%8F%82%E6%95%B0)**  
+参数见：**[链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#%E5%8F%82%E6%95%B0)**   
+指定地区优选中用到的机场3字码见：**[链接-机场3字码](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#机场3字码）**  
 
 
