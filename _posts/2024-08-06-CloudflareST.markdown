@@ -82,9 +82,11 @@ tags:
 点**Show all 17assets**，选**CloudflareST_windows_amd64**下载并解压    
 ## 直接优选     
 双击运行**CloudflareST.exe**,会先进行延时测试，再从延时最低的10个IP进行下载测速，最后按下载速度排序来输出，也可在**result.csv**中查看   
+![2.png](/img/in post img/2024-08-06-CloudflareST/2.png)       
 ## 带参数优选      
 cmd：   
 1.进入文件夹：法一：在文件夹地址栏输入cmd，回车  
+![1.png](/img/in post img/2024-08-06-CloudflareST/1.png)    
 法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
 2.输入**CloudflareST.exe+空格+参数**（如CloudflareST.exe -tp 8080），多个参数间用空格隔开（如CloudflareST.exe -tp 8080 -dd）  
 powershell：   
@@ -96,5 +98,6 @@ powershell：
 ## 用快捷方式带参数运行  
 创建**CloudflareST.exe**的快捷方式，移动到想放的位置  
 右键、属性，在**目标**中的**CloudflareST.exe**后面+空格+参数，再点完成.这样双击快捷方式就会带参数运行   
+![3.jpg](/img/in post img/2024-08-06-CloudflareST/3.jpg)    
 
 
