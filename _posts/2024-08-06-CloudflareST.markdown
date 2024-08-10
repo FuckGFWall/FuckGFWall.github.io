@@ -86,12 +86,12 @@ tags:
 ![2.png](/img/in post img/2024-08-06-CloudflareST/2.png)       
 ## 带参数优选      
 cmd：   
-1.进入文件夹：法一：进入文件夹，在地址栏输入cmd，回车  
+1.在cmd中进入文件夹：法一：进入文件夹，在地址栏输入cmd，回车  
 ![1.png](/img/in post img/2024-08-06-CloudflareST/1.png)    
 法二：在cmd输入**cd 文件夹地址**（如cd C:/user/download/CloudflareST_windows_amd64)，地址不要加引号   
 2.输入**CloudflareST.exe+空格+参数**（如CloudflareST.exe -tp 8080），多个参数间用空格隔开（如CloudflareST.exe -tp 8080 -dd）  
 powershell：   
-1.进入文件夹：法一：在文件夹空白处右键，选在此处运行终端    
+1.在powershell中进入文件夹：法一：在文件夹空白处右键，选在此处运行终端    
 法二：在powershell同样输入**cd 文件夹地址**   
 2.输入**./CloudflareST.exe+空格+参数**，即把cmd中的**Cloudflare.exe**前面加上**./**，其它一样  
 参数见：**[链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#%E5%8F%82%E6%95%B0)**   
