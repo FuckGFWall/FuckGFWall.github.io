@@ -95,7 +95,7 @@ powershell：
 法二：在powershell同样输入**cd 文件夹地址**   
 2.输入**./CloudflareST.exe+空格+参数**，即把cmd中的**Cloudflare.exe**前面加上**./**，其它一样  
 参数见：**[链接-参数](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#%E5%8F%82%E6%95%B0)**   
-指定地区优选中用到的机场3字码见：**[链接-机场3字码](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#机场3字码)**   
+指定地区参数中用到的机场3字码见：**[链接-机场3字码](https://fuckgfwall.github.io/2024/07/25/CloudflareST/#机场3字码)**   
 ## 用快捷方式带参数运行  
 创建**CloudflareST.exe**的快捷方式，移动到想放的位置  
 右键、属性，在**目标**中的**CloudflareST.exe**后面+空格+参数，再点完成.这样双击快捷方式就会带参数运行   
