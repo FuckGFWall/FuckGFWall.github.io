@@ -11,7 +11,7 @@ tags:
 
 # 链接  
 ## 项目地址
-**<a href="https://github.com/yonggekkk/Cloudflare_vless_trojan" target="_blank">https://github.com/yonggekkk/Cloudflare_vless_trojan</a>**     
+**<a href="https://github.com/FuckGFWall/free-ProxyIP/releases/tag/release" target="_blank">https://github.com/FuckGFWall/free-ProxyIP/releases/tag/release</a>**     
 ## FOFA反代IP扫描  
 FOFA官网：**<a href="https://fofa.info/" target="_blank">https://fofa.info/</a>**     
 搜索语法：  
