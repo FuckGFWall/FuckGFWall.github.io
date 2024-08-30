@@ -22,6 +22,6 @@ FOFA官网：**<a href="https://fofa.info/" target="_blank">https://fofa.info/</
 > ||：逻辑"或"   
 > 示例：server=="cloudflare" || server=="oracle" && port=="80" && port=="443"表示搜索cloudflare和oracle的服务器中端口为80、443的ip
          
-云服务器提供商：cloudflare、oracle、alibaba
-国家2字简称查询：**<a href="https://yumingsuoxie.bmcx.com/" target="_blank">https://yumingsuoxie.bmcx.com/</a>**      
+云服务器提供商：cloudflare、oracle、alibaba     
+国家2字简称查询：**<a href="https://yumingsuoxie.bmcx.com/" target="_blank">https://yumingsuoxie.bmcx.com/</a>**         
 
