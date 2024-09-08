@@ -16,7 +16,7 @@ tags:
 FOFA官网：**<a href="https://fofa.info/" target="_blank">https://fofa.info/</a>**     
 ```  
 搜索语法:server=="云服务器提供商" && port=="端口(80和443系根据是否开tls判断)" && country=="国家2字简称"     
-示例:server=="cloudflare" && port=="80" && country=="NL"       
+示例:server=="cloudflare" && port=="80" && country=="IN"       
                  
 &&:逻辑"且"   
 ||:逻辑"或"   
