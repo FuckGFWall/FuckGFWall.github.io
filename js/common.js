@@ -1,4 +1,4 @@
-﻿import { applyDocumentLanguage, detectLocale, getMessages } from "./i18n.js";
+﻿import { applyDocumentLanguage, detectLocale, getMessages, setStoredLocale } from "./i18n.js";
 
 const SOCIAL_LINKS = [
   { href: "https://www.youtube.com/@TrashVPN", label: "YouTube", icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.2c-.7-.8-1.5-.8-1.9-.9-2.6-.2-6.5-.2-6.5-.2h-.1s-3.9 0-6.5.2c-.4 0-1.2.1-1.9.9-.6.7-.8 2.2-.8 2.2S3 9 3 10.8v1.5c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.2c.7.8 1.6.7 2 .8 1.5.1 6.3.2 6.3.2s3.9 0 6.5-.2c.4 0 1.2-.1 1.9-.9.6-.7.8-2.2.8-2.2s.2-1.8.2-3.6v-1.5c0-1.8-.2-3.6-.2-3.6ZM9.9 14.9V9.4l5.1 2.7-5.1 2.8Z"/></svg>` },
@@ -9,6 +9,12 @@ const SOCIAL_LINKS = [
 const SOCIAL_REL = "noopener noreferrer";
 const activeHref = () => document.body?.dataset?.page === "download" ? "download.html" : document.body?.dataset?.page === "about" ? "about.html" : "index.html";
 const isHomeRoute = () => activeHref() === "index.html";
+const LANGUAGE_OPTIONS = [{ code: "zh", label: "中" }, { code: "en", label: "EN" }, { code: "fa", label: "فا" }];
+
+function buildLanguageSwitcher() {
+  const current = detectLocale();
+  return `<div class="language-switcher" aria-label="Language switcher">${LANGUAGE_OPTIONS.map((option) => { const active = option.code === current; return `<a class="language-switcher__link${active ? " is-active" : ""}" href="#" data-lang-option="${option.code}"${active ? ' aria-current="true"' : ""}>${option.label}</a>`; }).join("")}</div>`;
+}
 
 function buildHeader() {
   const { common } = getMessages();
@@ -17,7 +23,7 @@ function buildHeader() {
     { href: "download.html", label: common.nav.download },
     { href: "about.html", label: common.nav.about },
   ];
-  return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><button class="nav-toggle" type="button" aria-label="${common.menuLabel}"><span class="nav-toggle__icon"></span></button><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav></div>`;
+  return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><div class="site-header__actions">${buildLanguageSwitcher()}<button class="nav-toggle" type="button" aria-label="${common.menuLabel}"><span class="nav-toggle__icon"></span></button><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav></div></div>`;
 }
 
 function buildFooter() {
@@ -32,6 +38,19 @@ function initNavigation() {
   if (footer) { footer.classList.add("footer"); footer.innerHTML = buildFooter(); }
   const toggleButton = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
+  const languageLinks = document.querySelectorAll("[data-lang-option]");
+  languageLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const locale = link.getAttribute("data-lang-option");
+      if (!locale) return;
+      setStoredLocale(locale);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", locale);
+      window.location.href = `${url.pathname}${url.search}${url.hash}`;
+    });
+  });
+
   if (toggleButton && nav) {
     toggleButton.setAttribute("aria-expanded", "false");
     toggleButton.addEventListener("click", () => {
