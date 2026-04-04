@@ -56,7 +56,7 @@ function initGauge() {
   if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, obs) => { entries.forEach((entry) => { if (entry.isIntersecting) { animate(); obs.disconnect(); } }); }, { threshold: 0.5 }); observer.observe(gauge); } else animate();
 }
 
-const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/trashvpn-1.0.5.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN.msi" } };
+const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/trashVPN-1.0.5.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN.msi" } };
 function detectSupportedPlatform() { const s = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""} ${navigator.userAgent || ""}`.toLowerCase(); if (s.includes("android")) return "android"; if (s.includes("windows") || s.includes("win32") || s.includes("win64")) return "windows"; return null; }
 function initDownloadButton() {
   const { home } = getMessages(); const button = document.querySelector("[data-download-button]"); if (!(button instanceof HTMLAnchorElement)) return;
