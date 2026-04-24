@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>状态 | TrashVPN</title>
+    <meta name="description" content="查看 TrashVPN 服务负载状态。">
+    <link rel="icon" type="image/png" href="assests/icon.PNG">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body data-page="status">
+    <header id="site-header"></header>
+    <main id="main">
+      <section class="hero status-hero">
+        <div class="container reveal-on-scroll">
+          <h1 class="section__title" data-status-title>服务状态</h1>
+          <p class="note" data-status-note>查看当前 Cloudflare 账号请求量的大致负载情况。</p>
+        </div>
+      </section>
+
+      <section class="section section--compact reveal-on-scroll">
+        <div class="container">
+          <div class="status-panel" data-status-panel>
+            <div class="status-panel__header">
+              <div>
+                <p class="status-eyebrow" data-status-eyebrow>总体负载</p>
+              </div>
+              <p class="status-updated" data-status-message>正在加载...</p>
+            </div>
+
+            <div class="load-meter" aria-label="总体负载" data-load-meter>
+              <div class="load-meter__track">
+                <div class="load-meter__bar" data-load-bar></div>
+              </div>
+            </div>
+
+            <div class="usage-chart" data-usage-chart aria-label="请求量分布柱状图"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script type="module" src="js/status.js"></script>
+  </body>
+</html>

@@ -7,13 +7,17 @@ const SOCIAL_LINKS = [
   { href: "https://github.com/FuckGFWall", label: "GitHub", icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.4-3.4-1.4-.4-1.1-1-1.4-1-1.4-.8-.6.1-.6.1-.6.9.1 1.3.9 1.3.9.8 1.4 2.1 1 2.6.8.1-.6.3-1 .6-1.3-2.2-.3-4.4-1.1-4.4-4.9 0-1.1.4-2 .9-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.8 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.6.6.7.9 1.6.9 2.7 0 3.8-2.3 4.6-4.4 4.9.3.3.7.9.7 1.8v2.6c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2Z"/></svg>` },
 ];
 const SOCIAL_REL = "noopener noreferrer";
-const activeHref = () => document.body?.dataset?.page === "download" ? "download.html" : document.body?.dataset?.page === "about" ? "about.html" : "index.html";
+const activeHref = () => document.body?.dataset?.page === "download" ? "download.html" : document.body?.dataset?.page === "status" ? "status.html" : document.body?.dataset?.page === "about" ? "about.html" : "index.html";
 const isHomeRoute = () => activeHref() === "index.html";
-const LANGUAGE_OPTIONS = [{ code: "zh", label: "中" }, { code: "en", label: "EN" }, { code: "fa", label: "فا" }];
+const LANGUAGE_OPTIONS = [
+  { code: "zh", label: "\u4e2d\u6587" },
+  { code: "en", label: "English" },
+  { code: "fa", label: "\u0641\u0627\u0631\u0633\u06cc" },
+];
 
 function buildLanguageSwitcher() {
   const current = detectLocale();
-  return `<div class="language-switcher" aria-label="Language switcher">${LANGUAGE_OPTIONS.map((option) => { const active = option.code === current; return `<a class="language-switcher__link${active ? " is-active" : ""}" href="#" data-lang-option="${option.code}"${active ? ' aria-current="true"' : ""}>${option.label}</a>`; }).join("")}</div>`;
+  return `<label class="language-switcher"><span class="language-switcher__label">Language</span><select class="language-select" data-lang-select aria-label="Language">${LANGUAGE_OPTIONS.map((option) => `<option value="${option.code}"${option.code === current ? " selected" : ""}>${option.label}</option>`).join("")}</select></label>`;
 }
 
 function buildHeader() {
@@ -21,9 +25,10 @@ function buildHeader() {
   const routes = [
     { href: "index.html", label: common.nav.home },
     { href: "download.html", label: common.nav.download },
+    { href: "status.html", label: common.nav.status },
     { href: "about.html", label: common.nav.about },
   ];
-  return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><div class="site-header__actions">${buildLanguageSwitcher()}<button class="nav-toggle" type="button" aria-label="${common.menuLabel}"><span class="nav-toggle__icon"></span></button><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav></div></div>`;
+  return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><div class="site-header__actions"><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav>${buildLanguageSwitcher()}</div></div>`;
 }
 
 function buildFooter() {
@@ -38,35 +43,37 @@ function initNavigation() {
   if (footer) { footer.classList.add("footer"); footer.innerHTML = buildFooter(); }
   const toggleButton = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
-  const languageLinks = document.querySelectorAll("[data-lang-option]");
-  languageLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const locale = link.getAttribute("data-lang-option");
-      if (!locale) return;
-      setStoredLocale(locale);
-      const url = new URL(window.location.href);
-      url.searchParams.set("lang", locale);
-      window.location.href = `${url.pathname}${url.search}${url.hash}`;
-    });
+  const languageSelect = document.querySelector("[data-lang-select]");
+  languageSelect?.addEventListener("change", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLSelectElement)) return;
+    const locale = target.value;
+    if (!locale) return;
+    setStoredLocale(locale);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", locale);
+    window.location.href = `${url.pathname}${url.search}${url.hash}`;
   });
+
+  if (nav) {
+    nav.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.matches(".site-nav__link")) {
+        document.body.classList.remove("nav-open");
+        toggleButton?.setAttribute("aria-expanded", "false");
+        if (isHomeRoute() && target.getAttribute("href") === "index.html") {
+          event.preventDefault();
+          document.querySelector("#main")?.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  }
 
   if (toggleButton && nav) {
     toggleButton.setAttribute("aria-expanded", "false");
     toggleButton.addEventListener("click", () => {
       document.body.classList.toggle("nav-open");
       toggleButton.setAttribute("aria-expanded", document.body.classList.contains("nav-open"));
-    });
-    nav.addEventListener("click", (event) => {
-      const target = event.target;
-      if (target instanceof HTMLElement && target.matches(".site-nav__link")) {
-        document.body.classList.remove("nav-open");
-        toggleButton.setAttribute("aria-expanded", "false");
-        if (isHomeRoute() && target.getAttribute("href") === "index.html") {
-          event.preventDefault();
-          document.querySelector("#main")?.scrollIntoView({ behavior: "smooth" });
-        }
-      }
     });
   }
 }
