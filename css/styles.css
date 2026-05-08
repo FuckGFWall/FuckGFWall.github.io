@@ -27,6 +27,8 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   min-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -39,6 +41,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: page-enter 0.6s ease-out forwards;
+  touch-action: pan-y;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -278,8 +281,7 @@ header.site-header {
     gap: 10px;
     justify-content: flex-start;
     min-width: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    overflow-x: hidden;
   }
 
   .site-header__actions::-webkit-scrollbar {
@@ -1072,6 +1074,25 @@ html[dir="rtl"] .markdown-body blockquote {
   word-break: keep-all;
 }
 
+@media (max-width: 768px) {
+  .usage-chart {
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    gap: 6px;
+    overflow-x: hidden;
+  }
+
+  .usage-chart__bar {
+    width: min(100%, 26px);
+  }
+
+  .usage-chart__label {
+    font-size: clamp(0.52rem, 1.3vw, 0.68rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+}
+
 @media (max-width: 640px) {
   .status-panel__header {
     flex-direction: column;
@@ -1084,17 +1105,35 @@ html[dir="rtl"] .markdown-body blockquote {
   }
 
   .usage-chart {
-    grid-template-columns: repeat(11, minmax(46px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    gap: 4px;
     min-height: 260px;
+    overflow-x: hidden;
+  }
+
+  .status-panel {
+    padding: 20px 14px;
   }
 
   .usage-chart__item {
     grid-template-rows: 150px auto;
+    gap: 10px;
   }
 
   .usage-chart__bar-wrap {
     height: 150px;
+  }
+
+  .usage-chart__bar {
+    width: min(100%, 18px);
+    border-radius: 9px;
+  }
+
+  .usage-chart__label {
+    font-size: clamp(0.44rem, 1.65vw, 0.62rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
   }
 }
 
