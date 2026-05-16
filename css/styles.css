@@ -796,8 +796,15 @@ header.site-header {
 }
 
 .download-grid__icon {
+  display: block;
+  flex: 0 0 28px;
   width: 28px;
   height: 28px;
+  overflow: visible;
+}
+
+.download-grid__icon * {
+  vector-effect: non-scaling-stroke;
 }
 
 .download-grid__label {
