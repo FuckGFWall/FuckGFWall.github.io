@@ -772,8 +772,9 @@ header.site-header {
 
 .download-grid {
   display: grid;
-  gap: 32px 28px;
-  margin-top: 16px;
+  gap: 52px;
+  width: min(100%, 920px);
+  margin: 16px auto 0;
 }
 
 .download-grid__item {
@@ -781,8 +782,8 @@ header.site-header {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  min-height: 76px;
-  padding: 14px clamp(44px, 8vw, 86px);
+  min-height: 104px;
+  padding: 24px clamp(28px, 5vw, 60px);
   background: #ffffff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
