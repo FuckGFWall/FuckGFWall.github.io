@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>帮助中心 | TrashVPN</title>
+    <meta name="description" content="TrashVPN 帮助中心：了解软件、节点地区、账户限额、安全提醒与免责声明。">
+    <link rel="icon" type="image/png" href="assests/icon.PNG">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body data-page="help">
+    <header id="site-header"></header>
+    <main id="main" class="help-page">
+      <section class="section help-hero">
+        <div class="container">
+          <h1 class="help-hero__title">帮助中心</h1>
+          <p class="help-hero__note">了解 TrashVPN 的工作方式、可用性说明和使用安全提示。</p>
+        </div>
+      </section>
+
+      <section class="section help-section">
+        <div class="container help-center">
+          <aside class="help-sidebar" aria-label="文章列表">
+            <nav class="help-nav">
+              <a class="is-active" href="#about-trashvpn" aria-current="true">关于 TrashVPN</a>
+              <a href="#country-availability">为什么可提供的国家这么少</a>
+              <a href="#usage-limit">会有限额吗</a>
+              <a href="#never-request">我们不会要求你做的事</a>
+              <a href="#disclaimer">免责声明</a>
+            </nav>
+          </aside>
+
+          <div class="help-content">
+            <article class="help-article" id="about-trashvpn">
+              <h2>关于 TrashVPN</h2>
+              <p>
+                TrashVPN 是一个由个人开发者开发和维护的免费 VPN 软件。在开发过程中，开发者使用了 Codex
+                辅助编写、调整与检查部分代码和网页内容，但产品的运营、发布与维护仍由开发者负责。
+              </p>
+              <p>
+                目前 TrashVPN 支持 <strong>Windows</strong> 和 <strong>Android</strong>
+                客户端。你可以在下载页面获取现有版本，并查看对应客户端的隐私政策和开源许可证信息。
+              </p>
+              <p>
+                由于项目采用了成本极低的运行方式，服务器和日常维护的支出相对可控，因此当前服务免费提供使用。
+                免费并不意味着永久不变；如果后续服务能力或成本发生变化，我们会在官网说明相关调整。
+              </p>
+            </article>
+
+            <article class="help-article" id="country-availability" hidden>
+              <h2>为什么可提供的国家这么少</h2>
+              <p>
+                TrashVPN 的连接会涉及 Cloudflare 网络。同一个节点在不同运营商、不同地区甚至不同时间的网络环境下，
+                可能会被 Cloudflare 路由到不同国家或地区，因此外层出口所显示的国家并不是固定不变的。
+              </p>
+              <p>
+                Cloudflare 会综合判断用户的物理距离、目标地区服务器的部署数量，以及各地区服务器当前的负载情况，
+                决定一次连接最终路由到哪里。也就是说，外层 IP 对应的国家通常无法由 TrashVPN 直接指定。
+              </p>
+              <p>
+                除了外层 IP，连接中还存在可配置的内层 IP，也就是 <strong>proxy IP</strong>。当前 proxy IP
+                会从香港、新加坡、日本、美国四个地区中随机分配给用户。访问采用 Cloudflare CDN
+                服务的网站时，流量通常会走 proxy IP；访问其它网站时，则通常体现为外层 IP 的路由结果。
+              </p>
+              <div class="help-callout">
+                因此，客户端展示或网站检测到的所在地可能因访问目标与当时网络路由不同而变化，这属于网络架构的正常现象。
+              </div>
+            </article>
+
+            <article class="help-article" id="usage-limit" hidden>
+              <h2>会有限额吗</h2>
+              <p>
+                会。Cloudflare 存在账户级使用限额，限额会在每天<strong>北京时间早上 8 点</strong>重置。
+                当某个账户达到限额后，关联到该账户的节点可能暂时无法继续使用。
+              </p>
+              <p>
+                一个账户可能会同时分配给多位用户，因此出现限额并不一定代表是你个人造成的；
+                也可能是同一账户下其他用户共同产生的使用量累积结果。
+              </p>
+              <p>
+                为了降低突然不可用带来的影响，客户端会每小时获取一次账户的使用量信息。当账户接近限额时，
+                客户端会重新获取最新节点，尽可能切换到仍可使用的资源。
+              </p>
+              <p>
+                你也可以前往<a href="status.html">状态页面</a>查看整体负载的大致分布。状态数据用于辅助判断服务可用性，
+                并不代表某一台设备的精确流量统计。
+              </p>
+            </article>
+
+            <article class="help-article" id="never-request" hidden>
+              <h2>我们不会要求你做的事</h2>
+              <p>为了避免仿冒站点或欺诈信息，请注意 TrashVPN 不会通过网页、聊天或下载页面要求你进行以下操作：</p>
+              <ul>
+                <li>不会以“开通服务”“解除限制”“续费”或“会员升级”等理由向你收取费用或要求转账。</li>
+                <li>不会要求你提交银行卡信息、支付密码、身份证件、短信验证码、邮箱密码或账户恢复代码。</li>
+                <li>不会要求你下载与 TrashVPN 无关的清理工具、破解工具、远程控制软件或来源不明的证书配置。</li>
+                <li>不会私下提供所谓“特殊节点”并要求你绕过官网从不明地址下载文件。</li>
+              </ul>
+              <div class="help-callout help-callout--warning">
+                如果某个页面或联系人提出以上要求，请停止操作，不要提供敏感信息或运行未知文件。
+              </div>
+            </article>
+
+            <article class="help-article" id="disclaimer" hidden>
+              <h2>免责声明</h2>
+              <p>
+                TrashVPN 旨在提供网络连接工具与相关信息，用户应遵守所在国家或地区适用的法律法规、网络服务条款和平台规则。
+                请勿将本软件用于违法活动、攻击行为、欺诈、滥用服务资源或侵害他人合法权益的行为。
+              </p>
+              <p>
+                网络连接速度、节点可用性、出口地区与第三方网站访问效果均可能受运营商线路、Cloudflare 路由策略、
+                节点负载、目标网站规则等外部因素影响，服务无法保证始终可用、始终达到某一速度或固定显示某个地区。
+              </p>
+              <p>
+                在下载和安装客户端前，请确认来源为官网公布的下载入口，并自行评估系统警告与安全风险。
+                客户端隐私政策与开源许可证入口位于<a href="download.html">下载页面</a>卡片列表下方；
+                网站本身的 Cookie、隐私和服务条款可从页脚的政策入口查看。
+              </p>
+              <p class="help-article__updated">最后更新：2026-05-23</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script type="module" src="js/help.js"></script>
+  </body>
+</html>

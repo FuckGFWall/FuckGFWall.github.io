@@ -7,8 +7,17 @@ const SOCIAL_LINKS = [
   { href: "https://github.com/FuckGFWall", label: "GitHub", icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.4-3.4-1.4-.4-1.1-1-1.4-1-1.4-.8-.6.1-.6.1-.6.9.1 1.3.9 1.3.9.8 1.4 2.1 1 2.6.8.1-.6.3-1 .6-1.3-2.2-.3-4.4-1.1-4.4-4.9 0-1.1.4-2 .9-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.8 1 .8-.2 1.7-.3 2.6-.3s1.8.1 2.6.3c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.6.6.7.9 1.6.9 2.7 0 3.8-2.3 4.6-4.4 4.9.3.3.7.9.7 1.8v2.6c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2Z"/></svg>` },
 ];
 const SOCIAL_REL = "noopener noreferrer";
-const activeHref = () => document.body?.dataset?.page === "download" ? "download.html" : document.body?.dataset?.page === "status" ? "status.html" : document.body?.dataset?.page === "about" ? "about.html" : "index.html";
-const isHomeRoute = () => activeHref() === "index.html";
+const POLICY_LINKS = [
+  { href: "policy.html#cookie-policy", label: { zh: "Cookie 政策", en: "Cookie Policy", fa: "سیاست کوکی" } },
+  { href: "policy.html#privacy-policy", label: { zh: "隐私政策", en: "Privacy Policy", fa: "سیاست حریم خصوصی" } },
+  { href: "policy.html#terms-of-service", label: { zh: "服务条款", en: "Terms of Service", fa: "شرایط خدمات" } },
+  { href: "policy.html#contact-us", label: { zh: "联系我们", en: "Contact Us", fa: "تماس با ما" } },
+];
+const activeHref = () => {
+  const routes = { home: "index.html", download: "download.html", status: "status.html", help: "help.html" };
+  return routes[document.body?.dataset?.page] || "";
+};
+const isHomeRoute = () => document.body?.dataset?.page === "home";
 const LANGUAGE_OPTIONS = [
   { code: "zh", label: "\u4e2d\u6587" },
   { code: "en", label: "English" },
@@ -26,14 +35,16 @@ function buildHeader() {
     { href: "index.html", label: common.nav.home },
     { href: "download.html", label: common.nav.download },
     { href: "status.html", label: common.nav.status },
-    { href: "about.html", label: common.nav.about },
+    { href: "help.html", label: common.nav.about },
   ];
   return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><div class="site-header__actions"><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav>${buildLanguageSwitcher()}</div></div>`;
 }
 
 function buildFooter() {
   const { common } = getMessages();
-  return `<div class="container footer__inner"><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p></div>`;
+  const locale = detectLocale();
+  const policyLabel = locale === "zh" ? "网站政策" : locale === "fa" ? "سیاست‌های وب‌سایت" : "Website policies";
+  return `<div class="container footer__inner"><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><nav class="footer__policy-links" aria-label="${policyLabel}">${POLICY_LINKS.map((link) => `<a class="footer__policy-link" href="${link.href}">${link.label[locale] || link.label.en}</a>`).join("")}</nav><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p></div>`;
 }
 
 function initNavigation() {
