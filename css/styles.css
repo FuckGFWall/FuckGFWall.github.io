@@ -795,6 +795,11 @@ header.site-header {
   text-align: left;
 }
 
+body[data-locale="fa"] .help-page {
+  direction: rtl;
+  text-align: right;
+}
+
 .help-hero {
   padding: clamp(46px, 7vw, 70px) 0 28px;
 }
@@ -859,6 +864,11 @@ header.site-header {
   text-align: left;
 }
 
+body[data-locale="fa"] .help-content {
+  direction: rtl;
+  text-align: right;
+}
+
 .help-article {
   scroll-margin-top: 94px;
   padding: clamp(24px, 4vw, 38px);
@@ -894,6 +904,11 @@ header.site-header {
   gap: 9px;
 }
 
+body[data-locale="fa"] .help-article ul {
+  padding-right: 1.45em;
+  padding-left: 0;
+}
+
 .help-article a {
   color: var(--color-accent-strong);
   font-weight: 600;
@@ -910,9 +925,19 @@ header.site-header {
   color: #374151;
 }
 
+body[data-locale="fa"] .help-callout {
+  border-right: 4px solid var(--color-accent);
+  border-left: 0;
+  border-radius: 12px 0 0 12px;
+}
+
 .help-callout--warning {
   border-left-color: #f59e0b;
   background: rgba(245, 158, 11, 0.1);
+}
+
+body[data-locale="fa"] .help-callout--warning {
+  border-right-color: #f59e0b;
 }
 
 .help-article__updated {
