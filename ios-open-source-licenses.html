@@ -14,9 +14,69 @@
       <section class="section">
         <div class="container">
           <div class="markdown-body reveal-on-scroll">
-            <h1>iOS Open Source Licenses</h1>
-            <p>The iOS version of TrashVPN is not available yet. iOS open-source licenses and third-party notices will be published before the iOS app is released.</p>
-<p><a href="download.html">Back to Download</a></p>
+            <h1>Open-Source Licence Notice</h1>
+            <p>Last updated: 2026-05-31</p>
+            <p>This document lists third-party components and open-source software used by TrashVPN. It is provided for attribution and licence compliance purposes only. Unless a separate project-level licence file says otherwise, TrashVPN application source code, product names, icons, backend services, and related assets are not licensed by this notice.</p>
+
+            <h2>Open-Source Components</h2>
+            <h3>sing-box / libbox</h3>
+            <ul>
+              <li>Project: sing-box</li>
+              <li>Component used: libbox / <code>Libbox.xcframework</code></li>
+              <li>Upstream: <a href="https://github.com/SagerNet/sing-box" target="_blank" rel="noopener noreferrer">https://github.com/SagerNet/sing-box</a></li>
+              <li>Licence: GNU General Public License v3.0 or later, with the upstream project's additional notices where applicable</li>
+              <li>Purpose in TrashVPN: packet tunnel proxy core, TUN handling support, routing, DNS, and proxy protocol execution</li>
+            </ul>
+            <p>TrashVPN includes a compiled libbox framework derived from sing-box. When distributing builds that include this component, make sure the corresponding source code and licence notices required by the GPL are provided in a compliant manner.</p>
+
+            <h3>Go Runtime / Go Binding Support</h3>
+            <ul>
+              <li>Project: Go</li>
+              <li>Upstream: <a href="https://go.dev/" target="_blank" rel="noopener noreferrer">https://go.dev/</a></li>
+              <li>Licence: BSD-style Go licence</li>
+              <li>Purpose in TrashVPN: runtime and generated Objective-C binding support used by the compiled libbox framework</li>
+            </ul>
+            <p>Some generated libbox headers include Go binding/runtime material from the Go project. Keep the Go copyright and licence notices with redistributed framework builds when applicable.</p>
+
+            <h2>Third-Party SDKs</h2>
+            <p>The following SDKs are included through vendor package managers or binary distribution channels. They are third-party SDKs, but they are not treated here as open-source components unless their provider publishes a separate open-source licence for the included files.</p>
+
+            <h3>Google Mobile Ads SDK for iOS</h3>
+            <ul>
+              <li>Provider: Google</li>
+              <li>Package: GoogleMobileAds</li>
+              <li>Documentation: <a href="https://developers.google.com/admob/ios/download" target="_blank" rel="noopener noreferrer">https://developers.google.com/admob/ios/download</a></li>
+              <li>Terms: governed by the applicable Google product / developer terms</li>
+              <li>Purpose in TrashVPN: AdMob banner, native, interstitial, and app-open advertisements</li>
+            </ul>
+
+            <h3>Google User Messaging Platform SDK</h3>
+            <ul>
+              <li>Provider: Google</li>
+              <li>Package: GoogleUserMessagingPlatform</li>
+              <li>Documentation: <a href="https://developers.google.com/admob/ios/privacy" target="_blank" rel="noopener noreferrer">https://developers.google.com/admob/ios/privacy</a></li>
+              <li>Terms: governed by the applicable Google product / developer terms</li>
+              <li>Purpose in TrashVPN: consent and privacy-related advertising support where required</li>
+            </ul>
+
+            <h2>Apple SDKs And System Frameworks</h2>
+            <p>TrashVPN uses Apple-provided frameworks such as SwiftUI, UIKit, NetworkExtension, Network, Foundation, UserNotifications, and related iOS system frameworks. These are governed by Apple's SDK and developer programme terms and are not redistributed as open-source components by this notice.</p>
+
+            <h2>Route Data And Configuration Assets</h2>
+            <p>TrashVPN may include route data files such as <code>geoip-cn.srs</code> and <code>geosite-cn.srs</code>, plus sing-box configuration templates. If these files are generated from or copied from an upstream project, keep the upstream source, generation process, and licence notices documented alongside release artifacts.</p>
+
+            <h2>Compliance Checklist</h2>
+            <ul>
+              <li>Keep this notice bundled with release documentation.</li>
+              <li>Keep upstream copyright notices intact.</li>
+              <li>Keep source-code offer or source-code publication requirements for GPL components satisfied.</li>
+              <li>Re-check licences when upgrading sing-box/libbox, Google SDKs, route data, or other dependencies.</li>
+              <li>Do not list proprietary SDKs as open-source unless their provider explicitly publishes them under an open-source licence.</li>
+            </ul>
+
+            <h2>No Warranty</h2>
+            <p>Third-party components are provided under their respective licences and terms. This notice does not modify those licences, grant additional rights, or provide legal advice.</p>
+            <p><a href="download.html">Back to Download</a></p>
           </div>
         </div>
       </section>

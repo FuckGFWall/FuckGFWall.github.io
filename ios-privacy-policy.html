@@ -14,9 +14,150 @@
       <section class="section">
         <div class="container">
           <div class="markdown-body reveal-on-scroll">
-            <h1>iOS Privacy Policy</h1>
-            <p>The iOS version of TrashVPN is not available yet. The iOS privacy policy will be published before the iOS app is released.</p>
-<p><a href="download.html">Back to Download</a></p>
+            <h1>Privacy Policy</h1>
+            <p>Last updated: May 30, 2026</p>
+            <p>This Privacy Policy explains how TrashVPN ("we", "us", or "our") handles information when you use the TrashVPN iOS application and related services (collectively, the "Service").</p>
+            <p>By using the Service, you acknowledge that we process information as described in this Privacy Policy.</p>
+
+            <h2>1. Summary</h2>
+            <p>TrashVPN is a VPN application. The app may contact our backend servers to request encrypted node data, check node usage status, record limited app activity statistics, fetch advertisements, upload custom advertisement clicks, and check for app updates.</p>
+            <p>We do not require you to create an account with a name, email address, or password to use the app.</p>
+
+            <h2>2. Information We Process</h2>
+            <h3>2.1 Client Identifier</h3>
+            <p>The app uses a locally generated client identifier, currently in a format such as:</p>
+            <p><code>iOS-10000-uuid</code></p>
+            <p>This identifier may be sent to our backend when the app requests nodes, records a user visit, requests advertising configuration, or uploads a custom advertisement click.</p>
+            <p>We use this identifier to support app functionality, basic daily user statistics, abuse prevention, ad configuration, and service maintenance.</p>
+
+            <h3>2.2 Public Key and Encrypted Node Delivery</h3>
+            <p>The app may generate or use cryptographic keys to request encrypted VPN node data from our backend. The backend may receive a public key so it can encrypt node data for the app.</p>
+            <p>The app stores node data and generated VPN configuration data locally. Sensitive node data is intended to be stored in encrypted form where supported by the app.</p>
+
+            <h3>2.3 VPN Node and Account Usage Information</h3>
+            <p>The backend may return encrypted account-related metadata, such as an account identifier associated with an allocated node group. The app may use that account identifier to request usage information from our backend, such as whether a node group has exceeded a usage threshold.</p>
+            <p>This usage information is used to decide whether the app should synchronize fresh nodes. It is not intended to identify you personally.</p>
+
+            <h3>2.4 App Visit and Update Information</h3>
+            <p>The app may contact our backend to:</p>
+            <ul>
+              <li>Record a limited app visit event using the client identifier.</li>
+              <li>Check whether a newer app version is available.</li>
+              <li>Receive version code, version name, changelog, release date, App Store URI, App Store web URL, and whether an update is required.</li>
+            </ul>
+
+            <h3>2.5 Advertising Information</h3>
+            <p>The app may request custom advertisement configuration from our backend using the client identifier.</p>
+            <p>If you click a custom advertisement, the app may upload:</p>
+            <ul>
+              <li>Advertisement ID.</li>
+              <li>Client identifier.</li>
+              <li>Click timestamp.</li>
+            </ul>
+            <p>The app may also display Google AdMob ads. Google and its partners may process device information, advertising identifiers, approximate location, interaction data, diagnostics, and other information according to their own policies and SDK behavior.</p>
+            <p>You can learn more about Google advertising practices at:</p>
+            <p><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></p>
+
+            <h3>2.6 Device, Network, and Server Logs</h3>
+            <p>When the app communicates with our backend, standard server logs or infrastructure logs may process technical information such as IP address, request time, endpoint, response status, user agent, and error information.</p>
+            <p>These logs are used for security, troubleshooting, abuse prevention, reliability, and service operations.</p>
+
+            <h3>2.7 Local App Data</h3>
+            <p>The app may store information locally on your device, including:</p>
+            <ul>
+              <li>Encrypted node snapshots and generated VPN configuration sets.</li>
+              <li>Selected node and route mode.</li>
+              <li>App settings.</li>
+              <li>Latency test results.</li>
+              <li>Ad display counters and app runtime state.</li>
+              <li>Update information, including dismissed optional update state.</li>
+              <li>Account usage check state.</li>
+            </ul>
+            <p>This local data is used to operate the app, reduce unnecessary network requests, preserve user preferences, and improve launch behavior.</p>
+
+            <h3>2.8 Information You Provide Voluntarily</h3>
+            <p>If you contact us, send feedback, share diagnostic logs, or report an issue, we may process the information you choose to provide.</p>
+            <p>Please avoid sending sensitive personal information unless it is necessary for support.</p>
+
+            <h2>3. VPN Traffic</h2>
+            <p>The Service routes network traffic through VPN nodes when the VPN is connected.</p>
+            <p>We do not intentionally use our backend APIs to store a history of the websites you visit through the VPN. However, VPN operation requires network traffic to be processed by VPN infrastructure, operating system networking components, DNS resolvers, hosting providers, and other network intermediaries as needed to deliver connectivity.</p>
+            <p>We cannot control the privacy practices of every network, website, app, DNS provider, hosting provider, advertising network, or third-party service you access through the VPN.</p>
+
+            <h2>4. How We Use Information</h2>
+            <p>We use information to:</p>
+            <ul>
+              <li>Provide VPN node synchronization and connectivity features.</li>
+              <li>Generate and deliver encrypted node configuration data.</li>
+              <li>Detect node quota or usage issues and refresh nodes when needed.</li>
+              <li>Remember settings and selected nodes.</li>
+              <li>Run latency tests and display latency results.</li>
+              <li>Display custom and AdMob advertisements.</li>
+              <li>Record custom advertisement clicks.</li>
+              <li>Check for app updates and display update notices.</li>
+              <li>Maintain app reliability, security, and abuse prevention.</li>
+              <li>Troubleshoot bugs and improve the Service.</li>
+            </ul>
+
+            <h2>5. Legal and Safety Purposes</h2>
+            <p>We may process or disclose information if we believe it is necessary to:</p>
+            <ul>
+              <li>Comply with applicable law, regulation, legal process, or enforceable government request.</li>
+              <li>Enforce our Terms of Use.</li>
+              <li>Detect, prevent, or address fraud, abuse, security issues, or technical problems.</li>
+              <li>Protect the rights, safety, and property of users, us, or third parties.</li>
+            </ul>
+
+            <h2>6. Sharing of Information</h2>
+            <p>We may share information with:</p>
+            <ul>
+              <li>Hosting providers, backend infrastructure providers, DNS providers, CDNs, and network service providers.</li>
+              <li>Analytics, advertising, and monetization partners, including Google AdMob.</li>
+              <li>App distribution platforms, such as Apple App Store, when you open update links.</li>
+              <li>Advertisers or third-party websites when you click their links.</li>
+              <li>Service providers that help us operate, secure, or support the Service.</li>
+              <li>Authorities or third parties when required by law or necessary for safety and enforcement.</li>
+            </ul>
+            <p>We do not sell your name or email address because the app does not require you to provide them.</p>
+
+            <h2>7. Third-Party Links and Services</h2>
+            <p>The Service may include links to third-party websites, apps, advertisements, App Store pages, Telegram, YouTube, GitHub, or other external services.</p>
+            <p>This Privacy Policy does not apply to third-party services. Their privacy practices are governed by their own policies.</p>
+
+            <h2>8. Retention</h2>
+            <p>We retain information only for as long as reasonably necessary for the purposes described in this Privacy Policy, including service operation, security, troubleshooting, abuse prevention, legal compliance, and business records.</p>
+            <p>Local app data remains on your device until removed by the app, replaced by newer data, or deleted when you uninstall the app, subject to operating system behavior and backups.</p>
+
+            <h2>9. Security</h2>
+            <p>We use reasonable technical and organizational measures designed to protect information, including encrypted local storage for sensitive node data where supported by the app.</p>
+            <p>No method of transmission, storage, VPN operation, or network processing is completely secure. We cannot guarantee absolute security.</p>
+
+            <h2>10. Your Choices</h2>
+            <p>Depending on your device and region, you may be able to:</p>
+            <ul>
+              <li>Stop using the Service at any time.</li>
+              <li>Disable or reset advertising identifiers in iOS settings.</li>
+              <li>Limit ad tracking or personalized ads through iOS or Google settings where available.</li>
+              <li>Delete the app to remove app-managed local data from your device, subject to operating system behavior.</li>
+              <li>Decline to click advertisements or third-party links.</li>
+            </ul>
+            <p>Some data processing is necessary for the Service to work, such as requesting nodes, checking updates, and maintaining VPN connectivity.</p>
+
+            <h2>11. Children's Privacy</h2>
+            <p>The Service is not directed to children under 13, or the minimum age required by applicable law in your jurisdiction. We do not knowingly collect personal information from children.</p>
+            <p>If you believe a child has provided personal information to us, contact us so we can take appropriate action.</p>
+
+            <h2>12. International Processing</h2>
+            <p>The Service may use servers, infrastructure, providers, and third-party services located in different countries or regions. Your information may be processed outside your country or region of residence.</p>
+
+            <h2>13. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. The updated version will be posted in the app, on our website, or in the documentation. The "Last updated" date indicates when the policy was last changed.</p>
+            <p>Your continued use of the Service after changes become effective means you acknowledge the updated Privacy Policy.</p>
+
+            <h2>14. Contact</h2>
+            <p>For privacy questions or requests, contact us through:</p>
+            <p><a href="mailto:feedback@itmanager.top">feedback@itmanager.top</a></p>
+            <p><a href="download.html">Back to Download</a></p>
           </div>
         </div>
       </section>
