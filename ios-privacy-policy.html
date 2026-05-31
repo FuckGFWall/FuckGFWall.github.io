@@ -15,12 +15,12 @@
         <div class="container">
           <div class="markdown-body reveal-on-scroll">
             <h1>Privacy Policy</h1>
-            <p>Last updated: May 30, 2026</p>
+            <p>Last updated: May 31, 2026</p>
             <p>This Privacy Policy explains how TrashVPN ("we", "us", or "our") handles information when you use the TrashVPN iOS application and related services (collectively, the "Service").</p>
             <p>By using the Service, you acknowledge that we process information as described in this Privacy Policy.</p>
 
             <h2>1. Summary</h2>
-            <p>TrashVPN is a VPN application. The app may contact our backend servers to request encrypted node data, check node usage status, record limited app activity statistics, fetch advertisements, upload custom advertisement clicks, and check for app updates.</p>
+            <p>TrashVPN is a VPN application. The app may contact our backend servers to request encrypted node data, check node usage status, record limited app activity statistics, fetch advertisements, upload custom advertisement clicks, check for app updates, and upload crash or error diagnostics through Sentry.</p>
             <p>We do not require you to create an account with a name, email address, or password to use the app.</p>
 
             <h2>2. Information We Process</h2>
@@ -75,7 +75,20 @@
             </ul>
             <p>This local data is used to operate the app, reduce unnecessary network requests, preserve user preferences, and improve launch behavior.</p>
 
-            <h3>2.8 Information You Provide Voluntarily</h3>
+            <h3>2.8 Crash Reports and Error Diagnostics</h3>
+            <p>The iOS app uses Sentry to help us detect crashes, runtime errors, startup failures, and other stability problems. When an error or crash occurs, Sentry may receive diagnostic information such as:</p>
+            <ul>
+              <li>Crash logs, exception names, stack traces, thread information, and error messages.</li>
+              <li>App version, build number, release information, and operating system version.</li>
+              <li>Device model, device family, memory state, performance-related diagnostic data, and app runtime state.</li>
+              <li>Timestamp, session or event identifiers, and technical context needed to reproduce or group errors.</li>
+              <li>Network-related diagnostic context, such as connectivity state or request error information, where relevant to the crash or error.</li>
+            </ul>
+            <p>Crash reports are used to identify bugs, prioritize fixes, improve app stability, and protect service reliability. They are not intended to collect VPN browsing history, message content, account passwords, payment information, or the contents of websites you visit.</p>
+            <p>Because crash logs are generated from real app execution, they may sometimes include technical values, configuration states, URLs of our own backend endpoints, or other contextual information involved in an error. Please avoid entering sensitive personal information into feedback fields or logs unless it is necessary for support.</p>
+            <p>Sentry processes crash and diagnostic information according to its own privacy practices. You can learn more at: <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">https://sentry.io/privacy/</a></p>
+
+            <h3>2.9 Information You Provide Voluntarily</h3>
             <p>If you contact us, send feedback, share diagnostic logs, or report an issue, we may process the information you choose to provide.</p>
             <p>Please avoid sending sensitive personal information unless it is necessary for support.</p>
 
@@ -96,7 +109,7 @@
               <li>Record custom advertisement clicks.</li>
               <li>Check for app updates and display update notices.</li>
               <li>Maintain app reliability, security, and abuse prevention.</li>
-              <li>Troubleshoot bugs and improve the Service.</li>
+              <li>Troubleshoot bugs, analyze crash reports, fix stability issues, and improve the Service.</li>
             </ul>
 
             <h2>5. Legal and Safety Purposes</h2>
@@ -112,7 +125,7 @@
             <p>We may share information with:</p>
             <ul>
               <li>Hosting providers, backend infrastructure providers, DNS providers, CDNs, and network service providers.</li>
-              <li>Analytics, advertising, and monetization partners, including Google AdMob.</li>
+              <li>Analytics, advertising, crash reporting, and monetization partners, including Google AdMob and Sentry.</li>
               <li>App distribution platforms, such as Apple App Store, when you open update links.</li>
               <li>Advertisers or third-party websites when you click their links.</li>
               <li>Service providers that help us operate, secure, or support the Service.</li>
@@ -122,10 +135,11 @@
 
             <h2>7. Third-Party Links and Services</h2>
             <p>The Service may include links to third-party websites, apps, advertisements, App Store pages, Telegram, YouTube, GitHub, or other external services.</p>
+            <p>The Service may also use third-party SDKs or services, including Google AdMob for advertising and Sentry for crash reporting and error monitoring.</p>
             <p>This Privacy Policy does not apply to third-party services. Their privacy practices are governed by their own policies.</p>
 
             <h2>8. Retention</h2>
-            <p>We retain information only for as long as reasonably necessary for the purposes described in this Privacy Policy, including service operation, security, troubleshooting, abuse prevention, legal compliance, and business records.</p>
+            <p>We retain information only for as long as reasonably necessary for the purposes described in this Privacy Policy, including service operation, security, troubleshooting, crash analysis, abuse prevention, legal compliance, and business records.</p>
             <p>Local app data remains on your device until removed by the app, replaced by newer data, or deleted when you uninstall the app, subject to operating system behavior and backups.</p>
 
             <h2>9. Security</h2>
@@ -140,6 +154,7 @@
               <li>Limit ad tracking or personalized ads through iOS or Google settings where available.</li>
               <li>Delete the app to remove app-managed local data from your device, subject to operating system behavior.</li>
               <li>Decline to click advertisements or third-party links.</li>
+              <li>Contact us if you have questions about crash reports or diagnostic information associated with your use of the app.</li>
             </ul>
             <p>Some data processing is necessary for the Service to work, such as requesting nodes, checking updates, and maintaining VPN connectivity.</p>
 
