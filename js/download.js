@@ -16,6 +16,7 @@ const DOWNLOAD_DETAILS = {
       androidPrivacy: "安卓版隐私政策",
       androidLicense: "安卓版开源许可证",
       iosPrivacy: "iOS 版隐私政策",
+      iosTerms: "iOS 版使用条款",
       iosLicense: "iOS 版开源许可证",
     },
   },
@@ -33,6 +34,7 @@ const DOWNLOAD_DETAILS = {
       androidPrivacy: "Android Privacy Policy",
       androidLicense: "Android Open Source Licenses",
       iosPrivacy: "iOS Privacy Policy",
+      iosTerms: "iOS Terms of Use",
       iosLicense: "iOS Open Source Licenses",
     },
   },
@@ -50,6 +52,7 @@ const DOWNLOAD_DETAILS = {
       androidPrivacy: "سیاست حریم خصوصی Android",
       androidLicense: "مجوزهای متن‌باز Android",
       iosPrivacy: "سیاست حریم خصوصی iOS",
+      iosTerms: "شرایط استفاده iOS",
       iosLicense: "مجوزهای متن‌باز iOS",
     },
   },
@@ -83,5 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("[data-download-link='android-privacy']")?.replaceChildren(details.links.androidPrivacy);
   document.querySelector("[data-download-link='android-license']")?.replaceChildren(details.links.androidLicense);
   document.querySelector("[data-download-link='ios-privacy']")?.replaceChildren(details.links.iosPrivacy);
+  document.querySelector("[data-download-link='ios-terms']")?.replaceChildren(details.links.iosTerms);
   document.querySelector("[data-download-link='ios-license']")?.replaceChildren(details.links.iosLicense);
 });
