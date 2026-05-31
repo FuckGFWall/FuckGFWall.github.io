@@ -33,7 +33,6 @@ const DOWNLOAD_DETAILS = {
       androidPrivacy: "Android Privacy Policy",
       androidLicense: "Android Open Source Licenses",
       iosPrivacy: "iOS Privacy Policy",
-      iosTerms: "iOS Terms of Use",
       iosLicense: "iOS Open Source Licenses",
     },
   },
@@ -84,6 +83,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("[data-download-link='android-privacy']")?.replaceChildren(details.links.androidPrivacy);
   document.querySelector("[data-download-link='android-license']")?.replaceChildren(details.links.androidLicense);
   document.querySelector("[data-download-link='ios-privacy']")?.replaceChildren(details.links.iosPrivacy);
-  document.querySelector("[data-download-link='ios-terms']")?.replaceChildren(details.links.iosTerms);
   document.querySelector("[data-download-link='ios-license']")?.replaceChildren(details.links.iosLicense);
 });
