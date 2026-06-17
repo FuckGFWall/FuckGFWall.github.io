@@ -159,13 +159,14 @@ function initGauge() {
   if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, obs) => { entries.forEach((entry) => { if (entry.isIntersecting) { animate(); obs.disconnect(); } }); }, { threshold: 0.5 }); observer.observe(gauge); } else animate();
 }
 
-const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/TrashVPN-1.0.6.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.2-x64.exe" } };
-function detectSupportedPlatform() { const s = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""} ${navigator.userAgent || ""}`.toLowerCase(); if (s.includes("android")) return "android"; if (s.includes("windows") || s.includes("win32") || s.includes("win64")) return "windows"; return null; }
+const TESTFLIGHT_URL = "https://testflight.apple.com/join/YBg8gqaQ";
+const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/TrashVPN-1.0.6.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.2-x64.exe" }, ios: { href: TESTFLIGHT_URL, label: "iOS（TestFlight）" }, macos: { href: TESTFLIGHT_URL, label: "macOS（TestFlight）" } };
+function detectSupportedPlatform() { const platform = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""}`.toLowerCase(); const userAgent = (navigator.userAgent || "").toLowerCase(); const source = `${platform} ${userAgent}`; const maxTouchPoints = navigator.maxTouchPoints || 0; if (source.includes("android")) return "android"; if (source.includes("iphone") || source.includes("ipad") || source.includes("ipod")) return "ios"; if ((platform.includes("mac") || userAgent.includes("macintosh")) && maxTouchPoints > 1) return "ios"; if (source.includes("mac os") || source.includes("macintosh") || platform.includes("mac")) return "macos"; if (source.includes("windows") || source.includes("win32") || source.includes("win64")) return "windows"; return null; }
 function initDownloadButton() {
   const { home } = getMessages(); const button = document.querySelector("[data-download-button]"); if (!(button instanceof HTMLAnchorElement)) return;
   const otherVersionsLink = document.querySelector("[data-other-versions]"); const defaultHref = button.dataset.defaultHref || "download.html"; const platform = detectSupportedPlatform();
   if (!platform || !DOWNLOAD_LINKS[platform]) { button.href = defaultHref; button.textContent = home.hero.downloadNow; button.removeAttribute("download"); otherVersionsLink?.setAttribute("hidden", "hidden"); return; }
-  button.href = DOWNLOAD_LINKS[platform].href; button.textContent = home.downloads[platform]; DOWNLOAD_LINKS[platform].download ? button.setAttribute("download", DOWNLOAD_LINKS[platform].download) : button.removeAttribute("download"); otherVersionsLink?.removeAttribute("hidden");
+  button.href = DOWNLOAD_LINKS[platform].href; button.textContent = DOWNLOAD_LINKS[platform].label || home.downloads[platform]; DOWNLOAD_LINKS[platform].download ? button.setAttribute("download", DOWNLOAD_LINKS[platform].download) : button.removeAttribute("download"); otherVersionsLink?.removeAttribute("hidden");
 }
 
 function initWhyCards() {

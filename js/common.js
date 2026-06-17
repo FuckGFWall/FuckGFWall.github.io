@@ -12,6 +12,7 @@ const POLICY_LINKS = [
   { href: "policy.html#privacy-policy", label: { zh: "隐私政策", en: "Privacy Policy", fa: "سیاست حریم خصوصی" } },
   { href: "policy.html#terms-of-service", label: { zh: "服务条款", en: "Terms of Service", fa: "شرایط خدمات" } },
   { href: "policy.html#contact-us", label: { zh: "联系我们", en: "Contact Us", fa: "تماس با ما" } },
+  { href: "donate.html", label: { zh: "捐赠", en: "Donate", fa: "حمایت مالی" } },
 ];
 const activeHref = () => {
   const routes = { home: "index.html", download: "download.html", status: "status.html", help: "help.html" };

@@ -1247,6 +1247,61 @@ body[data-locale="fa"] .help-callout--warning {
   color: var(--color-muted);
 }
 
+.donate-grid {
+  display: grid;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.donate-card {
+  padding: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.donate-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.donate-card h2 {
+  margin: 0;
+}
+
+.donate-address {
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.copy-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: var(--color-accent);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+  flex: 0 0 auto;
+}
+
+.copy-button:hover,
+.copy-button:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-accent-strong);
+  box-shadow: 0 12px 28px rgba(0, 168, 168, 0.22);
+}
+
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;

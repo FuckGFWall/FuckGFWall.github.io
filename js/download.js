@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (heroTitle) heroTitle.textContent = download.hero.title;
   if (heroNote) heroNote.textContent = download.hero.note;
   const labels = document.querySelectorAll(".download-grid__label");
-  if (labels[0]) labels[0].innerHTML = `<del>${download.items.ios}</del>`;
+  if (labels[0]) labels[0].textContent = "iOS（TestFlight）";
   if (labels[1]) labels[1].textContent = download.items.android;
   if (labels[2]) labels[2].textContent = download.items.windows;
-  if (labels[3]) labels[3].innerHTML = `<del>${download.items.macos}</del>`;
+  if (labels[3]) labels[3].textContent = "macOS（TestFlight）";
   document.querySelector("[data-download-guide-title]")?.replaceChildren(details.guideTitle);
   document.querySelector("[data-download-guide-intro]")?.replaceChildren(details.guideIntro);
   document.querySelectorAll("[data-download-card-title]").forEach((element, index) => {
