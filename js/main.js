@@ -160,7 +160,7 @@ function initGauge() {
 }
 
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/YBg8gqaQ";
-const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/TrashVPN-1.0.8-1.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.3-x64.exe" }, ios: { href: TESTFLIGHT_URL, label: "iOS（TestFlight）" }, macos: { href: TESTFLIGHT_URL, label: "macOS（TestFlight）" } };
+const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/TrashVPN-1.0.8-2.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.3-x64.exe" }, ios: { href: TESTFLIGHT_URL, label: "iOS（TestFlight）" }, macos: { href: TESTFLIGHT_URL, label: "macOS（TestFlight）" } };
 function detectSupportedPlatform() { const platform = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""}`.toLowerCase(); const userAgent = (navigator.userAgent || "").toLowerCase(); const source = `${platform} ${userAgent}`; const maxTouchPoints = navigator.maxTouchPoints || 0; if (source.includes("android")) return "android"; if (source.includes("iphone") || source.includes("ipad") || source.includes("ipod")) return "ios"; if ((platform.includes("mac") || userAgent.includes("macintosh")) && maxTouchPoints > 1) return "ios"; if (source.includes("mac os") || source.includes("macintosh") || platform.includes("mac")) return "macos"; if (source.includes("windows") || source.includes("win32") || source.includes("win64")) return "windows"; return null; }
 function initDownloadButton() {
   const { home } = getMessages(); const button = document.querySelector("[data-download-button]"); if (!(button instanceof HTMLAnchorElement)) return;
