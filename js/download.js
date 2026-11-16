@@ -8,7 +8,7 @@ const DOWNLOAD_DETAILS = {
     cards: [
       ["Android 客户端", "下载 APK 后，可由系统安装器完成安装。如果系统要求允许安装未知来源应用，请仅在你主动安装本次官方下载文件时授权。"],
       ["Windows 客户端", "下载 Windows 安装文件后按安装向导操作。如系统显示发布者或安全提示，请先确认文件来自官方链接。"],
-      ["尚未发布的平台", "iOS 与 macOS 客户端目前尚未提供下载。请关注本页面，避免从非官方渠道下载安装文件。"],
+      ["iOS 与 macOS 客户端", "iOS 与 macOS 版本为 v1.0.0。请使用上方对应入口，并按照 Apple 提供的安装流程完成安装。"],
     ],
     resourcesTitle: "客户端政策与开源信息",
     resourcesIntro: "在安装或使用客户端前，你可以阅读对应平台的隐私政策与开源许可证说明。",
@@ -26,7 +26,7 @@ const DOWNLOAD_DETAILS = {
     cards: [
       ["Android Client", "After downloading the APK, complete installation through the system installer. If Android asks to allow installation from an unknown source, grant it only while you intentionally install this official download."],
       ["Windows Client", "After downloading the Windows installer, follow the installation wizard. If the system shows publisher or security prompts, verify that the file came from the official link before proceeding."],
-      ["Platforms Not Yet Released", "iOS and macOS clients are not currently available for download. Please check this page for updates and avoid files distributed through unofficial channels."],
+      ["iOS and macOS Clients", "The iOS and macOS builds are version 1.0.0. Use the corresponding Apple download link above and follow Apple's installation flow."],
     ],
     resourcesTitle: "Client Policies and Open-Source Notices",
     resourcesIntro: "Before installing or using a client, you can review the privacy policy and open-source license notice for the corresponding platform.",
@@ -44,7 +44,7 @@ const DOWNLOAD_DETAILS = {
     cards: [
       ["نسخه Android", "پس از دانلود APK، نصب را با نصب‌کننده سیستم انجام دهید. اگر Android برای نصب از منبع ناشناس اجازه خواست، فقط هنگامی اجازه دهید که خودتان همین فایل رسمی را نصب می‌کنید."],
       ["نسخه Windows", "پس از دریافت فایل نصب Windows، مراحل نصب را دنبال کنید. اگر سیستم پیام امنیتی یا ناشر نمایش داد، پیش از ادامه مطمئن شوید فایل از لینک رسمی دریافت شده است."],
-      ["پلتفرم‌های منتشرنشده", "در حال حاضر نسخه‌های iOS و macOS برای دانلود موجود نیستند. برای خبرهای جدید این صفحه را بررسی کنید و از دریافت فایل از کانال‌های غیررسمی خودداری کنید."],
+      ["نسخه‌های iOS و macOS", "نسخه‌های iOS و macOS با شماره 1.0.0 در دسترس هستند. از پیوند مربوط به دستگاه خود در بالا استفاده کنید و مراحل نصب Apple را دنبال کنید."],
     ],
     resourcesTitle: "سیاست‌ها و اطلاعیه‌های متن‌باز برنامه",
     resourcesIntro: "پیش از نصب یا استفاده از برنامه، می‌توانید سیاست حریم خصوصی و اطلاعیه مجوزهای متن‌باز پلتفرم مربوط را بخوانید.",
@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (heroTitle) heroTitle.textContent = download.hero.title;
   if (heroNote) heroNote.textContent = download.hero.note;
   const labels = document.querySelectorAll(".download-grid__label");
-  if (labels[0]) labels[0].textContent = "iOS（TestFlight）";
+  if (labels[0]) labels[0].textContent = download.items.ios;
   if (labels[1]) labels[1].textContent = download.items.android;
   if (labels[2]) labels[2].textContent = download.items.windows;
-  if (labels[3]) labels[3].textContent = "macOS（TestFlight）";
+  if (labels[3]) labels[3].textContent = download.items.macos;
   document.querySelector("[data-download-guide-title]")?.replaceChildren(details.guideTitle);
   document.querySelector("[data-download-guide-intro]")?.replaceChildren(details.guideIntro);
   document.querySelectorAll("[data-download-card-title]").forEach((element, index) => {
