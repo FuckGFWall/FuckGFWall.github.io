@@ -21,7 +21,7 @@ const EXTRA_HOME_CONTENT = {
     faqTitle: "常见问题",
     faqIntro: "关于支持平台、连接情况与安全信息的快速说明。",
     faq: [
-      ["目前支持哪些客户端？", "目前可下载 Android 与 Windows 客户端。iOS 与 macOS 版本尚未提供，请以下载页公布的信息为准。"],
+      ["目前支持哪些客户端？", "目前提供 Android、Windows、iOS 与 macOS 客户端。iOS 与 macOS 版本为 v1.0.0，请以下载页的安装入口为准。"],
       ["TrashVPN 是否收费？", "当前提供的客户端与可用节点无需付费。我们不会通过网页要求你为激活、解封或会员服务支付费用。"],
       ["为什么连接速度或可用性会变化？", "节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。状态页提供服务负载的概览供参考。"],
       ["在哪里查看隐私和开源信息？", "下载页提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。"],
@@ -46,7 +46,7 @@ const EXTRA_HOME_CONTENT = {
     faqTitle: "Frequently Asked Questions",
     faqIntro: "Quick answers about available platforms, connection behavior, and safety information.",
     faq: [
-      ["Which client platforms are supported now?", "Android and Windows clients are currently available for download. iOS and macOS versions have not been released; refer to the Download page for current availability."],
+      ["Which client platforms are supported now?", "Android, Windows, iOS, and macOS clients are available. The iOS and macOS versions are 1.0.0; refer to the Download page for installation links."],
       ["Does TrashVPN charge a fee?", "The currently offered clients and available nodes do not require payment. We will not ask for payment on a web page for activation, account unblocking, or membership."],
       ["Why can connection speed or availability change?", "Node conditions vary with local networks, route congestion, service load, and location. The Status page offers an approximate service-load overview for reference."],
       ["Where can I read privacy and open-source notices?", "The Download page links to Android and iOS client privacy policies and open-source license notices. Website-specific policies are available through the footer."],
@@ -71,7 +71,7 @@ const EXTRA_HOME_CONTENT = {
     faqTitle: "پرسش‌های متداول",
     faqIntro: "پاسخ‌های کوتاه درباره پلتفرم‌های موجود، وضعیت اتصال و اطلاعات ایمنی.",
     faq: [
-      ["اکنون کدام نسخه‌ها پشتیبانی می‌شوند؟", "در حال حاضر نسخه‌های Android و Windows برای دانلود در دسترس هستند. نسخه‌های iOS و macOS هنوز منتشر نشده‌اند؛ اطلاعات روز را در صفحه دانلود ببینید."],
+      ["اکنون کدام نسخه‌ها پشتیبانی می‌شوند؟", "نسخه‌های Android، Windows، iOS و macOS در دسترس هستند. نسخه‌های iOS و macOS شماره 1.0.0 دارند؛ برای پیوند نصب به صفحه دانلود مراجعه کنید."],
       ["آیا TrashVPN هزینه دارد؟", "نسخه‌ها و نودهای فعلی بدون پرداخت ارائه می‌شوند. ما در وب‌سایت برای فعال‌سازی، رفع محدودیت یا عضویت از شما درخواست پرداخت نمی‌کنیم."],
       ["چرا سرعت یا دسترس‌پذیری اتصال تغییر می‌کند؟", "شرایط نود به شبکه محلی، شلوغی مسیر، بار سرویس و موقعیت جغرافیایی وابسته است. صفحه وضعیت نمایی تقریبی از بار سرویس ارائه می‌کند."],
       ["اطلاعات حریم خصوصی و متن‌باز را کجا ببینم؟", "صفحه دانلود به سیاست حریم خصوصی و مجوزهای متن‌باز نسخه‌های Android و iOS پیوند دارد. سیاست‌های خود وب‌سایت در پاورقی در دسترس است."],
