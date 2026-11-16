@@ -10,14 +10,6 @@ const EXTRA_HOME_CONTENT = {
       ["选择合适节点", "客户端会获取可用节点。连接延迟和可用性可能随地区、运营商、时间和网络拥堵变化。"],
       ["了解使用边界", "免费节点适合一般网络访问；涉及私人资料、重要账号或支付时，请优先选择可信网络。"],
     ],
-    safetyTitle: "下载前的安全清单",
-    safetyIntro: "软件来源与权限判断同样重要。下载安装前，建议先完成这些检查。",
-    safetyItems: [
-      "确认网页域名和下载地址属于 TrashVPN 官方渠道。",
-      "Windows 安装包出现未知发布者提示时，先阅读帮助页中的安全说明。",
-      "Android 安装 APK 前，确认安装包来源，并仅在你主动安装更新时开放相应权限。",
-      "不要通过不明链接输入账号、验证码、支付信息或其它敏感内容。",
-    ],
     faqTitle: "常见问题",
     faqIntro: "关于支持平台、连接情况与安全信息的快速说明。",
     faq: [
@@ -35,14 +27,6 @@ const EXTRA_HOME_CONTENT = {
       ["Choose a Suitable Node", "The client retrieves available nodes. Latency and availability may change with your region, network provider, time of day, and congestion."],
       ["Use It Responsibly", "Free nodes can suit ordinary network access. For private data, important accounts, or payments, prefer a network and protection you trust."],
     ],
-    safetyTitle: "Safety Checklist Before Downloading",
-    safetyIntro: "Software origin and permission decisions matter. Before installing a client, consider these checks.",
-    safetyItems: [
-      "Confirm that the website domain and download address belong to official TrashVPN channels.",
-      "If Windows reports an unknown publisher, read the security guidance on the Help page before proceeding.",
-      "Before installing an Android APK, confirm its source and allow installation permission only when you choose to install an update.",
-      "Never enter account credentials, verification codes, payment details, or other sensitive information through an unfamiliar link.",
-    ],
     faqTitle: "Frequently Asked Questions",
     faqIntro: "Quick answers about available platforms, connection behavior, and safety information.",
     faq: [
@@ -59,14 +43,6 @@ const EXTRA_HOME_CONTENT = {
       ["دانلود رسمی را دریافت کنید", "فایل نصب را فقط از لینک‌های منتشرشده در این وب‌سایت دریافت کنید. پیش از نصب منبع فایل را بررسی کنید و در صورت نیاز فایل را اعتبارسنجی کنید."],
       ["یک نود مناسب انتخاب کنید", "برنامه فهرست نودهای در دسترس را دریافت می‌کند. تأخیر و دسترس‌پذیری ممکن است با منطقه، اپراتور، زمان و شلوغی شبکه تغییر کند."],
       ["با آگاهی استفاده کنید", "نودهای رایگان برای دسترسی عادی مناسب‌اند؛ برای اطلاعات خصوصی، حساب‌های مهم یا پرداخت از شبکه و حفاظت قابل اعتماد استفاده کنید."],
-    ],
-    safetyTitle: "فهرست بررسی ایمنی پیش از دانلود",
-    safetyIntro: "منبع نرم‌افزار و تصمیم‌های مربوط به مجوزها مهم هستند. پیش از نصب این موارد را بررسی کنید.",
-    safetyItems: [
-      "تأیید کنید دامنه وب‌سایت و آدرس دانلود به کانال رسمی TrashVPN تعلق دارند.",
-      "اگر Windows هشدار ناشر ناشناس نشان داد، پیش از ادامه راهنمای امنیتی صفحه راهنما را بخوانید.",
-      "پیش از نصب APK در Android، منبع آن را تأیید کنید و مجوز نصب را فقط زمانی بدهید که خودتان نصب به‌روزرسانی را انتخاب کرده‌اید.",
-      "اطلاعات ورود، کد تأیید، اطلاعات پرداخت یا محتوای حساس را از طریق لینک ناآشنا وارد نکنید.",
     ],
     faqTitle: "پرسش‌های متداول",
     faqIntro: "پاسخ‌های کوتاه درباره پلتفرم‌های موجود، وضعیت اتصال و اطلاعات ایمنی.",
@@ -89,10 +65,6 @@ function applyAdditionalContent() {
   document.querySelectorAll("[data-guide-card-text]").forEach((element, index) => {
     element.textContent = content.guideCards[index]?.[1] || "";
   });
-  document.querySelector("[data-safety-title]")?.replaceChildren(content.safetyTitle);
-  document.querySelector("[data-safety-intro]")?.replaceChildren(content.safetyIntro);
-  const safetyItems = document.querySelector("[data-safety-items]");
-  if (safetyItems) safetyItems.innerHTML = content.safetyItems.map((item) => `<li>${item}</li>`).join("");
   document.querySelector("[data-faq-title]")?.replaceChildren(content.faqTitle);
   document.querySelector("[data-faq-intro]")?.replaceChildren(content.faqIntro);
   document.querySelectorAll("[data-faq-question]").forEach((element, index) => {
