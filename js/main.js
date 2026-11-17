@@ -3,13 +3,6 @@ import { detectLocale, getMessages, setDocumentMeta } from "./i18n.js";
 
 const EXTRA_HOME_CONTENT = {
   zh: {
-    guideTitle: "第一次使用 TrashVPN",
-    guideIntro: "从官方下载到建立连接，了解几个关键步骤，可以更安全、更清楚地使用客户端。",
-    guideCards: [
-      ["确认官方下载", "只从本网站提供的入口下载安装包。安装前可以核对来源，并在需要时校验下载文件。"],
-      ["选择合适节点", "客户端会获取可用节点。连接延迟和可用性可能随地区、运营商、时间和网络拥堵变化。"],
-      ["了解使用边界", "免费节点适合一般网络访问；涉及私人资料、重要账号或支付时，请优先选择可信网络。"],
-    ],
     faqTitle: "常见问题",
     faqIntro: "关于支持平台、连接情况与安全信息的快速说明。",
     faq: [
@@ -20,13 +13,6 @@ const EXTRA_HOME_CONTENT = {
     ],
   },
   en: {
-    guideTitle: "Getting Started with TrashVPN",
-    guideIntro: "From obtaining the official client to making a connection, a few basic steps help you use the app more safely and with clearer expectations.",
-    guideCards: [
-      ["Get the Official Download", "Obtain installers only through links published on this website. Check the source before installing and verify downloaded files when needed."],
-      ["Choose a Suitable Node", "The client retrieves available nodes. Latency and availability may change with your region, network provider, time of day, and congestion."],
-      ["Use It Responsibly", "Free nodes can suit ordinary network access. For private data, important accounts, or payments, prefer a network and protection you trust."],
-    ],
     faqTitle: "Frequently Asked Questions",
     faqIntro: "Quick answers about available platforms, connection behavior, and safety information.",
     faq: [
@@ -37,13 +23,6 @@ const EXTRA_HOME_CONTENT = {
     ],
   },
   fa: {
-    guideTitle: "شروع کار با TrashVPN",
-    guideIntro: "از دریافت نسخه رسمی تا برقراری اتصال، دانستن چند گام ساده کمک می‌کند برنامه را آگاهانه‌تر و امن‌تر استفاده کنید.",
-    guideCards: [
-      ["دانلود رسمی را دریافت کنید", "فایل نصب را فقط از لینک‌های منتشرشده در این وب‌سایت دریافت کنید. پیش از نصب منبع فایل را بررسی کنید و در صورت نیاز فایل را اعتبارسنجی کنید."],
-      ["یک نود مناسب انتخاب کنید", "برنامه فهرست نودهای در دسترس را دریافت می‌کند. تأخیر و دسترس‌پذیری ممکن است با منطقه، اپراتور، زمان و شلوغی شبکه تغییر کند."],
-      ["با آگاهی استفاده کنید", "نودهای رایگان برای دسترسی عادی مناسب‌اند؛ برای اطلاعات خصوصی، حساب‌های مهم یا پرداخت از شبکه و حفاظت قابل اعتماد استفاده کنید."],
-    ],
     faqTitle: "پرسش‌های متداول",
     faqIntro: "پاسخ‌های کوتاه درباره پلتفرم‌های موجود، وضعیت اتصال و اطلاعات ایمنی.",
     faq: [
@@ -57,14 +36,6 @@ const EXTRA_HOME_CONTENT = {
 
 function applyAdditionalContent() {
   const content = EXTRA_HOME_CONTENT[detectLocale()] || EXTRA_HOME_CONTENT.en;
-  document.querySelector("[data-guide-title]")?.replaceChildren(content.guideTitle);
-  document.querySelector("[data-guide-intro]")?.replaceChildren(content.guideIntro);
-  document.querySelectorAll("[data-guide-card-title]").forEach((element, index) => {
-    element.textContent = content.guideCards[index]?.[0] || "";
-  });
-  document.querySelectorAll("[data-guide-card-text]").forEach((element, index) => {
-    element.textContent = content.guideCards[index]?.[1] || "";
-  });
   document.querySelector("[data-faq-title]")?.replaceChildren(content.faqTitle);
   document.querySelector("[data-faq-intro]")?.replaceChildren(content.faqIntro);
   document.querySelectorAll("[data-faq-question]").forEach((element, index) => {
