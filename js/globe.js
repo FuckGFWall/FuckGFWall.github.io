@@ -15,10 +15,13 @@ const VIEW_SIN = Math.sin(VIEW_LATITUDE);
 const VIEW_COS = Math.cos(VIEW_LATITUDE);
 const TILT_SIN = Math.sin(VIEW_TILT);
 const TILT_COS = Math.cos(VIEW_TILT);
-const CARD_ORBIT_RADIUS = 1.18;
-const CARD_LOCATIONS = {
-  global: [-50, 9],
-  cloudflare: [11, -30],
+const CARD_ORBIT_RADIUS = RADIUS * 1.39;
+const CARD_ORBIT_TILT = 53 * TO_RADIANS;
+const CARD_ORBIT_SIN = Math.sin(CARD_ORBIT_TILT);
+const CARD_ORBIT_COS = Math.cos(CARD_ORBIT_TILT);
+const CARD_ORBIT_LONGITUDES = {
+  global: -57,
+  cloudflare: 22,
 };
 
 // Representative locations and routes for the illustration.
@@ -245,23 +248,20 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
     circle(x, y, 0.9 + intensity * 0.45, "#fff1d9");
   }
 
-  function positionCards() {
-    for (const { element, point } of cards) {
-      project(point);
-      const x = screen.x * scaleX;
-      const y = screen.y * scaleY;
-      // Translate the card without rotating its plane toward or away from the viewer.
+  function positionCards(longitude) {
+    for (const { element, longitude: anchor } of cards) {
+      const angle = anchor - longitude;
+      const depth = Math.cos(angle);
+      const along = Math.sin(angle) * CARD_ORBIT_RADIUS;
+      // A slight incline reserves horizontal space for the screen-facing cards.
+      const across = -depth * CARD_ORBIT_RADIUS * 0.18;
+      const x = (CENTER_X + along * CARD_ORBIT_COS - across * CARD_ORBIT_SIN) * scaleX;
+      const y = (CENTER_Y + along * CARD_ORBIT_SIN + across * CARD_ORBIT_COS) * scaleY;
       element.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
 
-      // A slice at the card's depth gives the part of the sphere in front of it.
-      // On the far side the entire silhouette can occlude the card.
-      const depth = Math.max(0, Math.min(1, screen.depth));
-      const radius = RADIUS * Math.sqrt(1 - depth * depth);
-      const offsetX = (CENTER_X - screen.x) * scaleX;
-      const offsetY = (CENTER_Y - screen.y) * scaleY;
-      const mask = radius === 0 ? "none" :
-        `radial-gradient(ellipse ${radius * scaleX}px ${radius * scaleY}px at calc(50% + ${offsetX}px) calc(50% + ${offsetY}px), transparent 99.5%, black 100%)`;
-      element.style.setProperty("--globe-occlusion", mask);
+      // The same canvas covers rear cards with both the globe and its live routes.
+      const side = depth >= 0 ? "front" : "back";
+      if (element.dataset.orbitSide !== side) element.dataset.orbitSide = side;
     }
   }
 
@@ -289,7 +289,7 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
 
     routes.forEach((route) => drawSignal(route, time));
     sitePoints.forEach((point, index) => drawSite(point, index, time));
-    positionCards();
+    positionCards(longitude);
   }
 
   return {
@@ -323,11 +323,10 @@ export function initNetworkGlobe(labels) {
   const backdropContext = backdrop.getContext("2d");
   if (!context || !backdropContext) return;
 
-  const cards = Object.entries(CARD_LOCATIONS).flatMap(([name, coordinates]) => {
+  const cards = Object.entries(CARD_ORBIT_LONGITUDES).flatMap(([name, longitude]) => {
     const element = visual.querySelector(`[data-globe-card="${name}"]`);
     if (!element) return [];
-    const point = toSphere(coordinates).map((axis) => axis * CARD_ORBIT_RADIUS);
-    return [{ element, point }];
+    return [{ element, longitude: longitude * TO_RADIANS }];
   });
   const renderer = createRenderer(canvas, context, backdrop, backdropContext, cards);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

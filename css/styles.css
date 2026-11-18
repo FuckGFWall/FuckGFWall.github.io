@@ -105,12 +105,14 @@ h3 { letter-spacing: -.025em; }
 .network-label { position: absolute; display: flex; gap: 11px; align-items: center; background: #442e1dc9; border: 1px solid #d3bca932; box-shadow: 0 16px 40px #00000022; backdrop-filter: blur(12px); border-radius: 10px; padding: 13px 16px; }
 .network-label--top { inset-block-start: 20%; inset-inline-start: 2%; }
 .network-label--bottom { inset-block-start: 72%; inset-inline-end: -1%; }
+.network-visual[data-orbiting] { isolation: isolate; }
+.network-visual[data-orbiting] .network-globe { z-index: 1; pointer-events: none; }
 .network-visual[data-orbiting] [data-globe-card] {
   inset: 0 auto auto 0;
   pointer-events: none;
-  -webkit-mask-image: var(--globe-occlusion, none);
-  mask-image: var(--globe-occlusion, none);
+  z-index: 2;
 }
+.network-visual[data-orbiting] [data-orbit-side="back"] { z-index: 0; }
 .network-label__icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 8px; color: #f2ddcb; background: #f4ddca12; }
 .network-label__icon .icon { width: 19px; height: 19px; }
 .network-label__eyebrow { display: block; color: #b59e8b; letter-spacing: .12em; font-size: 8px; line-height: 1.6; }
