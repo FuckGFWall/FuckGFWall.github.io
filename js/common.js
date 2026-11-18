@@ -147,7 +147,8 @@ function initNavigation() {
     setStoredLocale(language);
     const url = new URL(window.location.href);
     url.searchParams.set("lang", language);
-    window.location.href = `${url.pathname}${url.search}${url.hash}`;
+    if (url.href === window.location.href) window.location.reload();
+    else window.location.href = url.href;
   });
 }
 

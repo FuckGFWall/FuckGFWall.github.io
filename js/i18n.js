@@ -4,4 +4,60 @@ shasum -a 256 TrashVPN.apk</code></pre><h2>免责声明</h2><ul><li>请遵守所
 Get-FileHash -Algorithm SHA256 .\\TrashVPN.apk</code></pre><p><strong>macOS / Linux:</strong></p><pre><code>shasum -a 256 TrashVPN.msi
 shasum -a 256 TrashVPN.apk</code></pre><h2>Disclaimer</h2><ul><li>Please follow the laws, regulations, and service terms that apply where you are.</li><li>If your browser warns you about risk, stop the installation first and verify the domain, file source, and checksums.</li></ul><p class="note">Last updated: 2026-02-08</p>`}},fa:{lang:"fa",dir:"rtl",common:{nav:{home:"خانه",download:"دانلود",about:"راهنما"},logoAlt:"آیکون TrashVPN",menuLabel:"باز کردن منو",navLabel:"ناوبری اصلی",socialLabel:"شبکه‌های اجتماعی",footer:"© {year} TrashVPN. تمامی حقوق محفوظ است."},home:{meta:{title:"TrashVPN | وب‌سایت رسمی",description:"وب‌سایت رسمی TrashVPN با نودهای رایگان و به‌روزرسانی هفتگی."},hero:{iconAlt:"آیکون برنامه TrashVPN",title:"Trash VPN هم می‌تواند تو را به دنیا وصل کند.",note:"بدون محدودیت، بدون پرداخت، با نودهایی که هر هفته به‌روزرسانی می‌شوند.",downloadNow:"دانلود الآن",otherVersions:"نسخه‌های دیگر"},sections:{freeTitle:"بدون محدودیت، همیشه رایگان",freeText:"TrashVPN از اول هم همین بوده — به‌جز رایگان بودن، هیچ درگاه پرداختی اینجا پیدا نمی‌کنی.",cfTitle:"موضوع این نیست که بخواهی فرار کنی؛ موضوع این است که راهی برای فرار نیست 😄",cfText:"این سرویس روی Cloudflare ساخته شده و از پوشش گسترده و تأخیر پایین بهره می‌برد.",globeTitle:"تمام دنیا، با یک لمس",globePrefix:"سرورها در ",globeMiddle:" شهر و ",globeSuffix:"+ کشور و منطقه در دسترس هستند.",speedTitle:"نودهای تازه هر هفته، سرعت روان همیشه",speedText:"با اتصال، نزدیک‌ترین نود به‌صورت خودکار انتخاب می‌شود تا تأخیر کمتر و مرور سریع‌تر داشته باشی.",gauge:"نشانگر سرعت",whyTitle:"پس چرا اسمش Trash است؟",whyNote:"از اول محدودیت‌ها را صادقانه می‌گوییم و یادت می‌اندازیم که از آن برای کار اشتباه استفاده نکنی.",whyAlt:"تصویر میم متعجب"},cards:{ipTitle:"نشانی IP و کنترل ریسک",ip:["برای کاربران چین، ممکن است نشانی IP به‌عنوان IP چین شناسایی شود و در نتیجه برخی سرویس‌های دارای محدودیت منطقه‌ای، مانند سرویس‌های هوش مصنوعی، در دسترس نباشند.","نشانی IP ممکن است مرتب تغییر کند و ثابت نباشد؛ این موضوع می‌تواند احتمال فعال شدن سامانه‌های کنترل ریسک را افزایش دهد."],weakTitle:"کیفیت نود و بهینه‌سازی",weak:["نتایج بهینه‌سازی ممکن است پس از مدتی با کاهش سرعت یا ناپایداری اتصال روبه‌رو شوند؛ بنابراین لازم است هر از گاهی دوباره بهینه‌سازی انجام شود.","پس از تغییر محیط شبکه، کیفیت نود ممکن است کاهش یابد؛ در صورت نیاز دوباره بهینه‌سازی کنید."]},downloads:{android:"دانلود برای Android",windows:"دانلود برای Windows"}},download:{meta:{title:"دانلود TrashVPN",description:"دانلود TrashVPN برای iOS، Android، Windows و macOS."},hero:{iconAlt:"آیکون برنامه TrashVPN",title:"ارتباطی ساده‌تر، روی دستگاه شما.",note:"نسخه مناسب دستگاه خود را از فهرست زیر انتخاب کنید."},items:{ios:"iOS v1.0.0",android:"Android v1.1.5",windows:"Windows v1.6",macos:"macOS v1.0.0"}},about:{meta:{title:"درباره TrashVPN | وب‌سایت رسمی",description:"با TrashVPN، ریسک‌ها و نکات مهم استفاده آشنا شوید."},body:`<h1>درباره TrashVPN</h1><p>TrashVPN یک پروژه رایگان VPN است. این صفحه کانال‌های رسمی، هشدارهای امنیتی و نکات پایه استفاده را توضیح می‌دهد تا بتوانی تشخیص بدهی دانلود واقعاً از طرف ماست.</p><h2>کانال‌های رسمی</h2><ul><li>وب‌سایت رسمی: <code>itmanager.top</code></li><li>دانلود رسمی: <code>download.itmanager.top</code></li><li>اگر از دامنه‌ای دیگر، لینک کوتاه یا سایت دانلود شخص ثالث وارد شده‌ای، دامنه را با دقت بررسی کن.</li></ul><h2>کارهایی که هرگز از تو نمی‌خواهیم</h2><ul><li>برای فعال‌سازی، تمدید یا عضویت از تو پول نمی‌خواهیم.</li><li>از تو نمی‌خواهیم اطلاعات بانکی، مدارک هویتی، کد پیامک یا رمز ایمیل را وارد کنی.</li><li>از تو نمی‌خواهیم ابزارهای نامرتبط نصب کنی.</li></ul><blockquote>اگر چنین رفتاری دیدی، فوراً متوقف شو و آن را نسخه غیررسمی بدان.</blockquote><h2>دانلود و نصب</h2><ul><li><strong>Windows:</strong> فایل MSI فعلی امضای تجاری ندارد، بنابراین ممکن است هشدار ناشر ناشناس ببینی. مطمئن شو فایل را از دامنه رسمی گرفته‌ای و خودت هم بررسی امنیتی انجام بده.</li><li><strong>Android:</strong> فایل APK یک بسته نصبی امضاشده است. قبل از نصب، مطمئن شو منبع دانلود دامنه رسمی است.</li></ul><h2>چطور خودت فایل را بررسی کنی</h2><p>بعد از دانلود می‌توانی هش SHA-256 فایل را حساب کنی و با مقداری که از یک کانال قابل اعتماد منتشر شده مقایسه کنی.</p><p><strong>Windows (PowerShell):</strong></p><pre><code>Get-FileHash -Algorithm SHA256 .\\TrashVPN.msi
 Get-FileHash -Algorithm SHA256 .\\TrashVPN.apk</code></pre><p><strong>macOS / Linux:</strong></p><pre><code>shasum -a 256 TrashVPN.msi
-shasum -a 256 TrashVPN.apk</code></pre><h2>سلب مسئولیت</h2><ul><li>لطفاً قوانین، مقررات و شرایط خدمات محل زندگی خود را رعایت کن.</li><li>اگر مرورگر هشدار ریسک داد، اول نصب را متوقف کن و بعد دامنه، منبع فایل و اطلاعات بررسی را چک کن.</li></ul><p class="note">آخرین به‌روزرسانی: 2026-02-08</p>`}}};let C;const N=v=>{if(!v)return null;v=v.toLowerCase();if(v.startsWith("zh"))return"zh";if(v.startsWith("fa"))return"fa";if(v.startsWith("en"))return"en";return null};const K="trashvpn_locale";function getLocaleFromQuery(){const v=new URLSearchParams(window.location.search).get("lang");return N(v)}function getStoredLocale(){try{return N(window.localStorage.getItem(K))}catch{return null}}function setStoredLocale(locale){try{if(locale)window.localStorage.setItem(K,locale)}catch{}}function detectLocale(){if(C)return C;const f=N(document.body?.dataset?.fixedLocale);if(f){C=f;return C}const q=getLocaleFromQuery();if(q){setStoredLocale(q);C=q;return C}const s=getStoredLocale();if(s){C=s;return C}const a=Array.isArray(navigator.languages)&&navigator.languages.length?navigator.languages:[navigator.language||"en"];for(const v of a){const n=N(v);if(n){C=n;return C}}C="en";return C}function getMessages(){return M[detectLocale()]||M.en}function applyDocumentLanguage(){const m=getMessages();document.documentElement.lang=m.lang;document.documentElement.dir=m.dir;document.body?.setAttribute("data-locale",detectLocale())}function setDocumentMeta(meta){if(!meta)return;if(meta.title)document.title=meta.title;const d=document.querySelector('meta[name="description"]');if(d&&meta.description)d.setAttribute("content",meta.description)}export{detectLocale,getMessages,applyDocumentLanguage,setDocumentMeta,getLocaleFromQuery,getStoredLocale,setStoredLocale};
+shasum -a 256 TrashVPN.apk</code></pre><h2>سلب مسئولیت</h2><ul><li>لطفاً قوانین، مقررات و شرایط خدمات محل زندگی خود را رعایت کن.</li><li>اگر مرورگر هشدار ریسک داد، اول نصب را متوقف کن و بعد دامنه، منبع فایل و اطلاعات بررسی را چک کن.</li></ul><p class="note">آخرین به‌روزرسانی: 2026-02-08</p>`}}};
+const LOCALE_KEY = "trashvpn_locale";
+let currentLocale;
+
+function normalizeLocale(value) {
+  return value?.toLowerCase().match(/^(zh|en|fa)(?:[-_]|$)/)?.[1] ?? null;
+}
+
+function getLocaleFromQuery() {
+  return normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
+}
+
+function getStoredLocale() {
+  try {
+    return normalizeLocale(window.localStorage.getItem(LOCALE_KEY));
+  } catch {
+    return null;
+  }
+}
+
+function setStoredLocale(locale) {
+  try {
+    window.localStorage.setItem(LOCALE_KEY, locale);
+  } catch {
+    // The current page can still use the language in its URL.
+  }
+}
+
+function detectLocale() {
+  currentLocale ??= normalizeLocale(document.body?.dataset.fixedLocale)
+    ?? getStoredLocale()
+    ?? getLocaleFromQuery()
+    ?? normalizeLocale(navigator.language || navigator.languages?.[0])
+    ?? "en";
+  return currentLocale;
+}
+
+function getMessages() {
+  return M[detectLocale()] || M.en;
+}
+
+function applyDocumentLanguage() {
+  const messages = getMessages();
+  document.documentElement.lang = messages.lang;
+  document.documentElement.dir = messages.dir;
+  document.body?.setAttribute("data-locale", detectLocale());
+}
+
+function setDocumentMeta(meta) {
+  if (!meta) return;
+  if (meta.title) document.title = meta.title;
+  if (meta.description) {
+    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+  }
+}
+
+export { detectLocale, getMessages, applyDocumentLanguage, setDocumentMeta, getLocaleFromQuery, getStoredLocale, setStoredLocale };
