@@ -68,14 +68,13 @@ h3 { letter-spacing: -.025em; }
 .site-nav__link.is-active::after { content: ""; position: absolute; bottom: 8px; left: 50%; width: 4px; height: 4px; background: currentColor; border-radius: 50%; }
 .language-switcher { display: flex; align-items: flex-start; gap: 8px; }
 .language-switcher > .icon { width: 16px; height: 16px; margin-block-start: 8px; color: #72645b; }
-.language-picker { position: relative; inline-size: 70px; }
-.language-trigger { display: flex; align-items: center; justify-content: space-between; gap: 2px; min-height: 32px; padding: 3px 4px; list-style: none; border: 1px solid #ead7c8; border-radius: 8px; background: #fff9f3; font-size: 12px; font-weight: 600; color: #63402b; cursor: pointer; }
+.language-picker { position: relative; inline-size: 58px; }
+.language-trigger { display: flex; align-items: center; justify-content: center; min-height: 32px; padding: 3px 4px; list-style: none; border: 1px solid #ead7c8; border-radius: 8px; background: #fff9f3; font-size: 12px; font-weight: 600; color: #63402b; cursor: pointer; }
 .language-trigger::-webkit-details-marker { display: none; }
 .language-trigger:focus-visible { outline-offset: 3px; }
-.language-trigger .icon { width: 10px; height: 10px; transition: transform var(--transition-base); }
-.language-picker[open] .language-trigger .icon { transform: rotate(180deg); }
+.language-picker[open] .language-trigger { border-color: #d9b89e; }
 .language-options { position: absolute; z-index: 1; inset-block-start: calc(100% + 6px); inset-inline: 0; list-style: none; padding: 3px; margin: 0; border: 1px solid #ead7c8; border-radius: 8px; background: #fff9f3; box-shadow: 0 8px 20px #492e1718; }
-.language-options button { display: block; width: 100%; border: 0; padding: 5px 4px; border-radius: 5px; font-size: 12px; text-align: center; background: none; color: #63402b; }
+.language-options button { display: block; width: 100%; border: 0; padding: 5px 2px; border-radius: 5px; font-size: 12px; text-align: center; background: none; color: #63402b; }
 .language-options button:hover, .language-options button[aria-current="true"] { background: #ffe3cb; color: #872e09; }
 .header-download { padding: 10px 17px; min-height: 38px; font-size: 12px; border-radius: 6px; }
 .header-download .icon { width: 15px; height: 15px; }
@@ -91,7 +90,7 @@ h3 { letter-spacing: -.025em; }
 /* Homepage: immersive network visual */
 .portal-hero { background: linear-gradient(125deg, #ffdfbc, #ffbc7f 58%, #f79044); color: #49220f; overflow: clip; isolation: isolate; position: relative; }
 .portal-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(#963c1114 1px, transparent 1px), linear-gradient(90deg, #963c1114 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(90deg, transparent, #000000 85%); pointer-events: none; }
-.portal-hero::after { content: ""; position: absolute; inset: auto 0 0; height: clamp(44px, 5vw, 76px); z-index: -1; background: linear-gradient(#fff0, #fff4 38%, #fffc 76%, #fff); pointer-events: none; }
+.portal-hero::after { content: ""; position: absolute; inset: auto 0 0; height: clamp(72px, 8.5vw, 128px); z-index: -1; background: linear-gradient(#fff0, #fff4 38%, #fffc 76%, #fff); pointer-events: none; }
 .hero-layout { display: grid; grid-template-columns: 1fr 1.04fr; align-items: center; gap: 18px; min-height: 630px; padding-block: 32px 16px; }
 .hero-copy { position: relative; z-index: 2; padding-block: 18px; }
 
@@ -408,6 +407,13 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
   .expectations-layout { gap: 70px; }
   .download-grid__item { padding-inline: 20px; }.download-grid__label { font-size: 18px; }
 }
+@media (width > 900px) {
+  .site-header__inner {
+    width: auto;
+    margin-inline-start: max(clamp(36px, 4vw, 48px), calc((100% - var(--max-width)) / 2));
+    margin-inline-end: clamp(20px, 2.5vw, 36px);
+  }
+}
 @media (max-width: 900px) {
   :root { --header-height: 54px; }
   .container { width: calc(100% - 48px); }
@@ -421,7 +427,6 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
   .site-nav { width: 100%; }.site-nav__list { gap: 0; flex-direction: column; align-items: stretch; }
   .site-nav__link { padding: 8px 0; font-size: 15px; }.site-nav__link.is-active::after { inset-inline-start: auto; inset-inline-end: 3px; bottom: 18px; width: 5px; height: 5px; }
   .language-switcher { margin-inline-end: auto; }.header-download { padding-inline: 20px; }
-  .language-picker { inline-size: 64px; }
   .hero-layout { min-height: 540px; gap: 0; grid-template-columns: 1.05fr .95fr; padding-block: 35px; }
   .hero-copy h1 { font-size: 46px; }
   .hero-description { max-width: 330px; font-size: 13px; }.hero__actions { gap: 16px; }

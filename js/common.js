@@ -37,7 +37,7 @@ function buildLanguageSwitcher() {
   return `<div class="language-switcher">
     <svg class="icon" aria-hidden="true"><use href="assests/icons.svg#globe"></use></svg>
     <details class="language-picker">
-      <summary class="language-trigger" aria-label="${selected.prompt} · ${selected.label}"><span lang="${selected.lang || selected.code}">${selected.label}</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></summary>
+      <summary class="language-trigger" aria-label="${selected.prompt} · ${selected.label}"><span lang="${selected.lang || selected.code}">${selected.label}</span></summary>
       <ul class="language-options">${LANGUAGE_OPTIONS.map((option) => `<li><button type="button" lang="${option.lang || option.code}" data-language="${option.code}"${option.code === current ? ' aria-current="true"' : ""}>${option.label}</button></li>`).join("")}</ul>
     </details>
   </div>`;
