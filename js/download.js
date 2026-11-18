@@ -1,5 +1,6 @@
 import "./common.js";
 import { detectLocale, getMessages, setDocumentMeta } from "./i18n.js";
+import { detectSupportedPlatform } from "./platform.js";
 
 const DOWNLOAD_DETAILS = {
   zh: {
@@ -61,6 +62,35 @@ const DOWNLOAD_DETAILS = {
   },
 };
 
+function highlightDeviceDownload() {
+  const platform = detectSupportedPlatform();
+  const card = platform && document.getElementById(platform);
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!card || reducedMotion.matches) return;
+
+  const play = () => {
+    if (reducedMotion.matches) return;
+    card.insertAdjacentHTML("beforeend", `
+      <svg class="download-glow" aria-hidden="true">
+        <rect width="100%" height="100%" rx="13" pathLength="100" />
+      </svg>`);
+    const glow = card.lastElementChild;
+    const removeGlow = () => glow.remove();
+    glow.addEventListener("animationend", removeGlow, { once: true });
+    glow.addEventListener("animationcancel", removeGlow, { once: true });
+  };
+  if (!("IntersectionObserver" in window)) {
+    play();
+    return;
+  }
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.intersectionRatio < 0.35) return;
+    observer.disconnect();
+    play();
+  }, { threshold: 0.35 });
+  observer.observe(card);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const { download } = getMessages();
   const details = DOWNLOAD_DETAILS[detectLocale()] || DOWNLOAD_DETAILS.en;
@@ -94,4 +124,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("[data-download-link='ios-privacy']")?.replaceChildren(details.links.iosPrivacy);
   document.querySelector("[data-download-link='ios-terms']")?.replaceChildren(details.links.iosTerms);
   document.querySelector("[data-download-link='ios-license']")?.replaceChildren(details.links.iosLicense);
+  highlightDeviceDownload();
 });

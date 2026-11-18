@@ -1,5 +1,6 @@
 import "./common.js";
 import { initNetworkGlobe } from "./globe.js";
+import { detectSupportedPlatform } from "./platform.js";
 import { detectLocale, setDocumentMeta } from "./i18n.js";
 
 const COPY = {
@@ -102,18 +103,6 @@ const DOWNLOAD_LINKS = {
   ios: { href: TESTFLIGHT_URL, name: "iOS" },
   macos: { href: TESTFLIGHT_URL, name: "macOS" },
 };
-
-function detectSupportedPlatform() {
-  const platform = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""}`.toLowerCase();
-  const userAgent = (navigator.userAgent || "").toLowerCase();
-  const source = `${platform} ${userAgent}`;
-  if (source.includes("android")) return "android";
-  if (/iphone|ipad|ipod/.test(source)) return "ios";
-  if (source.includes("mac") && navigator.maxTouchPoints > 1) return "ios";
-  if (source.includes("mac")) return "macos";
-  if (/windows|win32|win64/.test(source)) return "windows";
-  return null;
-}
 
 function initDownloadButton(copy) {
   const button = document.querySelector("[data-download-button]");

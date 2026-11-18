@@ -56,7 +56,7 @@ const LINKS = [
   ["BOM", "DEL"], ["BOM", "SIN"], ["SIN", "HKG"], ["SIN", "SYD"],
   ["HKG", "NRT"], ["ICN", "NRT"], ["SYD", "AKL"],
 ];
-const LAND_COLORS = ["#83502e", "#a36137", "#c67946", "#e59055", "#f7a969"];
+const LAND_COLORS = ["#c96a30", "#ed9455", "#ffae70", "#ffca92", "#ffe4bb"];
 
 function toSphere([longitude, latitude]) {
   const lon = longitude * TO_RADIANS;
@@ -101,14 +101,14 @@ const grid = [
 
 function paintBackdrop(context) {
   const atmosphere = context.createRadialGradient(CENTER_X, CENTER_Y, RADIUS * 0.45, CENTER_X, CENTER_Y, 308);
-  atmosphere.addColorStop(0, "#e36d3033");
-  atmosphere.addColorStop(0.75, "#bd5a1e16");
-  atmosphere.addColorStop(1, "#bd5a1e00");
+  atmosphere.addColorStop(0, "#ff92344d");
+  atmosphere.addColorStop(0.75, "#e9692725");
+  atmosphere.addColorStop(1, "#e9692700");
   context.fillStyle = atmosphere;
   context.fillRect(0, 0, WIDTH, HEIGHT);
 
   // The dashed guides frame the globe.
-  context.strokeStyle = "#f3a46329";
+  context.strokeStyle = "#a34a2038";
   context.lineWidth = 1;
   context.setLineDash([2, 7]);
   context.beginPath();
@@ -120,18 +120,18 @@ function paintBackdrop(context) {
   context.setLineDash([]);
 
   const surface = context.createRadialGradient(245, 225, 24, 359, 354, 293);
-  surface.addColorStop(0, "#703719");
-  surface.addColorStop(0.46, "#492715");
-  surface.addColorStop(0.78, "#2d1b12");
-  surface.addColorStop(1, "#1c120e");
+  surface.addColorStop(0, "#d87836");
+  surface.addColorStop(0.46, "#b85420");
+  surface.addColorStop(0.78, "#97401a");
+  surface.addColorStop(1, "#793316");
   context.fillStyle = surface;
   context.beginPath();
   context.arc(CENTER_X, CENTER_Y, RADIUS, 0, FULL_TURN);
   context.fill();
   const rim = context.createLinearGradient(175, 100, 473, 532);
   rim.addColorStop(0, "#ffc28d90");
-  rim.addColorStop(0.6, "#e1804644");
-  rim.addColorStop(1, "#c16a3629");
+  rim.addColorStop(0.6, "#a3451560");
+  rim.addColorStop(1, "#8e36164d");
   context.strokeStyle = rim;
   context.stroke();
 }

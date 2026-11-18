@@ -20,9 +20,9 @@ const SHARED_COPY = {
   fa: { download: "دانلود رایگان", close: "بستن منو", skip: "رفتن به محتوای اصلی", product: "محصول", resources: "سیاست‌ها و پشتیبانی", community: "در ارتباط بمانید", tagline: "دردسر کمتر، آزادی بیشتر.\nشروعی ساده‌تر برای کشف روزمره.", donate: "حمایت از این پروژه رایگان ↗" },
 };
 const LANGUAGE_OPTIONS = [
-  { code: "zh", label: "中文" },
-  { code: "en", label: "English" },
-  { code: "fa", label: "فارسی" },
+  { code: "zh", label: "中文", lang: "zh-CN", prompt: "选择语言" },
+  { code: "en", label: "English", prompt: "Choose language" },
+  { code: "fa", label: "فارسی", prompt: "انتخاب زبان" },
 ];
 const getSharedCopy = () => SHARED_COPY[detectLocale()] || SHARED_COPY.en;
 
@@ -33,7 +33,14 @@ function buildLogo() {
 function buildLanguageSwitcher() {
   if (document.body.dataset.fixedLocale) return "";
   const current = detectLocale();
-  return `<label class="language-switcher"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#globe"></use></svg><select class="language-select" data-lang-select aria-label="Language">${LANGUAGE_OPTIONS.map((option) => `<option value="${option.code}"${option.code === current ? " selected" : ""}>${option.label}</option>`).join("")}</select></label>`;
+  const selected = LANGUAGE_OPTIONS.find((option) => option.code === current);
+  return `<div class="language-switcher">
+    <svg class="icon" aria-hidden="true"><use href="assests/icons.svg#globe"></use></svg>
+    <details class="language-picker">
+      <summary class="language-trigger" aria-label="${selected.prompt} · ${selected.label}"><span lang="${selected.lang || selected.code}">${selected.label}</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></summary>
+      <ul class="language-options">${LANGUAGE_OPTIONS.map((option) => `<li><button type="button" lang="${option.lang || option.code}" data-language="${option.code}"${option.code === current ? ' aria-current="true"' : ""}>${option.label}</button></li>`).join("")}</ul>
+    </details>
+  </div>`;
 }
 
 function buildHeader() {
@@ -67,7 +74,7 @@ function buildFooter() {
       <div class="footer__brand">${buildLogo()}<p class="footer__tagline">${copy.tagline.split("\n").join("<br>")}</p></div>
       <nav class="footer__column" aria-label="${copy.product}"><h2>${copy.product}</h2><a href="download.html">${common.nav.download}</a><a href="help.html">${common.nav.about}</a></nav>
       <nav class="footer__column" aria-label="${copy.resources}"><h2>${copy.resources}</h2>${POLICY_LINKS.filter((link) => link.href !== "donate.html").map((link) => `<a href="${link.href}">${link.label[locale] || link.label.en}</a>`).join("")}</nav>
-      <div class="footer__column footer__community"><h2>${copy.community}</h2><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><a href="donate.html">${copy.donate}</a></div>
+      <div class="footer__column footer__community"><h2>${copy.community}</h2><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><a class="footer__support" href="donate.html">${copy.donate}</a></div>
     </div>
     <div class="footer__bottom"><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p></div>
   </div>`;
@@ -90,22 +97,34 @@ function initNavigation() {
   }
 
   const toggle = header?.querySelector(".nav-toggle");
+  const panel = header?.querySelector("#site-navigation");
+  const languagePicker = header?.querySelector(".language-picker");
+  const mobileMenu = window.matchMedia("(max-width: 900px)");
   const setMenuOpen = (open) => {
     document.body.classList.toggle("nav-open", open);
     toggle?.setAttribute("aria-expanded", String(open));
     toggle?.setAttribute("aria-label", open ? copy.close : getMessages().common.menuLabel);
+    if (panel) panel.inert = mobileMenu.matches && !open;
+    if (!open && languagePicker) languagePicker.open = false;
   };
+  setMenuOpen(false);
   toggle?.addEventListener("click", () => setMenuOpen(!document.body.classList.contains("nav-open")));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
+    if (event.key !== "Escape") return;
+    if (languagePicker?.open) {
+      languagePicker.open = false;
+      languagePicker.querySelector("summary")?.focus();
+    } else if (document.body.classList.contains("nav-open")) {
       setMenuOpen(false);
       toggle?.focus();
     }
   });
   document.addEventListener("pointerdown", (event) => {
-    if (event.target instanceof Node && !header?.contains(event.target)) setMenuOpen(false);
+    if (!(event.target instanceof Node)) return;
+    if (!header?.contains(event.target)) setMenuOpen(false);
+    else if (languagePicker?.open && !languagePicker.contains(event.target)) languagePicker.open = false;
   });
-  window.matchMedia("(min-width: 901px)").addEventListener("change", () => setMenuOpen(false));
+  mobileMenu.addEventListener("change", () => setMenuOpen(false));
   header?.querySelector(".site-nav")?.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest("a") : null;
     if (!link) return;
@@ -115,12 +134,13 @@ function initNavigation() {
       main?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     }
   });
-  header?.querySelector("[data-lang-select]")?.addEventListener("change", (event) => {
-    const select = event.target;
-    if (!(select instanceof HTMLSelectElement)) return;
-    setStoredLocale(select.value);
+  languagePicker?.addEventListener("click", (event) => {
+    const option = event.target instanceof Element ? event.target.closest("[data-language]") : null;
+    if (!option) return;
+    const { language } = option.dataset;
+    setStoredLocale(language);
     const url = new URL(window.location.href);
-    url.searchParams.set("lang", select.value);
+    url.searchParams.set("lang", language);
     window.location.href = `${url.pathname}${url.search}${url.hash}`;
   });
 }
