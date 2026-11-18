@@ -70,9 +70,10 @@ function highlightDeviceDownload() {
 
   const play = () => {
     if (reducedMotion.matches) return;
+    const layers = ["halo", "tail", "beam", "tip"];
     card.insertAdjacentHTML("beforeend", `
       <svg class="download-glow" aria-hidden="true">
-        <rect width="100%" height="100%" rx="13" pathLength="100" />
+        ${layers.map((layer) => `<rect class="download-glow__${layer}" width="100%" height="100%" rx="13" pathLength="100" />`).join("")}
       </svg>`);
     const glow = card.lastElementChild;
     const removeGlow = () => glow.remove();

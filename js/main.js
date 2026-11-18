@@ -119,6 +119,32 @@ function initDownloadButton(copy) {
   if (target.download) button.setAttribute("download", target.download);
 }
 
+function initEdgeDrift() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const branches = [...document.querySelectorAll(".edge-branch")];
+  if (!branches.length || typeof branches[0].animate !== "function") return;
+  let animations = [];
+
+  function syncMotion() {
+    animations.forEach((animation) => animation.cancel());
+    animations = reducedMotion.matches ? [] : branches.map((branch) => {
+      const rest = { transform: "none", easing: "ease-in-out" };
+      const drift = Array.from({ length: 3 }, () => {
+        const angle = (Math.random() - 0.5) * 20;
+        const scale = 0.91 + Math.random() * 0.17;
+        return { transform: `rotate(${angle}deg) scale(${scale})`, easing: "ease-in-out" };
+      });
+      return branch.animate([rest, ...drift, rest], {
+        duration: 5600 + Math.random() * 3200,
+        iterations: Infinity,
+      });
+    });
+  }
+
+  syncMotion();
+  reducedMotion.addEventListener("change", syncMotion);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const copy = COPY[detectLocale()] || COPY.en;
   setDocumentMeta({ title: copy.metaTitle, description: copy.metaDescription });
@@ -127,5 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof value === "string") element.textContent = value;
   });
   initDownloadButton(copy);
+  initEdgeDrift();
   initNetworkGlobe();
 });

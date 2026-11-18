@@ -54,14 +54,14 @@ function buildHeader() {
   return `<div class="container site-header__inner">
     ${buildLogo()}
     <button class="nav-toggle" type="button" aria-label="${common.menuLabel}" aria-expanded="false" aria-controls="site-navigation"><span class="nav-toggle__icon" aria-hidden="true"></span></button>
-    <div class="site-header__actions" id="site-navigation">
+    <div class="site-header__panel" id="site-navigation"><div class="site-header__reveal"><div class="site-header__actions">
       <nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => {
         const active = route.page === document.body.dataset.page;
         return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`;
       }).join("")}</ul></nav>
       ${buildLanguageSwitcher()}
       <a class="primary-button header-download" href="download.html"><span>${copy.download}</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
-    </div>
+    </div></div></div>
   </div>`;
 }
 
@@ -100,14 +100,23 @@ function initNavigation() {
   const panel = header?.querySelector("#site-navigation");
   const languagePicker = header?.querySelector(".language-picker");
   const mobileMenu = window.matchMedia("(max-width: 900px)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const closeLanguagePicker = () => {
+    if (languagePicker) languagePicker.open = false;
+  };
   const setMenuOpen = (open) => {
     document.body.classList.toggle("nav-open", open);
     toggle?.setAttribute("aria-expanded", String(open));
     toggle?.setAttribute("aria-label", open ? copy.close : getMessages().common.menuLabel);
     if (panel) panel.inert = mobileMenu.matches && !open;
-    if (!open && languagePicker) languagePicker.open = false;
+    if (!open && (!mobileMenu.matches || reducedMotion.matches)) closeLanguagePicker();
   };
   setMenuOpen(false);
+  panel?.addEventListener("transitionend", (event) => {
+    if (event.target === panel && event.propertyName === "grid-template-rows" && panel.inert) {
+      closeLanguagePicker();
+    }
+  });
   toggle?.addEventListener("click", () => setMenuOpen(!document.body.classList.contains("nav-open")));
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
@@ -122,16 +131,24 @@ function initNavigation() {
   document.addEventListener("pointerdown", (event) => {
     if (!(event.target instanceof Node)) return;
     if (!header?.contains(event.target)) setMenuOpen(false);
-    else if (languagePicker?.open && !languagePicker.contains(event.target)) languagePicker.open = false;
+    else if (languagePicker?.open && !languagePicker.contains(event.target) && !toggle?.contains(event.target)) {
+      closeLanguagePicker();
+    }
   });
-  mobileMenu.addEventListener("change", () => setMenuOpen(false));
+  mobileMenu.addEventListener("change", () => {
+    setMenuOpen(false);
+    closeLanguagePicker();
+  });
+  reducedMotion.addEventListener("change", () => {
+    if (panel?.inert) closeLanguagePicker();
+  });
   header?.querySelector(".site-nav")?.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest("a") : null;
     if (!link) return;
     setMenuOpen(false);
     if (document.body.dataset.page === "home" && link.getAttribute("href") === "index.html") {
       event.preventDefault();
-      main?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      main?.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
     }
   });
   languagePicker?.addEventListener("click", (event) => {
