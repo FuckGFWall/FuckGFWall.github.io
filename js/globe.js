@@ -8,7 +8,7 @@ const RADIUS = 216;
 const FULL_TURN = Math.PI * 2;
 const TO_RADIANS = Math.PI / 180;
 const ROTATION_MS = 48000;
-const INITIAL_LONGITUDE = -18;
+const INITIAL_LONGITUDE = -8;
 const VIEW_LATITUDE = 18 * TO_RADIANS;
 const VIEW_TILT = -12 * TO_RADIANS;
 const VIEW_SIN = Math.sin(VIEW_LATITUDE);
@@ -300,12 +300,11 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
   };
 }
 
-export function initNetworkGlobe(labels) {
+export function initNetworkGlobe() {
   const canvas = document.querySelector("#network-globe");
   const visual = canvas?.parentElement;
   const fallback = visual?.querySelector("[data-globe-fallback]");
-  const toggle = document.querySelector("[data-globe-toggle]");
-  if (!canvas || !visual || !fallback || !toggle || !("Path2D" in window)) return;
+  if (!canvas || !visual || !fallback || !("Path2D" in window)) return;
 
   const backdrop = document.createElement("canvas");
   const context = canvas.getContext("2d");
@@ -320,7 +319,6 @@ export function initNetworkGlobe(labels) {
   const renderer = createRenderer(canvas, context, backdrop, backdropContext, cards);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let visible = !("IntersectionObserver" in window);
-  let paused = false;
   let frame = null;
   let previousTime = null;
   let elapsed = 0;
@@ -333,9 +331,7 @@ export function initNetworkGlobe(labels) {
   }
 
   function updatePlayback() {
-    toggle.hidden = reducedMotion.matches;
-    toggle.textContent = paused ? labels.resume : labels.pause;
-    const playing = visible && !paused && !reducedMotion.matches && !document.hidden;
+    const playing = !canvas.hidden && visible && !reducedMotion.matches && !document.hidden;
     if (playing && frame === null) frame = requestAnimationFrame(animate);
     if (!playing && frame !== null) {
       cancelAnimationFrame(frame);
@@ -349,12 +345,16 @@ export function initNetworkGlobe(labels) {
     if (!width || !height) return;
     renderer.resize(width, height);
     renderer.render(elapsed);
+    if (canvas.hidden) {
+      // Reveal the canvas and cards together after their first positions and layers are set.
+      canvas.hidden = false;
+      fallback.hidden = true;
+      cards.forEach(({ element }) => { element.hidden = false; });
+      updatePlayback();
+    }
   }
 
-  visual.dataset.orbiting = "";
   resize();
-  canvas.hidden = false;
-  fallback.hidden = true;
 
   if ("ResizeObserver" in window) new ResizeObserver(resize).observe(visual);
   else window.addEventListener("resize", resize);
@@ -364,11 +364,6 @@ export function initNetworkGlobe(labels) {
       updatePlayback();
     }).observe(visual);
   }
-  toggle.addEventListener("click", () => {
-    paused = !paused;
-    updatePlayback();
-  });
   reducedMotion.addEventListener("change", updatePlayback);
   document.addEventListener("visibilitychange", updatePlayback);
-  updatePlayback();
 }

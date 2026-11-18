@@ -9,7 +9,7 @@ const COPY = {
     title: "把世界，", titleAccent: "连接得更简单。",
     description: "全平台支持的第三方 Cloudflare WARP 客户端。",
     allPlatforms: "查看所有平台", devices: "在你的设备上，随时出发",
-    visualGlobal: "世界，就在眼前", visualCaption: "数据中心与连线示意", explore: "向下探索",
+    visualGlobal: "世界，就在眼前", explore: "向下探索",
     factFreeUnit: " / 订阅", factFree: "免费使用，简单直接", factPlatformsUnit: " 大平台",
     factWeeklyTitle: "每周更新", factWeekly: "持续发现可用节点", factNetwork: "依托全球边缘网络",
     featuresTitle: "好用的连接，不必很复杂。", featuresIntro: "把精力留给你在意的事，剩下的，交给简单好用的工具。",
@@ -31,7 +31,6 @@ const COPY = {
     faqQuestion2: "为什么连接速度或可用性会变化？", faqAnswer2: "节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。共享账户资源也有限额，详情可查看帮助中心。",
     faqQuestion3: "在哪里查看隐私和开源信息？", faqAnswer3: "下载中心提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。",
     closingTitle: "下一次探索，从这里开始。", closingIntro: "选择你的设备，让世界离你更近一点。", closingButton: "获取 TrashVPN",
-    pauseMotion: "暂停动画", resumeMotion: "继续动画",
     download: "免费下载", downloadFor: "下载 {platform} 版",
   },
   en: {
@@ -40,7 +39,7 @@ const COPY = {
     title: "More world.", titleAccent: "Less complexity.",
     description: "A third-party Cloudflare WARP client for all major platforms.",
     allPlatforms: "All platforms", devices: "Your device. Your next discovery.",
-    visualGlobal: "A world within reach", visualCaption: "Illustration of data centers and routes", explore: "Discover more",
+    visualGlobal: "A world within reach", explore: "Discover more",
     factFreeUnit: " / subscription", factFree: "Free, plain and simple", factPlatformsUnit: " platforms",
     factWeeklyTitle: "Weekly refresh", factWeekly: "Discover available nodes", factNetwork: "Built on a global edge network",
     featuresTitle: "Good connections. Less complication.", featuresIntro: "Save your attention for what matters. Keep your tools simple.",
@@ -62,7 +61,6 @@ const COPY = {
     faqQuestion2: "Why can speed or availability change?", faqAnswer2: "Local networks, route congestion, node load and location can affect your connection. Shared accounts also have quotas. See the help center for details.",
     faqQuestion3: "Where are the privacy and open-source notices?", faqAnswer3: "The download center links to Android and iOS privacy policies and open-source licenses. Website policies are linked in the footer.",
     closingTitle: "Your next discovery starts here.", closingIntro: "Choose your device. Bring the world a little closer.", closingButton: "Get TrashVPN",
-    pauseMotion: "Pause animation", resumeMotion: "Resume animation",
     download: "Download free", downloadFor: "Get it for {platform}",
   },
   fa: {
@@ -71,7 +69,7 @@ const COPY = {
     title: "دنیایی گسترده‌تر،", titleAccent: "ارتباطی ساده‌تر.",
     description: "یک کلاینت شخص ثالث Cloudflare WARP برای همه پلتفرم‌های اصلی.",
     allPlatforms: "همه پلتفرم‌ها", devices: "روی دستگاه شما، آماده کشف",
-    visualGlobal: "جهان در دسترس شما", visualCaption: "نمای مفهومی مراکز داده و مسیرها", explore: "بیشتر بدانید",
+    visualGlobal: "جهان در دسترس شما", explore: "بیشتر بدانید",
     factFreeUnit: " / اشتراک", factFree: "رایگان و ساده", factPlatformsUnit: " پلتفرم",
     factWeeklyTitle: "به‌روزرسانی هفتگی", factWeekly: "کشف نودهای در دسترس", factNetwork: "بر پایه شبکه لبه جهانی",
     featuresTitle: "اتصال خوب، بدون پیچیدگی.", featuresIntro: "توجه خود را برای چیزهای مهم نگه دارید و ابزارهای ساده انتخاب کنید.",
@@ -93,7 +91,6 @@ const COPY = {
     faqQuestion2: "چرا سرعت یا دسترس‌پذیری تغییر می‌کند؟", faqAnswer2: "شبکه محلی، شلوغی مسیر، بار نود و موقعیت روی اتصال اثر دارند. حساب‌های مشترک هم سهمیه دارند. برای جزئیات، مرکز راهنما را ببینید.",
     faqQuestion3: "اطلاعیه‌های حریم خصوصی و متن‌باز کجاست؟", faqAnswer3: "مرکز دانلود به سیاست‌های حریم خصوصی و مجوزهای متن‌باز Android و iOS پیوند دارد. سیاست‌های وب‌سایت در پاورقی هستند.",
     closingTitle: "کشف بعدی شما از اینجا شروع می‌شود.", closingIntro: "دستگاه خود را انتخاب کنید و جهان را کمی نزدیک‌تر بیاورید.", closingButton: "دریافت TrashVPN",
-    pauseMotion: "توقف پویانمایی", resumeMotion: "ادامه پویانمایی",
     download: "دانلود رایگان", downloadFor: "دریافت برای {platform}",
   },
 };
@@ -141,5 +138,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof value === "string") element.textContent = value;
   });
   initDownloadButton(copy);
-  initNetworkGlobe({ pause: copy.pauseMotion, resume: copy.resumeMotion });
+  initNetworkGlobe();
 });

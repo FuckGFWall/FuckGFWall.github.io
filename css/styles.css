@@ -103,8 +103,6 @@ h3 { letter-spacing: -.025em; }
 .network-visual { position: relative; direction: ltr; width: 108%; margin-inline-start: -4%; aspect-ratio: 640 / 620; }
 .network-globe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .network-label { position: absolute; display: flex; gap: 11px; align-items: center; background: #442e1dc9; border: 1px solid #d3bca932; box-shadow: 0 16px 40px #00000022; backdrop-filter: blur(12px); border-radius: 10px; padding: 13px 16px; }
-.network-label--top { inset-block-start: 20%; inset-inline-start: 2%; }
-.network-label--bottom { inset-block-start: 72%; inset-inline-end: -1%; }
 .network-visual[data-orbiting] { isolation: isolate; }
 .network-visual[data-orbiting] .network-globe { z-index: 1; pointer-events: none; }
 .network-visual[data-orbiting] [data-globe-card] {
@@ -121,15 +119,9 @@ h3 { letter-spacing: -.025em; }
 .network-signal i { width: 3px; background: #f0d5bf; border-radius: 1px; }
 .network-signal i:nth-child(1) { height: 5px; }.network-signal i:nth-child(2) { height: 9px; }.network-signal i:nth-child(3) { height: 13px; }.network-signal i:nth-child(4) { height: 17px; }
 
-.network-caption { flex-wrap: wrap; color: #c0a58e; font-size: 11px; letter-spacing: .03em; display: flex; gap: 10px; justify-content: center; align-items: center; margin-block: -15px 15px; position: relative; }
-.caption-line { width: 20px; height: 1px; background: #95806e; }
 .hero-bottom { border-top: 1px solid #c8bcb21a; padding-block: 18px; display: flex; align-items: center; justify-content: space-between; color: #9b8b7e; font-size: 9px; letter-spacing: .13em; }
 .hero-bottom a { display: flex; gap: 14px; letter-spacing: .05em; }
 .hero-bottom a:hover { color: #f8e2d0; }
-
-/* The pause control stays outside the decorative canvas. */
-.globe-toggle { min-height: 26px; color: #f7c29c; background: #ffffff08; border: 1px solid #b17c5688; border-radius: 6px; padding: 3px 9px; font-size: 11px; line-height: 1.5; }
-.globe-toggle:hover { color: #ffe2c8; border-color: #ffc59988; }
 
 /* At-a-glance product facts */
 .product-facts { background: #ffffff; border-bottom: 1px solid #efebe8; }
@@ -370,10 +362,8 @@ html[dir="rtl"] .hero-bottom { letter-spacing: 0; }
   .hero-devices { gap: 12px; font-size: 9px; }.hero-devices > span { padding-inline-start: 12px; }
   .network-visual { width: 119%; margin-inline-start: -7%; }
   .hero-network .network-visual[data-orbiting] { width: calc(100% - 36px); margin-inline: auto; }
-  .network-label--top { top: 15%; left: 4%; }.network-label--bottom { top: 77%; right: 5%; }
   .network-label__icon { width: 27px; height: 27px; }.network-label { gap: 7px; padding: 9px 10px; }
   .network-label__eyebrow { font-size: 6px; }.network-signal { display: none; }
-  .network-caption { margin-top: 10px; }
   .facts-grid { grid-template-columns: repeat(2, 1fr); padding-block: 10px; }
   .product-fact { margin-block: 16px; padding-inline: 25px; }.product-fact:nth-child(3) { border: 0; padding-inline-start: 0; }
   .section { padding-block: 72px; }.section-heading { gap: 25px; }.section-heading h2 { font-size: 30px; }
@@ -406,9 +396,8 @@ html[dir="rtl"] .hero-bottom { letter-spacing: 0; }
   .hero__actions { gap: 23px; margin-bottom: 28px; }.hero__actions .primary-button { min-height: 50px; font-size: 13px; padding-inline: 20px; }.hero-secondary { font-size: 12px; }
   .hero-devices { gap: 15px; }.hero-devices > span { font-size: 9px; padding-inline-start: 15px; }
   .hero-network { margin-block: -8px 0; }.network-visual { width: min(100%, 440px); margin-inline: auto; }
-  .network-label--top { top: 21%; left: 0; }.network-label--bottom { top: 73%; right: 0; }
   .network-label strong { font-size: 10px; }.network-label { padding: 10px 12px; }.network-label__eyebrow { font-size: 7px; }
-  .network-caption { margin-block: -5px 12px; }.hero-bottom { padding-block: 15px; font-size: 7px; }
+  .hero-bottom { padding-block: 15px; font-size: 7px; }
   .facts-grid { padding-block: 12px; }.product-fact { padding-inline: 18px 0; margin-block: 14px; }
   .product-fact > strong { font-size: 22px; }.product-fact > span { font-size: 10px; }.product-fact .fact-cloud { font-size: 20px; gap: 7px; }.fact-cloud .icon { width: 24px; height: 24px; }
   .product-fact strong > span { font-size: 10px; }
