@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0b211d">
+    <meta name="theme-color" content="#24160f">
     <title>TrashVPN · 让连接更简单</title>
-    <meta name="description" content="TrashVPN 免费网络连接工具，支持 Android、Windows、iOS 与 macOS，节点每日更新。选择你的设备，轻松开始探索。">
+    <meta name="description" content="TrashVPN 免费网络连接工具，支持 Android、Windows、iOS 与 macOS，节点每周更新。选择你的设备，轻松开始探索。">
     <link rel="icon" type="image/png" href="assests/icon.PNG">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" as="image" href="assests/network-globe.svg">
+    <link rel="preload" as="image" href="assests/network-globe.webp">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6749427946555719" crossorigin="anonymous"></script>
   </head>
   <body data-page="home">
@@ -17,14 +17,12 @@
       <section class="portal-hero" aria-labelledby="hero-title">
         <div class="container hero-layout">
           <div class="hero-copy">
-            <p class="hero-badge"><span class="status-dot" aria-hidden="true"></span><span data-home-copy="badge">独立开发，永久免费</span><span class="badge-divider" aria-hidden="true"></span><span>TrashVPN</span></p>
             <h1 id="hero-title"><span data-home-copy="title">把世界，</span><span class="hero-title-accent" data-home-copy="titleAccent">连接得更简单。</span></h1>
-            <p class="hero-description" data-home-copy="description">少一点繁琐，多一点自由。免费的网络连接工具，让每一次日常探索，都能轻松开始。</p>
+            <p class="hero-description" data-home-copy="description">全平台支持的第三方 Cloudflare WARP 客户端。</p>
             <div class="hero__actions">
-              <a class="primary-button primary-button--mint" href="download.html" data-download-button data-default-href="download.html"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#download"></use></svg><span data-download-label>免费下载</span></a>
+              <a class="primary-button primary-button--accent" href="download.html" data-download-button data-default-href="download.html"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#download"></use></svg><span data-download-label>免费下载</span></a>
               <a class="hero-secondary" href="download.html"><span data-home-copy="allPlatforms">查看所有平台</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow"></use></svg></a>
             </div>
-            <p class="hero-footnote"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#check"></use></svg><span data-home-copy="footnote">无需订阅 · 没有付费版本</span></p>
             <div class="hero-devices" aria-label="Platforms">
               <a href="download.html#android" aria-label="Android"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#android"></use></svg></a>
               <a href="download.html#windows" aria-label="Windows"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#windows"></use></svg></a>
@@ -34,12 +32,12 @@
           </div>
           <div class="hero-network">
             <div class="network-visual" aria-hidden="true">
-              <img class="network-globe" src="assests/network-globe.svg" alt="" width="640" height="620" fetchpriority="high">
+              <canvas class="network-globe" id="network-globe" width="640" height="620" hidden></canvas>
+              <img class="network-globe" data-globe-fallback src="assests/network-globe.webp" alt="" width="640" height="620" fetchpriority="high">
               <div class="network-label network-label--top"><span class="network-label__icon"><svg class="icon"><use href="assests/icons.svg#globe"></use></svg></span><div><span class="network-label__eyebrow">GLOBAL NETWORK</span><strong data-home-copy="visualGlobal">世界，就在眼前</strong></div></div>
               <div class="network-label network-label--bottom"><span class="network-label__icon"><svg class="icon"><use href="assests/icons.svg#cloud"></use></svg></span><div><span class="network-label__eyebrow">POWERED BY</span><strong>Cloudflare Network</strong></div><span class="network-signal"><i></i><i></i><i></i><i></i></span></div>
-              <span class="orbit-point"></span>
             </div>
-            <p class="network-caption"><span class="caption-line" aria-hidden="true"></span><span data-home-copy="visualCaption">全球网络示意 · 实际线路以客户端为准</span></p>
+            <div class="network-caption"><span class="caption-line" aria-hidden="true"></span><span data-home-copy="visualCaption">数据中心与连线示意</span><button class="globe-toggle" data-globe-toggle type="button" aria-controls="network-globe" hidden>暂停动画</button></div>
           </div>
         </div>
         <div class="container hero-bottom"><span>LESS NOISE. MORE WORLD.</span><a href="#features"><span data-home-copy="explore">向下探索</span><span aria-hidden="true">↓</span></a></div>
@@ -49,7 +47,7 @@
         <div class="container facts-grid">
           <div class="product-fact"><strong>¥0<span data-home-copy="factFreeUnit"> / 订阅</span></strong><span data-home-copy="factFree">免费使用，简单直接</span></div>
           <div class="product-fact"><strong>4<span data-home-copy="factPlatformsUnit"> 大平台</span></strong><span>Android · Windows · iOS · macOS</span></div>
-          <div class="product-fact"><strong data-home-copy="factDailyTitle">每日更新</strong><span data-home-copy="factDaily">持续发现可用节点</span></div>
+          <div class="product-fact"><strong data-home-copy="factWeeklyTitle">每周更新</strong><span data-home-copy="factWeekly">持续发现可用节点</span></div>
           <div class="product-fact"><strong class="fact-cloud"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#cloud"></use></svg>Cloudflare</strong><span data-home-copy="factNetwork">依托全球边缘网络</span></div>
         </div>
       </section>
@@ -62,7 +60,7 @@
           </div>
           <div class="feature-grid">
             <article class="feature-card feature-card--free reveal-on-scroll">
-              <div class="feature-art free-art" aria-hidden="true"><span class="free-art__ring"></span><span class="free-art__amount">¥<strong>0</strong><span>FREE. ALWAYS.</span></span><span class="free-art__spark">✳</span></div>
+              <div class="feature-art free-art" aria-hidden="true"><span class="free-art__ring"></span><span class="free-art__amount">¥<strong>0</strong><span>FREE. ALWAYS.</span></span><span class="free-art__spark">✧</span></div>
               <span class="feature-number">01 / FREE BY DESIGN</span><h3 data-home-copy="freeTitle">免费，是起点也是坚持。</h3><p data-home-copy="freeText">没有订阅套餐，也没有付费升级。客户端下载与现有节点均可免费使用。</p>
             </article>
             <article class="feature-card feature-card--network reveal-on-scroll">
@@ -71,7 +69,7 @@
             </article>
             <article class="feature-card feature-card--refresh reveal-on-scroll">
               <div class="feature-art refresh-art" aria-hidden="true"><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-badge"><svg class="icon"><use href="assests/icons.svg#refresh"></use></svg></span></div>
-              <span class="feature-number">03 / A FRESH START, DAILY</span><h3 data-home-copy="refreshTitle">每天更新，多一份可能。</h3><p data-home-copy="refreshText">节点每日更新。在客户端重新优选，为当前网络找到更合适的连接。</p>
+              <span class="feature-number">03 / A FRESH START, WEEKLY</span><h3 data-home-copy="refreshTitle">每周更新，多一份可能。</h3><p data-home-copy="refreshText">节点每周更新。在客户端重新优选，为当前网络找到更合适的连接。</p>
             </article>
           </div>
         </div>

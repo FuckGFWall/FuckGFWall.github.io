@@ -69,7 +69,7 @@ function buildFooter() {
       <nav class="footer__column" aria-label="${copy.resources}"><h2>${copy.resources}</h2>${POLICY_LINKS.filter((link) => link.href !== "donate.html").map((link) => `<a href="${link.href}">${link.label[locale] || link.label.en}</a>`).join("")}</nav>
       <div class="footer__column footer__community"><h2>${copy.community}</h2><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><a href="donate.html">${copy.donate}</a></div>
     </div>
-    <div class="footer__bottom"><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p><span class="footer__motto">INDEPENDENT BY NATURE. FREE BY DESIGN.</span></div>
+    <div class="footer__bottom"><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p></div>
   </div>`;
 }
 

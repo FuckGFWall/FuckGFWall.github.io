@@ -1,10 +1,10 @@
 # TrashVPN 官网
 
-TrashVPN（垃圾VPN）的静态产品门户，介绍免费客户端、每日更新节点及服务使用说明。站点采用纯 HTML、CSS 与 JavaScript，无需构建，支持中文、English 与 فارسی（RTL），可直接部署于 GitHub Pages。
+TrashVPN（垃圾VPN）的静态产品门户，介绍免费客户端、每周更新节点及服务使用说明。站点采用纯 HTML、CSS 与 JavaScript，无需构建，支持中文、English 与 فارسی（RTL），可直接部署于 GitHub Pages。
 
 ## 目录结构
 
-- `index.html`：产品主页（矢量网络主视觉、功能亮点、平台入口、使用说明、常见问题）
+- `index.html`：产品主页（旋转的网络地球、功能亮点、平台入口、使用说明、常见问题）
 - `download.html`：客户端下载页与平台隐私、开源文档入口
 - `help.html`：帮助中心，支持文章深链接
 - `policy.html`、`donate.html`：网站政策与自愿捐赠
@@ -12,7 +12,8 @@ TrashVPN（垃圾VPN）的静态产品门户，介绍免费客户端、每日更
 - `js/common.js`：响应式导航、语言切换、页脚与滚动动画
 - `js/main.js`：主页文案、三语翻译与设备下载识别
 - `js/download.js`：下载页文案与平台说明
-- `assests/`：品牌图标、矢量网络插图与 SVG 图标集（保留原目录拼写）
+- `js/globe.js`：地球自转、数据中心与连线动画
+- `assests/`：品牌图标、地球静态预览与 SVG 图标集（保留原目录拼写）
 - `CNAME`：Cloudflare 自定义域名占位
 
 ## 本地预览
@@ -43,6 +44,7 @@ serve .
 ## 自定义说明
 
 - 主页结构在 `index.html` 中维护，三语文案在 `js/main.js` 的 `COPY` 中维护。
+- 地球陆地采样来自公共领域的 [Natural Earth 1:110m Land v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_110m_land.geojson)。数据中心和连线用于示意。
 - 下载链接位于 `download.html` 及 `js/main.js` 的 `DOWNLOAD_LINKS`，更新版本时需同步修改。
 - 帮助文章在 `js/help.js` 中维护；页脚与社交链接位于 `js/common.js`。
 - 若需调整动画、配色或断点，可统一修改 `css/styles.css`。
