@@ -117,9 +117,11 @@ h3 { letter-spacing: -.025em; }
   inset: 0 auto auto 0;
   inline-size: max-content;
   pointer-events: none;
+  transform-origin: 0 0;
   z-index: 2;
 }
 .network-visual[data-orbiting] [data-orbit-side="back"] { z-index: 0; }
+.network-label[data-orbit-side="back"] > * { visibility: hidden; }
 .network-label__icon { display: grid; place-items: center; width: 35px; height: 35px; flex-shrink: 0; border-radius: 8px; color: #782c0c; background: #d8582026; }
 .network-label__icon .icon { width: 19px; height: 19px; }
 .network-label__eyebrow { display: block; color: #743c22; letter-spacing: .12em; font-size: 8px; line-height: 1.6; }

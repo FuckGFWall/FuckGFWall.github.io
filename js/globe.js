@@ -86,11 +86,20 @@ const land = LAND_POINTS.map(toSphere);
 const sites = Object.fromEntries(Object.entries(LOCATIONS).map(([name, coordinates]) => [name, toSphere(coordinates)]));
 const sitePoints = Object.values(sites);
 const routes = LINKS.map(([from, to], index) => makeRoute(sites[from], sites[to], index));
-// Fix the cards above opposite points on the globe, using the same world coordinates as the routes.
-const globalCardPoint = toSphere([-105, 4]).map((coordinate) => coordinate * CARD_RADIUS_SCALE);
-const cardPoints = {
-  global: globalCardPoint,
-  cloudflare: globalCardPoint.map((coordinate) => -coordinate),
+
+function makeCardAnchor(longitude, latitude) {
+  return {
+    center: toSphere([longitude, latitude]).map((coordinate) => coordinate * CARD_RADIUS_SCALE),
+    right: toSphere([longitude + 90, 0]),
+    down: toSphere([longitude, latitude - 90]),
+  };
+}
+
+// The cards face outward at opposite points. The Cloudflare face is readable on the first frame.
+const [cardLongitude, cardLatitude] = [-145, 4];
+const cardAnchors = {
+  global: makeCardAnchor(cardLongitude, cardLatitude),
+  cloudflare: makeCardAnchor(cardLongitude + 180, -cardLatitude),
 };
 const grid = [
   ...[-60, -30, 0, 30, 60].map((latitude) =>
@@ -242,14 +251,21 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
   }
 
   function positionCards() {
-    for (const { element, point } of cards) {
-      project(point);
+    for (const { element, center, right, down } of cards) {
+      project(center);
       const x = screen.x * scaleX;
       const y = screen.y * scaleY;
-      element.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
 
-      // The same canvas covers rear cards with both the globe and its live routes.
       const side = screen.depth >= 0 ? "front" : "back";
+      project(right);
+      const a = (screen.x - CENTER_X) / RADIUS;
+      const b = (screen.y - CENTER_Y) / RADIUS * (scaleY / scaleX);
+      project(down);
+      const c = (screen.x - CENTER_X) / RADIUS * (scaleX / scaleY);
+      const d = (screen.y - CENTER_Y) / RADIUS;
+      element.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${x}, ${y}) translate(-50%, -50%)`;
+
+      // The tangent plane turns edge-on exactly when the card passes behind the canvas.
       if (element.dataset.orbitSide !== side) element.dataset.orbitSide = side;
     }
   }
@@ -311,10 +327,10 @@ export function initNetworkGlobe() {
   const backdropContext = backdrop.getContext("2d");
   if (!context || !backdropContext) return;
 
-  const cards = Object.entries(cardPoints).flatMap(([name, point]) => {
+  const cards = Object.entries(cardAnchors).flatMap(([name, anchor]) => {
     const element = visual.querySelector(`[data-globe-card="${name}"]`);
     if (!element) return [];
-    return [{ element, point }];
+    return [{ element, ...anchor }];
   });
   const renderer = createRenderer(canvas, context, backdrop, backdropContext, cards);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
