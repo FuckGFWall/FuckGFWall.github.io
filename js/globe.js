@@ -15,14 +15,7 @@ const VIEW_SIN = Math.sin(VIEW_LATITUDE);
 const VIEW_COS = Math.cos(VIEW_LATITUDE);
 const TILT_SIN = Math.sin(VIEW_TILT);
 const TILT_COS = Math.cos(VIEW_TILT);
-const CARD_ORBIT_RADIUS = RADIUS * 1.39;
-const CARD_ORBIT_TILT = 53 * TO_RADIANS;
-const CARD_ORBIT_SIN = Math.sin(CARD_ORBIT_TILT);
-const CARD_ORBIT_COS = Math.cos(CARD_ORBIT_TILT);
-const CARD_ORBIT_LONGITUDES = {
-  global: -57,
-  cloudflare: 22,
-};
+const CARD_RADIUS_SCALE = 1.23;
 
 // Representative locations and routes for the illustration.
 const LOCATIONS = {
@@ -93,6 +86,12 @@ const land = LAND_POINTS.map(toSphere);
 const sites = Object.fromEntries(Object.entries(LOCATIONS).map(([name, coordinates]) => [name, toSphere(coordinates)]));
 const sitePoints = Object.values(sites);
 const routes = LINKS.map(([from, to], index) => makeRoute(sites[from], sites[to], index));
+// Fix the cards above opposite points on the globe, using the same world coordinates as the routes.
+const globalCardPoint = toSphere([-105, 4]).map((coordinate) => coordinate * CARD_RADIUS_SCALE);
+const cardPoints = {
+  global: globalCardPoint,
+  cloudflare: globalCardPoint.map((coordinate) => -coordinate),
+};
 const grid = [
   ...[-60, -30, 0, 30, 60].map((latitude) =>
     Array.from({ length: 121 }, (_, i) => toSphere([i * 3 - 180, latitude]))),
@@ -108,15 +107,9 @@ function paintBackdrop(context) {
   context.fillStyle = atmosphere;
   context.fillRect(0, 0, WIDTH, HEIGHT);
 
-  // Stationary guides frame the rotating globe and its network.
+  // The dashed guides frame the globe.
   context.strokeStyle = "#f3a46329";
   context.lineWidth = 1;
-  context.beginPath();
-  context.arc(CENTER_X, CENTER_Y, 262, 0, FULL_TURN);
-  context.stroke();
-  context.beginPath();
-  context.ellipse(CENTER_X, CENTER_Y, 288, 128, -0.52, 0, FULL_TURN);
-  context.stroke();
   context.setLineDash([2, 7]);
   context.beginPath();
   context.moveTo(CENTER_X, 30);
@@ -248,19 +241,15 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
     circle(x, y, 0.9 + intensity * 0.45, "#fff1d9");
   }
 
-  function positionCards(longitude) {
-    for (const { element, longitude: anchor } of cards) {
-      const angle = anchor - longitude;
-      const depth = Math.cos(angle);
-      const along = Math.sin(angle) * CARD_ORBIT_RADIUS;
-      // A slight incline reserves horizontal space for the screen-facing cards.
-      const across = -depth * CARD_ORBIT_RADIUS * 0.18;
-      const x = (CENTER_X + along * CARD_ORBIT_COS - across * CARD_ORBIT_SIN) * scaleX;
-      const y = (CENTER_Y + along * CARD_ORBIT_SIN + across * CARD_ORBIT_COS) * scaleY;
+  function positionCards() {
+    for (const { element, point } of cards) {
+      project(point);
+      const x = screen.x * scaleX;
+      const y = screen.y * scaleY;
       element.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
 
       // The same canvas covers rear cards with both the globe and its live routes.
-      const side = depth >= 0 ? "front" : "back";
+      const side = screen.depth >= 0 ? "front" : "back";
       if (element.dataset.orbitSide !== side) element.dataset.orbitSide = side;
     }
   }
@@ -289,7 +278,7 @@ function createRenderer(canvas, context, backdrop, backdropContext, cards) {
 
     routes.forEach((route) => drawSignal(route, time));
     sitePoints.forEach((point, index) => drawSite(point, index, time));
-    positionCards(longitude);
+    positionCards();
   }
 
   return {
@@ -323,10 +312,10 @@ export function initNetworkGlobe(labels) {
   const backdropContext = backdrop.getContext("2d");
   if (!context || !backdropContext) return;
 
-  const cards = Object.entries(CARD_ORBIT_LONGITUDES).flatMap(([name, longitude]) => {
+  const cards = Object.entries(cardPoints).flatMap(([name, point]) => {
     const element = visual.querySelector(`[data-globe-card="${name}"]`);
     if (!element) return [];
-    return [{ element, longitude: longitude * TO_RADIANS }];
+    return [{ element, point }];
   });
   const renderer = createRenderer(canvas, context, backdrop, backdropContext, cards);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
