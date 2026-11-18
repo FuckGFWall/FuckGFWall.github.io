@@ -1,122 +1,143 @@
-﻿import "./common.js";
-import { detectLocale, getMessages, setDocumentMeta } from "./i18n.js";
+import "./common.js";
+import { detectLocale, setDocumentMeta } from "./i18n.js";
 
-const EXTRA_HOME_CONTENT = {
+const COPY = {
   zh: {
-    faqTitle: "常见问题",
-    faqIntro: "关于支持平台、连接情况与安全信息的快速说明。",
-    faq: [
-      ["目前支持哪些客户端？", "目前提供 Android、Windows、iOS 与 macOS 客户端。"],
-      ["TrashVPN 是否收费？", "当前提供的客户端与可用节点无需付费。我们不会通过网页要求你为激活、解封或会员服务支付费用。"],
-      ["为什么连接速度或可用性会变化？", "节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。状态页提供服务负载的概览供参考。"],
-      ["在哪里查看隐私和开源信息？", "下载页提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。"],
-    ],
+    metaTitle: "TrashVPN · 让连接更简单",
+    metaDescription: "TrashVPN 免费网络连接工具，支持 Android、Windows、iOS 与 macOS，节点每日更新。选择你的设备，轻松开始探索。",
+    badge: "独立开发，永久免费",
+    title: "把世界，", titleAccent: "连接得更简单。",
+    description: "少一点繁琐，多一点自由。免费的网络连接工具，让每一次日常探索，都能轻松开始。",
+    allPlatforms: "查看所有平台", footnote: "无需订阅 · 没有付费版本", devices: "在你的设备上，随时出发",
+    visualGlobal: "世界，就在眼前", visualCaption: "全球网络示意 · 实际线路以客户端为准", explore: "向下探索",
+    factFreeUnit: " / 订阅", factFree: "免费使用，简单直接", factPlatformsUnit: " 大平台",
+    factDailyTitle: "每日更新", factDaily: "持续发现可用节点", factNetwork: "依托全球边缘网络",
+    featuresTitle: "好用的连接，不必很复杂。", featuresIntro: "把精力留给你在意的事，剩下的，交给简单好用的工具。",
+    aboutLink: "了解 TrashVPN",
+    freeTitle: "免费，是起点也是坚持。", freeText: "没有订阅套餐，也没有付费升级。客户端下载与现有节点均可免费使用。",
+    networkTitle: "连接世界的另一种方式。", networkText: "依托 Cloudflare 边缘网络建立连接，让远方的信息，也有机会近在眼前。",
+    refreshTitle: "每天更新，多一份可能。", refreshText: "节点每日更新。在客户端重新优选，为当前网络找到更合适的连接。",
+    platformTitle: "不管在哪块屏幕，", platformTitleEnd: "都能开启探索。",
+    platformIntro: "从口袋里的手机，到桌面上的电脑。选择你的平台，即刻开始。",
+    downloadCenter: "前往下载中心", androidMeta: "APK 安装包", windowsMeta: "适用于 x64 设备",
+    honestTitle: "名字可以随意，", honestTitleEnd: "说明必须认真。",
+    honestIntro: "我们坚持免费，也坦诚它的边界。了解这些，再开始你的连接。",
+    limitsLink: "了解使用限额与说明", ipTitle: "IP 地址与地区",
+    ipText: "出口 IP 可能变化，地区识别也可能与预期不同。部分有地区限制的服务可能无法使用，IP 跳变也可能触发风控。",
+    qualityTitle: "节点质量与优选", qualityText: "速度与可用性会受网络、路由和共享账户限额影响。切换网络或连接变慢时，可以在客户端重新优选。",
+    faqTitle: "你可能还想知道。", faqIntro: "关于 TrashVPN 的几个常见问题。", helpLink: "访问帮助中心",
+    faqQuestion0: "目前支持哪些客户端？", faqAnswer0: "目前提供 Android、Windows、iOS 与 macOS 客户端。你可以在下载中心找到对应平台的官方下载入口。",
+    faqQuestion1: "TrashVPN 是否收费？", faqAnswer1: "当前提供的客户端与可用节点无需付费。我们不会要求你为激活、解封或会员服务支付费用。",
+    faqQuestion2: "为什么连接速度或可用性会变化？", faqAnswer2: "节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。共享账户资源也有限额，详情可查看帮助中心。",
+    faqQuestion3: "在哪里查看隐私和开源信息？", faqAnswer3: "下载中心提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。",
+    closingTitle: "下一次探索，从这里开始。", closingIntro: "选择你的设备，让世界离你更近一点。", closingButton: "获取 TrashVPN",
+    download: "免费下载", downloadFor: "下载 {platform} 版",
   },
   en: {
-    faqTitle: "Frequently Asked Questions",
-    faqIntro: "Quick answers about available platforms, connection behavior, and safety information.",
-    faq: [
-      ["Which client platforms are supported now?", "Android, Windows, iOS, and macOS clients are available. The iOS and macOS versions are 1.0.0; refer to the Download page for installation links."],
-      ["Does TrashVPN charge a fee?", "The currently offered clients and available nodes do not require payment. We will not ask for payment on a web page for activation, account unblocking, or membership."],
-      ["Why can connection speed or availability change?", "Node conditions vary with local networks, route congestion, service load, and location. The Status page offers an approximate service-load overview for reference."],
-      ["Where can I read privacy and open-source notices?", "The Download page links to Android and iOS client privacy policies and open-source license notices. Website-specific policies are available through the footer."],
-    ],
+    metaTitle: "TrashVPN · A simpler connection",
+    metaDescription: "A free connection tool for Android, Windows, iOS and macOS. Fresh nodes every day. Choose your device and start exploring.",
+    badge: "Independent. Always free.",
+    title: "More world.", titleAccent: "Less complexity.",
+    description: "A little less friction. A little more freedom. A free connection tool for your everyday curiosity.",
+    allPlatforms: "All platforms", footnote: "No subscription. No paid edition.", devices: "Your device. Your next discovery.",
+    visualGlobal: "A world within reach", visualCaption: "Network illustration · Actual routes vary", explore: "Discover more",
+    factFreeUnit: " / subscription", factFree: "Free, plain and simple", factPlatformsUnit: " platforms",
+    factDailyTitle: "Daily refresh", factDaily: "Discover available nodes", factNetwork: "Built on a global edge network",
+    featuresTitle: "Good connections. Less complication.", featuresIntro: "Save your attention for what matters. Keep your tools simple.",
+    aboutLink: "Meet TrashVPN",
+    freeTitle: "Free, from the very start.", freeText: "No subscription tiers or paid upgrades. The clients and currently available nodes are free to use.",
+    networkTitle: "Another way to reach the world.", networkText: "Connect through the Cloudflare edge network and bring more of the world's information within reach.",
+    refreshTitle: "Fresh nodes. New possibilities.", refreshText: "Nodes are refreshed every day. Run optimization in the client to find a better fit for your current network.",
+    platformTitle: "Different screens.", platformTitleEnd: "The same curiosity.",
+    platformIntro: "From the phone in your pocket to the computer on your desk. Choose your platform and get started.",
+    downloadCenter: "Visit the download center", androidMeta: "APK installer", windowsMeta: "For x64 devices",
+    honestTitle: "A playful name.", honestTitleEnd: "An honest explanation.",
+    honestIntro: "We keep it free and stay open about its limits. Know what to expect before you connect.",
+    limitsLink: "Read about quotas and availability", ipTitle: "IP addresses and regions",
+    ipText: "Exit IPs and detected regions may change. Some region-restricted services may be unavailable, and IP changes can trigger account checks.",
+    qualityTitle: "Node quality and optimization", qualityText: "Speed and availability depend on networks, routing and shared account quotas. Re-optimize in the client after switching networks or noticing a slowdown.",
+    faqTitle: "A few good questions.", faqIntro: "Things you may want to know about TrashVPN.", helpLink: "Visit the help center",
+    faqQuestion0: "Which platforms are supported?", faqAnswer0: "Clients are available for Android, Windows, iOS and macOS. Find the official link for your platform in the download center.",
+    faqQuestion1: "Does TrashVPN charge a fee?", faqAnswer1: "The current clients and available nodes are free. We will not ask for payments for activation, account unblocking or membership.",
+    faqQuestion2: "Why can speed or availability change?", faqAnswer2: "Local networks, route congestion, node load and location can affect your connection. Shared accounts also have quotas. See the help center for details.",
+    faqQuestion3: "Where are the privacy and open-source notices?", faqAnswer3: "The download center links to Android and iOS privacy policies and open-source licenses. Website policies are linked in the footer.",
+    closingTitle: "Your next discovery starts here.", closingIntro: "Choose your device. Bring the world a little closer.", closingButton: "Get TrashVPN",
+    download: "Download free", downloadFor: "Get it for {platform}",
   },
   fa: {
-    faqTitle: "پرسش‌های متداول",
-    faqIntro: "پاسخ‌های کوتاه درباره پلتفرم‌های موجود، وضعیت اتصال و اطلاعات ایمنی.",
-    faq: [
-      ["اکنون کدام نسخه‌ها پشتیبانی می‌شوند؟", "نسخه‌های Android، Windows، iOS و macOS در دسترس هستند. نسخه‌های iOS و macOS شماره 1.0.0 دارند؛ برای پیوند نصب به صفحه دانلود مراجعه کنید."],
-      ["آیا TrashVPN هزینه دارد؟", "نسخه‌ها و نودهای فعلی بدون پرداخت ارائه می‌شوند. ما در وب‌سایت برای فعال‌سازی، رفع محدودیت یا عضویت از شما درخواست پرداخت نمی‌کنیم."],
-      ["چرا سرعت یا دسترس‌پذیری اتصال تغییر می‌کند؟", "شرایط نود به شبکه محلی، شلوغی مسیر، بار سرویس و موقعیت جغرافیایی وابسته است. صفحه وضعیت نمایی تقریبی از بار سرویس ارائه می‌کند."],
-      ["اطلاعات حریم خصوصی و متن‌باز را کجا ببینم؟", "صفحه دانلود به سیاست حریم خصوصی و مجوزهای متن‌باز نسخه‌های Android و iOS پیوند دارد. سیاست‌های خود وب‌سایت در پاورقی در دسترس است."],
-    ],
+    metaTitle: "TrashVPN · ارتباطی ساده‌تر",
+    metaDescription: "ابزار اتصال رایگان برای Android، Windows، iOS و macOS با نودهای به‌روز روزانه. دستگاه خود را انتخاب کنید و شروع کنید.",
+    badge: "مستقل، همیشه رایگان",
+    title: "دنیایی گسترده‌تر،", titleAccent: "ارتباطی ساده‌تر.",
+    description: "دردسر کمتر، آزادی بیشتر. ابزاری رایگان برای اتصال و کشف روزمره دنیای اینترنت.",
+    allPlatforms: "همه پلتفرم‌ها", footnote: "بدون اشتراک و نسخه پولی", devices: "روی دستگاه شما، آماده کشف",
+    visualGlobal: "جهان در دسترس شما", visualCaption: "نمای مفهومی شبکه · مسیر واقعی متفاوت است", explore: "بیشتر بدانید",
+    factFreeUnit: " / اشتراک", factFree: "رایگان و ساده", factPlatformsUnit: " پلتفرم",
+    factDailyTitle: "به‌روزرسانی روزانه", factDaily: "کشف نودهای در دسترس", factNetwork: "بر پایه شبکه لبه جهانی",
+    featuresTitle: "اتصال خوب، بدون پیچیدگی.", featuresIntro: "توجه خود را برای چیزهای مهم نگه دارید و ابزارهای ساده انتخاب کنید.",
+    aboutLink: "آشنایی با TrashVPN",
+    freeTitle: "رایگان، از همان ابتدا.", freeText: "بدون طرح اشتراک یا ارتقای پولی. برنامه‌ها و نودهای فعلی رایگان هستند.",
+    networkTitle: "راهی دیگر برای رسیدن به جهان.", networkText: "با تکیه بر شبکه لبه Cloudflare متصل شوید و اطلاعات بیشتری از جهان را در دسترس داشته باشید.",
+    refreshTitle: "نودهای تازه، فرصت‌های تازه.", refreshText: "نودها هر روز به‌روز می‌شوند. با بهینه‌سازی در برنامه، نود مناسب‌تری برای شبکه فعلی خود پیدا کنید.",
+    platformTitle: "صفحه‌های متفاوت،", platformTitleEnd: "کنجکاوی یکسان.",
+    platformIntro: "از گوشی در جیب شما تا رایانه روی میز. پلتفرم خود را انتخاب کنید و شروع کنید.",
+    downloadCenter: "مرکز دانلود", androidMeta: "فایل نصب APK", windowsMeta: "برای دستگاه‌های x64",
+    honestTitle: "نامی شوخ‌طبع،", honestTitleEnd: "توضیحی صادقانه.",
+    honestIntro: "رایگان می‌مانیم و محدودیت‌ها را شفاف بیان می‌کنیم. پیش از اتصال، بدانید چه انتظاری داشته باشید.",
+    limitsLink: "سهمیه و دسترس‌پذیری", ipTitle: "آدرس IP و منطقه",
+    ipText: "IP خروجی و منطقه شناسایی‌شده ممکن است تغییر کند. برخی سرویس‌های محدود به منطقه در دسترس نیستند و تغییر IP می‌تواند بررسی حساب را فعال کند.",
+    qualityTitle: "کیفیت نود و بهینه‌سازی", qualityText: "سرعت و دسترس‌پذیری به شبکه، مسیریابی و سهمیه حساب‌های مشترک وابسته است. پس از تغییر شبکه یا افت سرعت، در برنامه دوباره بهینه‌سازی کنید.",
+    faqTitle: "چند پرسش کاربردی.", faqIntro: "چیزهایی که شاید بخواهید درباره TrashVPN بدانید.", helpLink: "مرکز راهنما",
+    faqQuestion0: "کدام پلتفرم‌ها پشتیبانی می‌شوند؟", faqAnswer0: "برنامه برای Android، Windows، iOS و macOS در دسترس است. پیوند رسمی دستگاه خود را در مرکز دانلود پیدا کنید.",
+    faqQuestion1: "آیا TrashVPN هزینه دارد؟", faqAnswer1: "برنامه‌ها و نودهای فعلی رایگان هستند. برای فعال‌سازی، رفع محدودیت حساب یا عضویت از شما پول نمی‌خواهیم.",
+    faqQuestion2: "چرا سرعت یا دسترس‌پذیری تغییر می‌کند؟", faqAnswer2: "شبکه محلی، شلوغی مسیر، بار نود و موقعیت روی اتصال اثر دارند. حساب‌های مشترک هم سهمیه دارند. برای جزئیات، مرکز راهنما را ببینید.",
+    faqQuestion3: "اطلاعیه‌های حریم خصوصی و متن‌باز کجاست؟", faqAnswer3: "مرکز دانلود به سیاست‌های حریم خصوصی و مجوزهای متن‌باز Android و iOS پیوند دارد. سیاست‌های وب‌سایت در پاورقی هستند.",
+    closingTitle: "کشف بعدی شما از اینجا شروع می‌شود.", closingIntro: "دستگاه خود را انتخاب کنید و جهان را کمی نزدیک‌تر بیاورید.", closingButton: "دریافت TrashVPN",
+    download: "دانلود رایگان", downloadFor: "دریافت برای {platform}",
   },
 };
 
-function applyAdditionalContent() {
-  const content = EXTRA_HOME_CONTENT[detectLocale()] || EXTRA_HOME_CONTENT.en;
-  document.querySelector("[data-faq-title]")?.replaceChildren(content.faqTitle);
-  document.querySelector("[data-faq-intro]")?.replaceChildren(content.faqIntro);
-  document.querySelectorAll("[data-faq-question]").forEach((element, index) => {
-    element.textContent = content.faq[index]?.[0] || "";
-  });
-  document.querySelectorAll("[data-faq-answer]").forEach((element, index) => {
-    element.textContent = content.faq[index]?.[1] || "";
-  });
-}
-
-function applyHomeTranslations() {
-  const { home } = getMessages();
-  setDocumentMeta(home.meta);
-  const heroImage = document.querySelector(".hero__media");
-  if (heroImage) heroImage.alt = home.hero.iconAlt;
-  const heroTitle = document.querySelector(".hero .section__title");
-  const heroNote = document.querySelector(".hero .note");
-  if (heroTitle) heroTitle.textContent = home.hero.title;
-  if (heroNote) heroNote.textContent = home.hero.note;
-  const otherVersionsLink = document.querySelector("[data-other-versions]");
-  if (otherVersionsLink) otherVersionsLink.textContent = home.hero.otherVersions;
-
-  const titles = document.querySelectorAll("main .section__title");
-  if (titles[1]) titles[1].textContent = home.sections.freeTitle;
-  if (titles[2]) titles[2].textContent = home.sections.cfTitle;
-  if (titles[3]) titles[3].textContent = home.sections.globeTitle;
-  if (titles[4]) titles[4].textContent = home.sections.speedTitle;
-  if (titles[5]) titles[5].textContent = home.sections.whyTitle;
-
-  const notes = document.querySelectorAll("main .note");
-  if (notes[1]) notes[1].textContent = home.sections.cfText;
-  if (notes[2]) notes[2].innerHTML = `${home.sections.globePrefix}<span class="highlight">330</span>${home.sections.globeMiddle}<span class="highlight">125</span>${home.sections.globeSuffix}`;
-  if (notes[3]) notes[3].textContent = home.sections.whyNote;
-
-  const sectionParagraphs = document.querySelectorAll("main section p:not(.note):not(.gauge__label)");
-  if (sectionParagraphs[0]) sectionParagraphs[0].textContent = home.sections.freeText;
-  if (sectionParagraphs[1]) sectionParagraphs[1].textContent = home.sections.speedText;
-
-  const gaugeSvg = document.querySelector("[data-speed-gauge] svg");
-  if (gaugeSvg) gaugeSvg.setAttribute("aria-label", home.sections.gauge);
-  const whyImage = document.querySelector(".why__background img");
-  if (whyImage) whyImage.alt = home.sections.whyAlt;
-
-  const cardTitles = document.querySelectorAll(".why-card__title");
-  if (cardTitles[0]) cardTitles[0].textContent = home.cards.ipTitle;
-  if (cardTitles[1]) cardTitles[1].textContent = home.cards.weakTitle;
-  const lists = document.querySelectorAll(".why-card__list");
-  if (lists[0]) lists[0].innerHTML = home.cards.ip.map((item) => `<li>${item}</li>`).join("");
-  if (lists[1]) lists[1].innerHTML = home.cards.weak.map((item) => `<li>${item}</li>`).join("");
-  applyAdditionalContent();
-}
-
-function prefersReducedMotion() { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
-function initGauge() {
-  const gauge = document.querySelector("[data-speed-gauge]"); if (!gauge) return;
-  const pointer = gauge.querySelector("[data-gauge-pointer]"); const label = gauge.querySelector("[data-gauge-value]");
-  const target = Number(gauge.getAttribute("data-target") || "100"); const reduceMotion = prefersReducedMotion();
-  const clamp = (value, min, max) => Math.min(Math.max(value, min), max); let jitterTimer = null;
-  const setGauge = (value) => { const v = clamp(value, 0, 600); const angle = -100 + (v / 600) * 200; pointer.style.transform = `rotate(${angle}deg)`; if (label) label.textContent = `${Math.round(v)} Mbps`; };
-  const startJitter = () => { if (reduceMotion || jitterTimer) return; jitterTimer = window.setInterval(() => setGauge(450 + Math.random() * 50), 260); };
-  if (reduceMotion) { setGauge(target); return; }
-  let animated = false;
-  const animate = () => { if (animated) return; animated = true; const start = performance.now(); const frame = (now) => { const progress = Math.min((now - start) / 50, 1); const eased = 1 - Math.pow(1 - progress, 3); setGauge(target * eased); if (progress < 1) requestAnimationFrame(frame); else setTimeout(startJitter, 160); }; requestAnimationFrame(frame); };
-  if ("IntersectionObserver" in window) { const observer = new IntersectionObserver((entries, obs) => { entries.forEach((entry) => { if (entry.isIntersecting) { animate(); obs.disconnect(); } }); }, { threshold: 0.5 }); observer.observe(gauge); } else animate();
-}
-
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/YBg8gqaQ";
-const DOWNLOAD_LINKS = { android: { href: "https://download.itmanager.top/TrashVPN-1.1.5-2.apk", download: "TrashVPN.apk" }, windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.6-x64-1.exe" }, ios: { href: TESTFLIGHT_URL, label: "iOS（TestFlight）" }, macos: { href: TESTFLIGHT_URL, label: "macOS（TestFlight）" } };
-function detectSupportedPlatform() { const platform = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""}`.toLowerCase(); const userAgent = (navigator.userAgent || "").toLowerCase(); const source = `${platform} ${userAgent}`; const maxTouchPoints = navigator.maxTouchPoints || 0; if (source.includes("android")) return "android"; if (source.includes("iphone") || source.includes("ipad") || source.includes("ipod")) return "ios"; if ((platform.includes("mac") || userAgent.includes("macintosh")) && maxTouchPoints > 1) return "ios"; if (source.includes("mac os") || source.includes("macintosh") || platform.includes("mac")) return "macos"; if (source.includes("windows") || source.includes("win32") || source.includes("win64")) return "windows"; return null; }
-function initDownloadButton() {
-  const { home } = getMessages(); const button = document.querySelector("[data-download-button]"); if (!(button instanceof HTMLAnchorElement)) return;
-  const otherVersionsLink = document.querySelector("[data-other-versions]"); const defaultHref = button.dataset.defaultHref || "download.html"; const platform = detectSupportedPlatform();
-  if (!platform || !DOWNLOAD_LINKS[platform]) { button.href = defaultHref; button.textContent = home.hero.downloadNow; button.removeAttribute("download"); otherVersionsLink?.setAttribute("hidden", "hidden"); return; }
-  button.href = DOWNLOAD_LINKS[platform].href; button.textContent = DOWNLOAD_LINKS[platform].label || home.downloads[platform]; DOWNLOAD_LINKS[platform].download ? button.setAttribute("download", DOWNLOAD_LINKS[platform].download) : button.removeAttribute("download"); otherVersionsLink?.removeAttribute("hidden");
+const DOWNLOAD_LINKS = {
+  android: { href: "https://download.itmanager.top/TrashVPN-1.1.5-2.apk", download: "TrashVPN.apk", name: "Android" },
+  windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.6-x64-1.exe", name: "Windows" },
+  ios: { href: TESTFLIGHT_URL, name: "iOS" },
+  macos: { href: TESTFLIGHT_URL, name: "macOS" },
+};
+
+function detectSupportedPlatform() {
+  const platform = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""}`.toLowerCase();
+  const userAgent = (navigator.userAgent || "").toLowerCase();
+  const source = `${platform} ${userAgent}`;
+  if (source.includes("android")) return "android";
+  if (/iphone|ipad|ipod/.test(source)) return "ios";
+  if (source.includes("mac") && navigator.maxTouchPoints > 1) return "ios";
+  if (source.includes("mac")) return "macos";
+  if (/windows|win32|win64/.test(source)) return "windows";
+  return null;
 }
 
-function initWhyCards() {
-  const cards = document.querySelectorAll(".why-card"); const background = document.querySelector(".why__background"); if (!cards.length && !background) return;
-  if (!("IntersectionObserver" in window)) { cards.forEach((card) => card.classList.add("is-visible")); background?.classList.add("is-visible"); return; }
-  const observer = new IntersectionObserver((entries, obs) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); } }); }, { threshold: 0.2 });
-  cards.forEach((card, index) => { card.style.transitionDelay = `${index * 80}ms`; observer.observe(card); }); if (background) observer.observe(background);
+function initDownloadButton(copy) {
+  const button = document.querySelector("[data-download-button]");
+  const label = button?.querySelector("[data-download-label]");
+  if (!(button instanceof HTMLAnchorElement) || !label) return;
+  const target = DOWNLOAD_LINKS[detectSupportedPlatform()];
+  if (!target) {
+    button.href = button.dataset.defaultHref || "download.html";
+    label.textContent = copy.download;
+    return;
+  }
+  button.href = target.href;
+  label.textContent = copy.downloadFor.replace("{platform}", target.name);
+  if (target.download) button.setAttribute("download", target.download);
 }
 
-document.addEventListener("DOMContentLoaded", () => { applyHomeTranslations(); initDownloadButton(); initGauge(); initWhyCards(); });
+document.addEventListener("DOMContentLoaded", () => {
+  const copy = COPY[detectLocale()] || COPY.en;
+  setDocumentMeta({ title: copy.metaTitle, description: copy.metaDescription });
+  document.querySelectorAll("[data-home-copy]").forEach((element) => {
+    const value = copy[element.dataset.homeCopy];
+    if (typeof value === "string") element.textContent = value;
+  });
+  initDownloadButton(copy);
+});

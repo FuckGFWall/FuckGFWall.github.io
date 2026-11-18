@@ -3,189 +3,122 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>垃圾VPN | TrashVPN</title>
-    <meta name="description" content="垃圾VPN 官方网站，免费高速不限节点，每日更新，随时连接世界。">
+    <meta name="theme-color" content="#0b211d">
+    <title>TrashVPN · 让连接更简单</title>
+    <meta name="description" content="TrashVPN 免费网络连接工具，支持 Android、Windows、iOS 与 macOS，节点每日更新。选择你的设备，轻松开始探索。">
     <link rel="icon" type="image/png" href="assests/icon.PNG">
     <link rel="stylesheet" href="css/styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6749427946555719"
-     crossorigin="anonymous"></script>
+    <link rel="preload" as="image" href="assests/network-globe.svg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6749427946555719" crossorigin="anonymous"></script>
   </head>
   <body data-page="home">
     <header id="site-header"></header>
-    <main id="main">
-      <section class="hero">
-        <div class="container reveal-on-scroll">
-          <img class="hero__media" src="assests/icon.PNG" alt="TrashVPN 应用图标">
-          <h1 class="section__title">垃圾 VPN，也能通向全世界</h1>
-          <p class="note">不设限、不收钱、节点天天换，让翻越高墙像吃饭一样简单。</p>
-          <div class="hero__actions">
-            <a
-              class="primary-button"
-              href="download.html"
-              data-download-button
-              data-default-href="download.html"
-            >立即下载</a>
-            <a class="hero__more-link" href="download.html" data-other-versions hidden>其它版本</a>
+    <main id="main" tabindex="-1">
+      <section class="portal-hero" aria-labelledby="hero-title">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="hero-badge"><span class="status-dot" aria-hidden="true"></span><span data-home-copy="badge">独立开发，永久免费</span><span class="badge-divider" aria-hidden="true"></span><span>TrashVPN</span></p>
+            <h1 id="hero-title"><span data-home-copy="title">把世界，</span><span class="hero-title-accent" data-home-copy="titleAccent">连接得更简单。</span></h1>
+            <p class="hero-description" data-home-copy="description">少一点繁琐，多一点自由。免费的网络连接工具，让每一次日常探索，都能轻松开始。</p>
+            <div class="hero__actions">
+              <a class="primary-button primary-button--mint" href="download.html" data-download-button data-default-href="download.html"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#download"></use></svg><span data-download-label>免费下载</span></a>
+              <a class="hero-secondary" href="download.html"><span data-home-copy="allPlatforms">查看所有平台</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow"></use></svg></a>
+            </div>
+            <p class="hero-footnote"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#check"></use></svg><span data-home-copy="footnote">无需订阅 · 没有付费版本</span></p>
+            <div class="hero-devices" aria-label="Platforms">
+              <a href="download.html#android" aria-label="Android"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#android"></use></svg></a>
+              <a href="download.html#windows" aria-label="Windows"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#windows"></use></svg></a>
+              <a href="download.html#ios" aria-label="iOS"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#apple"></use></svg></a>
+              <span data-home-copy="devices">在你的设备上，随时出发</span>
+            </div>
+          </div>
+          <div class="hero-network">
+            <div class="network-visual" aria-hidden="true">
+              <img class="network-globe" src="assests/network-globe.svg" alt="" width="640" height="620" fetchpriority="high">
+              <div class="network-label network-label--top"><span class="network-label__icon"><svg class="icon"><use href="assests/icons.svg#globe"></use></svg></span><div><span class="network-label__eyebrow">GLOBAL NETWORK</span><strong data-home-copy="visualGlobal">世界，就在眼前</strong></div></div>
+              <div class="network-label network-label--bottom"><span class="network-label__icon"><svg class="icon"><use href="assests/icons.svg#cloud"></use></svg></span><div><span class="network-label__eyebrow">POWERED BY</span><strong>Cloudflare Network</strong></div><span class="network-signal"><i></i><i></i><i></i><i></i></span></div>
+              <span class="orbit-point"></span>
+            </div>
+            <p class="network-caption"><span class="caption-line" aria-hidden="true"></span><span data-home-copy="visualCaption">全球网络示意 · 实际线路以客户端为准</span></p>
+          </div>
+        </div>
+        <div class="container hero-bottom"><span>LESS NOISE. MORE WORLD.</span><a href="#features"><span data-home-copy="explore">向下探索</span><span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section class="product-facts" aria-label="TrashVPN">
+        <div class="container facts-grid">
+          <div class="product-fact"><strong>¥0<span data-home-copy="factFreeUnit"> / 订阅</span></strong><span data-home-copy="factFree">免费使用，简单直接</span></div>
+          <div class="product-fact"><strong>4<span data-home-copy="factPlatformsUnit"> 大平台</span></strong><span>Android · Windows · iOS · macOS</span></div>
+          <div class="product-fact"><strong data-home-copy="factDailyTitle">每日更新</strong><span data-home-copy="factDaily">持续发现可用节点</span></div>
+          <div class="product-fact"><strong class="fact-cloud"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#cloud"></use></svg>Cloudflare</strong><span data-home-copy="factNetwork">依托全球边缘网络</span></div>
+        </div>
+      </section>
+
+      <section class="section benefits-section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-heading reveal-on-scroll">
+            <div><p class="eyebrow">BUILT FOR EVERYDAY EXPLORATION</p><h2 id="features-title" data-home-copy="featuresTitle">好用的连接，不必很复杂。</h2><p data-home-copy="featuresIntro">把精力留给你在意的事，剩下的，交给简单好用的工具。</p></div>
+            <a class="text-link" href="help.html"><span data-home-copy="aboutLink">了解 TrashVPN</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card feature-card--free reveal-on-scroll">
+              <div class="feature-art free-art" aria-hidden="true"><span class="free-art__ring"></span><span class="free-art__amount">¥<strong>0</strong><span>FREE. ALWAYS.</span></span><span class="free-art__spark">✳</span></div>
+              <span class="feature-number">01 / FREE BY DESIGN</span><h3 data-home-copy="freeTitle">免费，是起点也是坚持。</h3><p data-home-copy="freeText">没有订阅套餐，也没有付费升级。客户端下载与现有节点均可免费使用。</p>
+            </article>
+            <article class="feature-card feature-card--network reveal-on-scroll">
+              <div class="feature-art edge-art" aria-hidden="true"><span class="edge-node edge-node--one"></span><span class="edge-node edge-node--two"></span><span class="edge-node edge-node--three"></span><span class="edge-line edge-line--one"></span><span class="edge-line edge-line--two"></span><span class="edge-line edge-line--three"></span><span class="edge-center"><svg class="icon"><use href="assests/icons.svg#cloud"></use></svg></span><span class="edge-art__label">CLOUDFLARE EDGE</span></div>
+              <span class="feature-number">02 / CONNECTED GLOBALLY</span><h3 data-home-copy="networkTitle">连接世界的另一种方式。</h3><p data-home-copy="networkText">依托 Cloudflare 边缘网络建立连接，让远方的信息，也有机会近在眼前。</p>
+            </article>
+            <article class="feature-card feature-card--refresh reveal-on-scroll">
+              <div class="feature-art refresh-art" aria-hidden="true"><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-row"><span class="refresh-row__dot"></span><span></span><svg class="icon"><use href="assests/icons.svg#check"></use></svg></span><span class="refresh-badge"><svg class="icon"><use href="assests/icons.svg#refresh"></use></svg></span></div>
+              <span class="feature-number">03 / A FRESH START, DAILY</span><h3 data-home-copy="refreshTitle">每天更新，多一份可能。</h3><p data-home-copy="refreshText">节点每日更新。在客户端重新优选，为当前网络找到更合适的连接。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section platforms-section" aria-labelledby="platforms-title">
+        <div class="container">
+          <div class="platform-panel reveal-on-scroll">
+            <div class="platform-intro"><p class="eyebrow">YOUR DEVICE. YOUR WORLD.</p><h2 id="platforms-title"><span data-home-copy="platformTitle">不管在哪块屏幕，</span><span data-home-copy="platformTitleEnd">都能开启探索。</span></h2><p data-home-copy="platformIntro">从口袋里的手机，到桌面上的电脑。选择你的平台，即刻开始。</p><a class="text-link" href="download.html"><span data-home-copy="downloadCenter">前往下载中心</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow"></use></svg></a></div>
+            <div class="platform-tiles">
+              <a class="platform-tile" href="download.html#android"><svg class="icon platform-tile__icon" aria-hidden="true"><use href="assests/icons.svg#android"></use></svg><strong>Android</strong><span data-home-copy="androidMeta">APK 安装包</span><svg class="icon platform-tile__arrow" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+              <a class="platform-tile" href="download.html#windows"><svg class="icon platform-tile__icon" aria-hidden="true"><use href="assests/icons.svg#windows"></use></svg><strong>Windows</strong><span data-home-copy="windowsMeta">适用于 x64 设备</span><svg class="icon platform-tile__arrow" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+              <a class="platform-tile" href="download.html#ios"><svg class="icon platform-tile__icon" aria-hidden="true"><use href="assests/icons.svg#apple"></use></svg><strong>iOS</strong><span>Apple TestFlight</span><svg class="icon platform-tile__arrow" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+              <a class="platform-tile" href="download.html#macos"><svg class="icon platform-tile__icon" aria-hidden="true"><use href="assests/icons.svg#apple"></use></svg><strong>macOS</strong><span>Apple TestFlight</span><svg class="icon platform-tile__arrow" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section expectations-section" aria-labelledby="expectations-title">
+        <div class="container expectations-layout">
+          <div class="expectations-intro reveal-on-scroll"><p class="eyebrow">A LITTLE HONESTY</p><h2 id="expectations-title"><span data-home-copy="honestTitle">名字可以随意，</span><span data-home-copy="honestTitleEnd">说明必须认真。</span></h2><p data-home-copy="honestIntro">我们坚持免费，也坦诚它的边界。了解这些，再开始你的连接。</p><a class="text-link" href="help.html#usage-limit"><span data-home-copy="limitsLink">了解使用限额与说明</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a></div>
+          <div class="expectation-list reveal-on-scroll">
+            <article class="expectation-item"><span class="expectation-icon"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#globe"></use></svg></span><div><h3 data-home-copy="ipTitle">IP 地址与地区</h3><p data-home-copy="ipText">出口 IP 可能变化，地区识别也可能与预期不同。部分有地区限制的服务可能无法使用，IP 跳变也可能触发风控。</p></div></article>
+            <article class="expectation-item"><span class="expectation-icon"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#refresh"></use></svg></span><div><h3 data-home-copy="qualityTitle">节点质量与优选</h3><p data-home-copy="qualityText">速度与可用性会受网络、路由和共享账户限额影响。切换网络或连接变慢时，可以在客户端重新优选。</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq-section" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="reveal-on-scroll"><p class="eyebrow">GOOD QUESTIONS. CLEAR ANSWERS.</p><h2 id="faq-title" data-home-copy="faqTitle">你可能还想知道。</h2><p class="section-note" data-home-copy="faqIntro">关于 TrashVPN 的几个常见问题。</p><a class="text-link" href="help.html"><span data-home-copy="helpLink">访问帮助中心</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a></div>
+          <div class="faq-list reveal-on-scroll">
+            <details class="faq-item" open><summary data-home-copy="faqQuestion0">目前支持哪些客户端？</summary><p data-home-copy="faqAnswer0">目前提供 Android、Windows、iOS 与 macOS 客户端。你可以在下载中心找到对应平台的官方下载入口。</p></details>
+            <details class="faq-item"><summary data-home-copy="faqQuestion1">TrashVPN 是否收费？</summary><p data-home-copy="faqAnswer1">当前提供的客户端与可用节点无需付费。我们不会要求你为激活、解封或会员服务支付费用。</p></details>
+            <details class="faq-item"><summary data-home-copy="faqQuestion2">为什么连接速度或可用性会变化？</summary><p data-home-copy="faqAnswer2">节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。共享账户资源也有限额，详情可查看帮助中心。</p></details>
+            <details class="faq-item"><summary data-home-copy="faqQuestion3">在哪里查看隐私和开源信息？</summary><p data-home-copy="faqAnswer3">下载中心提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。</p></details>
           </div>
         </div>
       </section>
 
       <section class="section section--ad" aria-label="Advertisement">
-        <div class="container">
-          <!-- banner-1 -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-6749427946555719"
-               data-ad-slot="1980919829"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
+        <div class="container ad-container"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6749427946555719" data-ad-slot="1980919829" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </section>
 
-      <section
-        class="section section--with-bg reveal-on-scroll"
-        style="background-image: url('assests/free.png'); --bg-size: contain;"
-      >
-        <div class="container">
-          <div class="section__content">
-            <h2 class="section__title">没有限制，永久免费</h2>
-            <p>TrashVPN 生来就是垃圾——除了免费，你找不到任何收费入口。</p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="section section--with-bg reveal-on-scroll"
-        style="background-image: url('assests/cloudflare.png'); --bg-size: 55%; --bg-position: center;"
-      >
-        <div class="container">
-          <div class="section__content">
-            <h2 class="section__title">不是想不想，而是没法跑路😅</h2>
-            <p class="note">
-              使用 Cloudflare 搭建，世界第一 CDN 服务商，托管超 2000 万网站，承载着全球互联网 10% 的流量
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="section section--with-bg reveal-on-scroll"
-        style="background-image: url('assests/cloudflare-globe.PNG'); --bg-size: 90%; --bg-position: center; --section-padding: 250px;"
-      >
-        <div class="container">
-          <div class="section__content">
-            <h2 class="section__title">世界万千，一键直达</h2>
-            <p class="note">
-              服务器覆盖 <span class="highlight">330</span> 城市、<span class="highlight">125+</span> 国家和地区
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal-on-scroll">
-        <div class="container">
-          <div class="section__content">
-            <h2 class="section__title">节点每日更新，畅享高速</h2>
-            <p>接入即跳转最近节点，低延迟直连，随时冲浪。</p>
-          </div>
-          <div class="gauge" data-speed-gauge data-target="480">
-            <svg viewBox="0 0 200 120" role="img" aria-label="测速仪表盘">
-              <defs>
-                <linearGradient id="gaugeGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="rgba(0, 168, 168, 0.2)"></stop>
-                  <stop offset="100%" stop-color="rgba(0, 168, 168, 0.7)"></stop>
-                </linearGradient>
-              </defs>
-              <path
-                d="M20 100 A80 80 0 0 1 180 100"
-                fill="none"
-                stroke="rgba(148, 163, 184, 0.2)"
-                stroke-width="16"
-                stroke-linecap="round"
-              ></path>
-              <path
-                d="M20 100 A80 80 0 0 1 180 100"
-                fill="none"
-                stroke="url(#gaugeGradient)"
-                stroke-width="16"
-                stroke-linecap="round"
-                stroke-dasharray="251"
-                stroke-dashoffset="0"
-              ></path>
-              <g fill="var(--color-muted)" font-size="12" text-anchor="middle">
-                <text x="20" y="120">0</text>
-                <text x="52" y="70">150</text>
-                <text x="100" y="40">300</text>
-                <text x="148" y="70">450</text>
-                <text x="180" y="120">600</text>
-              </g>
-            </svg>
-            <div class="gauge__needle" data-gauge-pointer></div>
-            <div class="gauge__axis"></div>
-            <p class="gauge__label" data-gauge-value>0 Mbps</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal-on-scroll">
-        <div class="container why-section">
-          <div class="section__content">
-            <h2 class="section__title">So，为什么垃圾呢？</h2>
-            <p class="note">我们告诉你限制，更提醒你别拿它做错事。</p>
-          </div>
-          <div class="why__cards">
-            <article class="why-card">
-              <h3 class="why-card__title">IP 地址与风控</h3>
-              <ul class="why-card__list">
-                <li>中国用户的 IP 可能显示为中国，因此无法使用部分有地区限制的服务，例如 AI 服务。</li>
-                <li>IP 地址可能发生跳变，无法固定，因此可能增加触发风控的风险。</li>
-              </ul>
-            </article>
-            <article class="why-card">
-              <h3 class="why-card__title">节点质量与优选</h3>
-              <ul class="why-card__list">
-                <li>优选结果可能在一段时间后出现速度下降或连接不稳定，需要适时重新优选。</li>
-                <li>切换网络环境后，节点质量可能下降，必要时需要重新优选。</li>
-              </ul>
-            </article>
-          </div>
-          <div class="why__background">
-            <img src="assests/why.png" alt="疑惑的表情包" />
-          </div>
-        </div>
-      </section>
-
-
-
-      <section class="section reveal-on-scroll" data-faq-section>
-        <div class="container faq-container">
-          <div class="section__content">
-            <h2 class="section__title" data-faq-title>常见问题</h2>
-            <p data-faq-intro>关于支持平台、连接情况与安全信息的快速说明。</p>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary data-faq-question="0">目前支持哪些客户端？</summary>
-              <p data-faq-answer="0">目前提供 Android、Windows、iOS 与 macOS 客户端。</p>
-            </details>
-            <details class="faq-item">
-              <summary data-faq-question="1">TrashVPN 是否收费？</summary>
-              <p data-faq-answer="1">当前提供的客户端与可用节点无需付费。我们不会通过网页要求你为激活、解封或会员服务支付费用。</p>
-            </details>
-            <details class="faq-item">
-              <summary data-faq-question="2">为什么连接速度或可用性会变化？</summary>
-              <p data-faq-answer="2">节点状态会受本地网络、线路拥堵、节点负载和地理位置影响。状态页提供服务负载的概览供参考。</p>
-            </details>
-            <details class="faq-item">
-              <summary data-faq-question="3">在哪里查看隐私和开源信息？</summary>
-              <p data-faq-answer="3">下载页提供 Android 与 iOS 客户端的隐私政策和开源许可证入口；页脚可查看网站自身的政策条款。</p>
-            </details>
-          </div>
-        </div>
-      </section>
+      <section class="closing-section" aria-labelledby="closing-title"><div class="container"><div class="closing-panel reveal-on-scroll"><div><p class="eyebrow">READY WHEN YOU ARE.</p><h2 id="closing-title" data-home-copy="closingTitle">下一次探索，从这里开始。</h2><p data-home-copy="closingIntro">选择你的设备，让世界离你更近一点。</p></div><a class="primary-button primary-button--dark" href="download.html"><span data-home-copy="closingButton">获取 TrashVPN</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a></div></div></section>
     </main>
     <footer id="site-footer"></footer>
     <script type="module" src="js/main.js"></script>

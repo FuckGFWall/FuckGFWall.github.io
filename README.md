@@ -1,17 +1,18 @@
 # TrashVPN 官网
 
-TrashVPN（垃圾VPN）的静态官网，实现“免费、不设限、每日更新节点”的产品形象介绍。站点采用纯前端技术，适配桌面与移动端，具备滚动动画与可访问性优化，可直接部署于 GitHub Pages，并可由 Cloudflare 托管自定义域名。
+TrashVPN（垃圾VPN）的静态产品门户，介绍免费客户端、每日更新节点及服务使用说明。站点采用纯 HTML、CSS 与 JavaScript，无需构建，支持中文、English 与 فارسی（RTL），可直接部署于 GitHub Pages。
 
 ## 目录结构
 
-- `index.html`：主界面（功能亮点、视觉动画、测速仪组件、风险提醒）
-- `download.html`：客户端下载页（四大平台按钮，悬浮动效）
-- `about.html`：关于页，直接编写 HTML 内容即可展示
+- `index.html`：产品主页（矢量网络主视觉、功能亮点、平台入口、使用说明、常见问题）
+- `download.html`：客户端下载页与平台隐私、开源文档入口
+- `help.html`：帮助中心，支持文章深链接
+- `policy.html`、`donate.html`：网站政策与自愿捐赠
 - `css/styles.css`：全局样式、响应式、动画与组件样式
-- `js/common.js`：导航、页脚注入与滚动动画逻辑
-- `js/main.js`：首页测速仪、卡片动画
-- `js/download.js`：下载页入口（复用全局脚本）
-- `assests/`：项目图像资源（注意目录拼写）
+- `js/common.js`：响应式导航、语言切换、页脚与滚动动画
+- `js/main.js`：主页文案、三语翻译与设备下载识别
+- `js/download.js`：下载页文案与平台说明
+- `assests/`：品牌图标、矢量网络插图与 SVG 图标集（保留原目录拼写）
 - `CNAME`：Cloudflare 自定义域名占位
 
 ## 本地预览
@@ -27,10 +28,10 @@ serve .
 
 ## 部署到 GitHub Pages
 
-1. 将代码推送至 GitHub 仓库 `FuckGFWall/website`。
+1. 将代码推送至 GitHub 仓库 `FuckGFWall/FuckGFWall.github.io`。
 2. 在仓库设置（Settings）→ Pages 中，Source 选择 `Deploy from a branch`。
 3. Branch 选择 `main`（或默认分支），目录选 `/ (root)`。
-4. 保存后等待 GitHub Pages 构建完成，访问 `https://fuckgfwall.github.io/website/` 验证。
+4. 保存后等待 GitHub Pages 构建完成，访问 `https://fuckgfwall.github.io/` 验证。
 
 ### 使用 Cloudflare 绑定自定义域名
 
@@ -41,9 +42,9 @@ serve .
 
 ## 自定义说明
 
-- `about.html` 可直接编辑，写入标准 HTML 内容即可更新关于页面。
-- 下载页按钮指向占位链接，可替换为真实下载地址。
-- 页脚社交链接为占位，可在 `js/common.js` 中更新为正式渠道。
+- 主页结构在 `index.html` 中维护，三语文案在 `js/main.js` 的 `COPY` 中维护。
+- 下载链接位于 `download.html` 及 `js/main.js` 的 `DOWNLOAD_LINKS`，更新版本时需同步修改。
+- 帮助文章在 `js/help.js` 中维护；页脚与社交链接位于 `js/common.js`。
 - 若需调整动画、配色或断点，可统一修改 `css/styles.css`。
 
 ## 许可

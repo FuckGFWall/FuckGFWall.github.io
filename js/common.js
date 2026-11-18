@@ -14,88 +14,139 @@ const POLICY_LINKS = [
   { href: "policy.html#contact-us", label: { zh: "联系我们", en: "Contact Us", fa: "تماس با ما" } },
   { href: "donate.html", label: { zh: "捐赠", en: "Donate", fa: "حمایت مالی" } },
 ];
-const activeHref = () => {
-  const routes = { home: "index.html", download: "download.html", status: "status.html", help: "help.html" };
-  return routes[document.body?.dataset?.page] || "";
+const SHARED_COPY = {
+  zh: { download: "免费下载", close: "收起菜单", skip: "跳到主要内容", product: "产品", resources: "政策与支持", community: "保持联系", tagline: "少一点繁琐，多一点自由。\n让每一次日常探索，轻松开始。", donate: "支持这个免费项目 ↗" },
+  en: { download: "Get TrashVPN", close: "Close menu", skip: "Skip to content", product: "Product", resources: "Policies & support", community: "Stay in the loop", tagline: "Less friction. More freedom.\nA simpler start to your everyday exploration.", donate: "Support the free project ↗" },
+  fa: { download: "دانلود رایگان", close: "بستن منو", skip: "رفتن به محتوای اصلی", product: "محصول", resources: "سیاست‌ها و پشتیبانی", community: "در ارتباط بمانید", tagline: "دردسر کمتر، آزادی بیشتر.\nشروعی ساده‌تر برای کشف روزمره.", donate: "حمایت از این پروژه رایگان ↗" },
 };
-const isHomeRoute = () => document.body?.dataset?.page === "home";
 const LANGUAGE_OPTIONS = [
-  { code: "zh", label: "\u4e2d\u6587" },
+  { code: "zh", label: "中文" },
   { code: "en", label: "English" },
-  { code: "fa", label: "\u0641\u0627\u0631\u0633\u06cc" },
+  { code: "fa", label: "فارسی" },
 ];
+const getSharedCopy = () => SHARED_COPY[detectLocale()] || SHARED_COPY.en;
+
+function buildLogo() {
+  return '<a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="" width="35" height="35"><span>Trash<span class="site-logo__vpn">VPN</span></span></a>';
+}
 
 function buildLanguageSwitcher() {
+  if (document.body.dataset.fixedLocale) return "";
   const current = detectLocale();
-  return `<label class="language-switcher"><span class="language-switcher__label">Language</span><select class="language-select" data-lang-select aria-label="Language">${LANGUAGE_OPTIONS.map((option) => `<option value="${option.code}"${option.code === current ? " selected" : ""}>${option.label}</option>`).join("")}</select></label>`;
+  return `<label class="language-switcher"><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#globe"></use></svg><select class="language-select" data-lang-select aria-label="Language">${LANGUAGE_OPTIONS.map((option) => `<option value="${option.code}"${option.code === current ? " selected" : ""}>${option.label}</option>`).join("")}</select></label>`;
 }
 
 function buildHeader() {
   const { common } = getMessages();
+  const copy = getSharedCopy();
   const routes = [
-    { href: "index.html", label: common.nav.home },
-    { href: "download.html", label: common.nav.download },
-    { href: "status.html", label: common.nav.status },
-    { href: "help.html", label: common.nav.about },
+    { page: "home", href: "index.html", label: common.nav.home },
+    { page: "download", href: "download.html", label: common.nav.download },
+    { page: "help", href: "help.html", label: common.nav.about },
   ];
-  return `<div class="container site-header__inner"><a class="site-logo" href="index.html"><img src="assests/icon.PNG" alt="${common.logoAlt}"><span>TrashVPN</span></a><div class="site-header__actions"><nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => { const active = route.href === activeHref(); return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`; }).join("")}</ul></nav>${buildLanguageSwitcher()}</div></div>`;
+  return `<div class="container site-header__inner">
+    ${buildLogo()}
+    <button class="nav-toggle" type="button" aria-label="${common.menuLabel}" aria-expanded="false" aria-controls="site-navigation"><span class="nav-toggle__icon" aria-hidden="true"></span></button>
+    <div class="site-header__actions" id="site-navigation">
+      <nav class="site-nav" aria-label="${common.navLabel}"><ul class="site-nav__list">${routes.map((route) => {
+        const active = route.page === document.body.dataset.page;
+        return `<li><a class="site-nav__link${active ? " is-active" : ""}" href="${route.href}"${active ? ' aria-current="page"' : ""}>${route.label}</a></li>`;
+      }).join("")}</ul></nav>
+      ${buildLanguageSwitcher()}
+      <a class="primary-button header-download" href="download.html"><span>${copy.download}</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></a>
+    </div>
+  </div>`;
 }
 
 function buildFooter() {
   const { common } = getMessages();
+  const copy = getSharedCopy();
   const locale = detectLocale();
-  const policyLabel = locale === "zh" ? "网站政策" : locale === "fa" ? "سیاست‌های وب‌سایت" : "Website policies";
-  return `<div class="container footer__inner"><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><nav class="footer__policy-links" aria-label="${policyLabel}">${POLICY_LINKS.map((link) => `<a class="footer__policy-link" href="${link.href}">${link.label[locale] || link.label.en}</a>`).join("")}</nav><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p></div>`;
+  return `<div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">${buildLogo()}<p class="footer__tagline">${copy.tagline.split("\n").join("<br>")}</p></div>
+      <nav class="footer__column" aria-label="${copy.product}"><h2>${copy.product}</h2><a href="download.html">${common.nav.download}</a><a href="help.html">${common.nav.about}</a></nav>
+      <nav class="footer__column" aria-label="${copy.resources}"><h2>${copy.resources}</h2>${POLICY_LINKS.filter((link) => link.href !== "donate.html").map((link) => `<a href="${link.href}">${link.label[locale] || link.label.en}</a>`).join("")}</nav>
+      <div class="footer__column footer__community"><h2>${copy.community}</h2><div class="social-links" aria-label="${common.socialLabel}">${SOCIAL_LINKS.map((link) => `<a class="social-link" href="${link.href}" target="_blank" rel="${SOCIAL_REL}" aria-label="${link.label}">${link.icon}</a>`).join("")}</div><a href="donate.html">${copy.donate}</a></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">${common.footer.replace("{year}", new Date().getFullYear())}</p><span class="footer__motto">INDEPENDENT BY NATURE. FREE BY DESIGN.</span></div>
+  </div>`;
 }
 
 function initNavigation() {
   const header = document.querySelector("#site-header");
   const footer = document.querySelector("#site-footer");
+  const copy = getSharedCopy();
   if (header) { header.classList.add("site-header"); header.innerHTML = buildHeader(); }
   if (footer) { footer.classList.add("footer"); footer.innerHTML = buildFooter(); }
-  const toggleButton = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".site-nav");
-  const languageSelect = document.querySelector("[data-lang-select]");
-  languageSelect?.addEventListener("change", (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLSelectElement)) return;
-    const locale = target.value;
-    if (!locale) return;
-    setStoredLocale(locale);
+  const main = document.querySelector("#main");
+  if (main) {
+    main.setAttribute("tabindex", "-1");
+    const skipLink = document.createElement("a");
+    skipLink.className = "skip-link";
+    skipLink.href = "#main";
+    skipLink.textContent = copy.skip;
+    document.body.prepend(skipLink);
+  }
+
+  const toggle = header?.querySelector(".nav-toggle");
+  const setMenuOpen = (open) => {
+    document.body.classList.toggle("nav-open", open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? copy.close : getMessages().common.menuLabel);
+  };
+  toggle?.addEventListener("click", () => setMenuOpen(!document.body.classList.contains("nav-open")));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
+      setMenuOpen(false);
+      toggle?.focus();
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (event.target instanceof Node && !header?.contains(event.target)) setMenuOpen(false);
+  });
+  window.matchMedia("(min-width: 901px)").addEventListener("change", () => setMenuOpen(false));
+  header?.querySelector(".site-nav")?.addEventListener("click", (event) => {
+    const link = event.target instanceof Element ? event.target.closest("a") : null;
+    if (!link) return;
+    setMenuOpen(false);
+    if (document.body.dataset.page === "home" && link.getAttribute("href") === "index.html") {
+      event.preventDefault();
+      main?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+  });
+  header?.querySelector("[data-lang-select]")?.addEventListener("change", (event) => {
+    const select = event.target;
+    if (!(select instanceof HTMLSelectElement)) return;
+    setStoredLocale(select.value);
     const url = new URL(window.location.href);
-    url.searchParams.set("lang", locale);
+    url.searchParams.set("lang", select.value);
     window.location.href = `${url.pathname}${url.search}${url.hash}`;
   });
-
-  if (nav) {
-    nav.addEventListener("click", (event) => {
-      const target = event.target;
-      if (target instanceof HTMLElement && target.matches(".site-nav__link")) {
-        document.body.classList.remove("nav-open");
-        toggleButton?.setAttribute("aria-expanded", "false");
-        if (isHomeRoute() && target.getAttribute("href") === "index.html") {
-          event.preventDefault();
-          document.querySelector("#main")?.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    });
-  }
-
-  if (toggleButton && nav) {
-    toggleButton.setAttribute("aria-expanded", "false");
-    toggleButton.addEventListener("click", () => {
-      document.body.classList.toggle("nav-open");
-      toggleButton.setAttribute("aria-expanded", document.body.classList.contains("nav-open"));
-    });
-  }
 }
 
 function initScrollAnimations() {
-  const revealElements = document.querySelectorAll(".reveal-on-scroll");
-  if (!revealElements.length || !("IntersectionObserver" in window)) { revealElements.forEach((el) => el.classList.add("is-visible")); return; }
-  const observer = new IntersectionObserver((entries, obs) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); obs.unobserve(entry.target); } }); }, { threshold: 0.05, rootMargin: "0px 0px -8% 0px" });
-  revealElements.forEach((element) => observer.observe(element));
+  const elements = document.querySelectorAll(".reveal-on-scroll");
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      delete entry.target.dataset.revealPending;
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.05 });
+  elements.forEach((element) => {
+    // Initial content stays visible. Only offscreen sections opt into a reveal.
+    if (element.getBoundingClientRect().top > window.innerHeight) {
+      element.dataset.revealPending = "";
+      observer.observe(element);
+    }
+  });
 }
 
-document.addEventListener("DOMContentLoaded", () => { detectLocale(); applyDocumentLanguage(); initNavigation(); initScrollAnimations(); });
+document.addEventListener("DOMContentLoaded", () => {
+  applyDocumentLanguage();
+  initNavigation();
+  initScrollAnimations();
+});
 export { initScrollAnimations };

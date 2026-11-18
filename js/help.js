@@ -43,7 +43,7 @@ const ARTICLES = {
         title: "会有限额吗",
         html: `
           <p>会。TrashVPN 使用的部分 Cloudflare 账户资源存在限额，每天<strong>北京时间 8 点</strong>重置。达到限额后，相关节点可能暂时不可用。</p>
-          <p>一个账户可能由多位用户共享，因此达到限额不一定是个人使用过多。遇到节点失败或速度下降时，可以稍后重试、重新获取节点，或前往<a href="status.html">状态页面</a>查看整体负载。</p>
+          <p>一个账户可能由多位用户共享，因此达到限额不一定是个人使用过多。遇到节点失败或速度下降时，可以稍后重试、重新获取节点，或在客户端重新优选。</p>
           <p>此外，个人使用量也有限制。手机端和 macOS 端，可以通过观看广告获取额外使用量；Windows 端达到限额后，等待十分钟即可在客户端手动重置使用量。</p>
           <p>如果需要长期、稳定且可预测的专用线路，免费节点可能并不适合；它更适合临时查资料、轻量访问和测试连接。</p>
         `,
@@ -120,7 +120,7 @@ const ARTICLES = {
         title: "Are there usage limits?",
         html: `
           <p>Yes. Some Cloudflare account resources used by TrashVPN have quotas that reset daily at <strong>08:00 Beijing time</strong>. When a quota is reached, related nodes may become temporarily unavailable.</p>
-          <p>An account may be shared by multiple users, so reaching a quota does not necessarily mean that you personally used too much. If a node fails or slows down, try again later, refresh the node list, or check the overall load on the <a href="status.html">status page</a>.</p>
+          <p>An account may be shared by multiple users, so reaching a quota does not necessarily mean that you personally used too much. If a node fails or slows down, try again later, refresh the node list, or run optimization in the client.</p>
           <p>There is also a personal usage limit. On mobile and macOS, you can watch ads to obtain additional usage. On Windows, wait ten minutes after reaching the limit, then manually reset your usage in the client.</p>
           <p>If you need long-term, stable, predictable dedicated connectivity, free nodes may not be suitable. They are better for temporary research, lightweight access, and connection testing.</p>
         `,
@@ -197,7 +197,7 @@ const ARTICLES = {
         title: "آیا محدودیت مصرف وجود دارد؟",
         html: `
           <p>بله. بخشی از منابع حساب Cloudflare مورد استفاده TrashVPN دارای محدودیت هستند و هر روز ساعت <strong>۸ صبح به وقت پکن</strong> بازنشانی می‌شوند. پس از رسیدن به محدودیت، نودهای مرتبط ممکن است موقتاً در دسترس نباشند.</p>
-          <p>ممکن است یک حساب بین چند کاربر مشترک باشد؛ بنابراین رسیدن به سقف لزوماً به معنی مصرف زیاد شخصی شما نیست. اگر نودی قطع یا کند شد، بعداً دوباره تلاش کنید، فهرست نودها را تازه‌سازی کنید یا بار کلی را در <a href="status.html">صفحه وضعیت</a> ببینید.</p>
+          <p>ممکن است یک حساب بین چند کاربر مشترک باشد؛ بنابراین رسیدن به سقف لزوماً به معنی مصرف زیاد شخصی شما نیست. اگر نودی قطع یا کند شد، بعداً دوباره تلاش کنید، فهرست نودها را تازه‌سازی کنید یا در برنامه دوباره بهینه‌سازی کنید.</p>
           <p>محدودیت مصرف شخصی نیز وجود دارد. در نسخه‌های موبایل و macOS، می‌توانید با تماشای تبلیغات مصرف اضافی دریافت کنید. در Windows، پس از رسیدن به محدودیت ده دقیقه صبر کنید و سپس مصرف را به‌صورت دستی در کلاینت بازنشانی کنید.</p>
           <p>اگر به اتصال اختصاصی، پایدار و قابل پیش‌بینی نیاز دارید، نودهای رایگان مناسب نیستند؛ این نودها بیشتر برای بررسی موقت، دسترسی سبک و آزمایش اتصال هستند.</p>
         `,

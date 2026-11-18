@@ -13,15 +13,16 @@
     <main id="main">
       <section class="hero">
         <div class="container reveal-on-scroll">
-          <h1 class="section__title">选择你的设备，立即开溜</h1>
-          <p class="note">全平台统一体验，自动匹配最近节点。</p>
+          <p class="page-eyebrow">DOWNLOAD CENTER</p>
+          <h1 class="section__title">为你的设备，选一个好连接。</h1>
+          <p class="note">手机或电脑，都有适合你的版本。选择平台，开启连接。</p>
         </div>
       </section>
 
       <section class="section section--compact reveal-on-scroll">
         <div class="container">
           <div class="download-grid">
-            <a class="download-grid__item" href="https://testflight.apple.com/join/YBg8gqaQ" target="_blank" rel="noopener noreferrer">
+            <a class="download-grid__item" id="ios" href="https://testflight.apple.com/join/YBg8gqaQ" target="_blank" rel="noopener noreferrer">
               <svg class="download-grid__icon bi bi-apple" viewBox="0 0 16 16" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -29,8 +30,10 @@
                 ></path>
               </svg>
               <span class="download-grid__label">iOS v1.0.0</span>
+              <span class="download-grid__meta">Apple TestFlight</span>
+              <span class="download-grid__action"><span data-platform-action="ios">通过 TestFlight 安装</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></span>
             </a>
-            <a class="download-grid__item" href="https://download.itmanager.top/TrashVPN-1.1.5-2.apk" download="TrashVPN.apk">
+            <a class="download-grid__item" id="android" href="https://download.itmanager.top/TrashVPN-1.1.5-2.apk" download="TrashVPN.apk">
               <svg class="download-grid__icon bi bi-android2" viewBox="0 0 16 16" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -38,14 +41,18 @@
                 ></path>
               </svg>
               <span class="download-grid__label">Android v1.1.5</span>
+              <span class="download-grid__meta">APK · Android</span>
+              <span class="download-grid__action"><span data-platform-action="android">下载 APK</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></span>
             </a>
-            <a class="download-grid__item" href="https://download.itmanager.top/TrashVPN-Setup-1.6-x64-1.exe" target="_blank" rel="noopener noreferrer">
+            <a class="download-grid__item" id="windows" href="https://download.itmanager.top/TrashVPN-Setup-1.6-x64-1.exe" target="_blank" rel="noopener noreferrer">
               <svg class="download-grid__icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="currentColor" d="M3 4.2 11 3v8H3V4.2ZM11 13v8l-8-1.1V13h8ZM12 3l9-1.3v9.3h-9V3Zm9 10v9.3l-9-1.3V13h9Z"></path>
               </svg>
               <span class="download-grid__label">Windows v1.6</span>
+              <span class="download-grid__meta">EXE · Windows x64</span>
+              <span class="download-grid__action"><span data-platform-action="windows">下载 Windows 版</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></span>
             </a>
-            <a class="download-grid__item" href="https://testflight.apple.com/join/YBg8gqaQ" target="_blank" rel="noopener noreferrer">
+            <a class="download-grid__item" id="macos" href="https://testflight.apple.com/join/YBg8gqaQ" target="_blank" rel="noopener noreferrer">
               <svg class="download-grid__icon bi bi-apple" viewBox="0 0 16 16" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -53,6 +60,8 @@
                 ></path>
               </svg>
               <span class="download-grid__label">macOS v1.0.0</span>
+              <span class="download-grid__meta">Apple TestFlight</span>
+              <span class="download-grid__action"><span data-platform-action="macos">通过 TestFlight 安装</span><svg class="icon" aria-hidden="true"><use href="assests/icons.svg#arrow-up"></use></svg></span>
             </a>
           </div>
         </div>

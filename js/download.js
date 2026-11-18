@@ -1,9 +1,10 @@
-﻿import "./common.js";
+import "./common.js";
 import { detectLocale, getMessages, setDocumentMeta } from "./i18n.js";
 
 const DOWNLOAD_DETAILS = {
   zh: {
     guideTitle: "下载与安装说明",
+    actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windows: "下载 Windows 版", macos: "通过 TestFlight 安装" },
     guideIntro: "请选择与你的设备匹配的客户端，并在安装前确认下载来源与系统提示。",
     cards: [
       ["Android 客户端", "下载 APK 后，可由系统安装器完成安装。如果系统要求允许安装未知来源应用，请仅在你主动安装本次官方下载文件时授权。"],
@@ -22,6 +23,7 @@ const DOWNLOAD_DETAILS = {
   },
   en: {
     guideTitle: "Download and Installation Guidance",
+    actions: { ios: "Install via TestFlight", android: "Download APK", windows: "Download for Windows", macos: "Install via TestFlight" },
     guideIntro: "Choose the client that matches your device and confirm the download source and system prompts before installing.",
     cards: [
       ["Android Client", "After downloading the APK, complete installation through the system installer. If Android asks to allow installation from an unknown source, grant it only while you intentionally install this official download."],
@@ -40,6 +42,7 @@ const DOWNLOAD_DETAILS = {
   },
   fa: {
     guideTitle: "راهنمای دانلود و نصب",
+    actions: { ios: "نصب با TestFlight", android: "دانلود APK", windows: "دانلود برای Windows", macos: "نصب با TestFlight" },
     guideIntro: "نسخه متناسب با دستگاه خود را انتخاب کنید و پیش از نصب، منبع دانلود و پیام‌های سیستم را بررسی کنید.",
     cards: [
       ["نسخه Android", "پس از دانلود APK، نصب را با نصب‌کننده سیستم انجام دهید. اگر Android برای نصب از منبع ناشناس اجازه خواست، فقط هنگامی اجازه دهید که خودتان همین فایل رسمی را نصب می‌کنید."],
@@ -62,6 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const { download } = getMessages();
   const details = DOWNLOAD_DETAILS[detectLocale()] || DOWNLOAD_DETAILS.en;
   setDocumentMeta(download.meta);
+  document.querySelectorAll("[data-platform-action]").forEach((element) => {
+    element.textContent = details.actions[element.dataset.platformAction];
+  });
   const heroImage = document.querySelector(".hero__media");
   const heroTitle = document.querySelector(".hero .section__title");
   const heroNote = document.querySelector(".hero .note");
