@@ -70,12 +70,10 @@ function highlightDeviceDownload() {
 
   const play = () => {
     if (reducedMotion.matches) return;
-    const layers = ["halo", "tail", "beam", "tip"];
-    card.insertAdjacentHTML("beforeend", `
-      <svg class="download-glow" aria-hidden="true">
-        ${layers.map((layer) => `<rect class="download-glow__${layer}" width="100%" height="100%" rx="13" pathLength="100" />`).join("")}
-      </svg>`);
-    const glow = card.lastElementChild;
+    const glow = document.createElement("span");
+    glow.className = "download-glow";
+    glow.setAttribute("aria-hidden", "true");
+    card.append(glow);
     const removeGlow = () => glow.remove();
     glow.addEventListener("animationend", removeGlow, { once: true });
     glow.addEventListener("animationcancel", removeGlow, { once: true });

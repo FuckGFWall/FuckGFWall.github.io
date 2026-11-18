@@ -109,14 +109,9 @@ function initNavigation() {
     toggle?.setAttribute("aria-expanded", String(open));
     toggle?.setAttribute("aria-label", open ? copy.close : getMessages().common.menuLabel);
     if (panel) panel.inert = mobileMenu.matches && !open;
-    if (!open && (!mobileMenu.matches || reducedMotion.matches)) closeLanguagePicker();
+    if (!open) closeLanguagePicker();
   };
   setMenuOpen(false);
-  panel?.addEventListener("transitionend", (event) => {
-    if (event.target === panel && event.propertyName === "grid-template-rows" && panel.inert) {
-      closeLanguagePicker();
-    }
-  });
   toggle?.addEventListener("click", () => setMenuOpen(!document.body.classList.contains("nav-open")));
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
@@ -135,13 +130,7 @@ function initNavigation() {
       closeLanguagePicker();
     }
   });
-  mobileMenu.addEventListener("change", () => {
-    setMenuOpen(false);
-    closeLanguagePicker();
-  });
-  reducedMotion.addEventListener("change", () => {
-    if (panel?.inert) closeLanguagePicker();
-  });
+  mobileMenu.addEventListener("change", () => setMenuOpen(false));
   header?.querySelector(".site-nav")?.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest("a") : null;
     if (!link) return;
