@@ -353,7 +353,7 @@ h3 { letter-spacing: -.025em; }
 .donate-card { background: #f8f4f1; padding: 22px; border: 1px solid #ebe4df; border-radius: 11px; }
 .donate-card__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
 .donate-card h2 { font-size: 17px; margin: 0; }
-.donate-address { display: block; overflow-wrap: anywhere; direction: ltr; }
+.markdown-body code.donate-address { display: block; overflow-wrap: anywhere; direction: ltr; font-size: clamp(14px, 2.4vw, 18px); line-height: 1.65; }
 .copy-button { border: 1px solid #d4c7bd; background: #ffffff; color: #7e6149; border-radius: 5px; padding: 6px 13px; font-size: 11px; white-space: nowrap; }
 .copy-button:hover { background: #efe6df; }
 
