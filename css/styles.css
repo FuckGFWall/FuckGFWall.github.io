@@ -211,7 +211,7 @@ h3 { letter-spacing: -.025em; }
 .refresh-row__dot { width: 6px; height: 6px; background: #d4c7bc; border-radius: 50%; }
 .refresh-row > span:nth-child(2) { width: 54%; height: 4px; border-radius: 9px; background: #eae4df; }
 .refresh-row .icon { width: 13px; height: 13px; color: #996f4d; margin-inline-start: auto; }
-.refresh-badge { position: absolute; right: 2%; top: 51%; width: 47px; height: 47px; background: #ffc79b; border: 4px solid #fff0e3; border-radius: 50%; display: grid; place-items: center; color: #8d6545; }
+.refresh-badge { position: absolute; z-index: 2; right: 2%; top: 51%; width: 52px; height: 52px; transform: translateY(-50%); background: linear-gradient(145deg, #fffdfb, #fff1e4); border: 1px solid #f1c49e; border-radius: 16px; display: grid; place-items: center; color: #b85b24; box-shadow: 0 12px 24px #75412430, 0 4px 9px #7541241c, inset 0 1px 0 #ffffff; }
 .refresh-badge .icon { width: 20px; height: 20px; }
 
 /* Cross-platform download portal */
