@@ -413,7 +413,7 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
 @media (width > 900px) {
   .site-header__inner {
     width: auto;
-    margin-inline-start: max(clamp(44px, 5vw, 60px), calc((100% - var(--max-width)) / 2));
+    margin-inline-start: clamp(18px, 2.2vw, 32px);
     margin-inline-end: clamp(10px, 1.3vw, 20px);
   }
 }
@@ -429,7 +429,9 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
   .site-header__actions { flex-wrap: wrap; align-items: flex-start; padding: 10px 24px 16px; gap: 12px; background: #fcfaf9; border-bottom: 1px solid var(--color-line); }
   .site-nav { width: 100%; }.site-nav__list { gap: 0; flex-direction: column; align-items: stretch; }
   .site-nav__link { padding: 8px 0; font-size: 15px; }.site-nav__link.is-active::after { inset-inline-start: auto; inset-inline-end: 3px; bottom: 18px; width: 5px; height: 5px; }
-  .language-switcher { margin-inline-end: auto; }.header-download { padding-inline: 20px; }
+  .language-switcher { margin-inline-end: auto; }
+  .language-options { left: 0; right: auto; }
+  .header-download { padding-inline: 20px; }
   .hero-layout { min-height: 540px; gap: 0; grid-template-columns: 1.05fr .95fr; padding-block: 35px; }
   .hero-copy h1 { font-size: 46px; }
   .hero-description { max-width: 330px; font-size: 13px; }.hero__actions { gap: 16px; }
