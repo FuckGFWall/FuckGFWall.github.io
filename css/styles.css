@@ -66,16 +66,19 @@ h3 { letter-spacing: -.025em; }
 .site-nav__link { display: block; font-size: 13px; font-weight: 550; color: #726a64; padding-block: 16px; position: relative; transition: color var(--transition-base); }
 .site-nav__link:hover, .site-nav__link.is-active { color: var(--color-accent-strong); }
 .site-nav__link.is-active::after { content: ""; position: absolute; bottom: 8px; left: 50%; width: 4px; height: 4px; background: currentColor; border-radius: 50%; }
-.language-switcher { display: flex; align-items: flex-start; gap: 8px; }
-.language-switcher > .icon { width: 16px; height: 16px; margin-block-start: 8px; color: #72645b; }
-.language-picker { position: relative; inline-size: 58px; }
-.language-trigger { display: flex; align-items: center; justify-content: center; min-height: 32px; padding: 3px 4px; list-style: none; border: 1px solid #ead7c8; border-radius: 8px; background: #fff9f3; font-size: 12px; font-weight: 600; color: #63402b; cursor: pointer; }
+.language-switcher { display: flex; align-items: center; }
+.language-picker { position: relative; }
+.language-trigger { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 5px 9px; list-style: none; border: 0; border-radius: 8px; background: transparent; font-size: 12px; font-weight: 600; color: #63402b; cursor: pointer; transition: background var(--transition-base), color var(--transition-base); }
 .language-trigger::-webkit-details-marker { display: none; }
-.language-trigger:focus-visible { outline-offset: 3px; }
-.language-picker[open] .language-trigger { border-color: #d9b89e; }
-.language-options { position: absolute; z-index: 1; inset-block-start: calc(100% + 6px); inset-inline: 0; list-style: none; padding: 3px; margin: 0; border: 1px solid #ead7c8; border-radius: 8px; background: #fff9f3; box-shadow: 0 8px 20px #492e1718; }
-.language-options button { display: block; width: 100%; border: 0; padding: 5px 2px; border-radius: 5px; font-size: 12px; text-align: center; background: none; color: #63402b; }
-.language-options button:hover, .language-options button[aria-current="true"] { background: #ffe3cb; color: #872e09; }
+.language-trigger .icon { width: 16px; height: 16px; color: #72645b; }
+.language-chevron { width: 13px; height: 13px; transition: transform var(--transition-base); }
+.language-picker[open] .language-chevron { transform: rotate(180deg); }
+.language-trigger:hover, .language-picker[open] .language-trigger { background: #f7eee7; color: #872e09; }
+.language-trigger:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.language-options { position: absolute; z-index: 10; inset-block-start: calc(100% + 7px); inset-inline-end: 0; min-width: 142px; list-style: none; padding: 5px; margin: 0; border: 1px solid #ead7c8; border-radius: 10px; background: #fffdfb; box-shadow: 0 8px 24px #492e1720; }
+.language-options button { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 0; padding: 9px 10px; border-radius: 6px; font-size: 13px; text-align: start; background: none; color: #63402b; cursor: pointer; }
+.language-check { width: 15px; height: 15px; flex: none; }
+.language-options button:hover, .language-options button[aria-current="true"] { background: #fff0e4; color: #872e09; }
 .header-download { padding: 10px 17px; min-height: 38px; font-size: 12px; border-radius: 6px; }
 .header-download .icon { width: 15px; height: 15px; }
 .nav-toggle { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; color: var(--color-text); border: 1px solid var(--color-line); border-radius: 8px; background: transparent; }
@@ -410,8 +413,8 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
 @media (width > 900px) {
   .site-header__inner {
     width: auto;
-    margin-inline-start: max(clamp(36px, 4vw, 48px), calc((100% - var(--max-width)) / 2));
-    margin-inline-end: clamp(20px, 2.5vw, 36px);
+    margin-inline-start: max(clamp(44px, 5vw, 60px), calc((100% - var(--max-width)) / 2));
+    margin-inline-end: clamp(10px, 1.3vw, 20px);
   }
 }
 @media (max-width: 900px) {
