@@ -5,7 +5,7 @@ import { detectSupportedPlatform } from "./platform.js";
 const DOWNLOAD_DETAILS = {
   zh: {
     guideTitle: "下载与安装说明",
-    actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windowsExe: "EXE 安装版", windowsZip: "ZIP 便携版", macos: "通过 TestFlight 安装" },
+    actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windowsExe: "exe安装版", windowsZip: "zip便携版", macos: "通过 TestFlight 安装" },
     statuses: { ios: "暂不可用", macos: "暂不可用" },
     guideIntro: "请选择与你的设备匹配的客户端，并在安装前确认下载来源与系统提示。",
     cards: [
