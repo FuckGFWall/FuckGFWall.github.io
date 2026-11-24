@@ -300,6 +300,11 @@ h3 { letter-spacing: -.025em; }
 .download-grid__meta { font-size: 11px; color: #7e7064; min-height: 20px; }
 .download-grid__action { margin-top: 22px; padding-top: 15px; border-top: 1px solid #eeeae6; width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--color-accent-strong); }
 .download-grid__action .icon { width: 16px; height: 16px; }
+#windows .download-grid__action { gap: 6px; padding: 9px 11px; border: 1px solid var(--color-line); border-radius: 8px; background: #f7f3ef; }
+#windows .download-grid__action:hover { border-color: #b5977f; background: #eee7e0; }
+#windows .download-grid__action .icon { flex: 0 0 16px; }
+.download-grid__action.download-grid__action--secondary { margin-top: 0; }
+.download-grid__action:focus-visible { outline: 2px solid var(--color-accent-strong); outline-offset: 3px; }
 .download-details { padding-block: 68px; }
 .download-details__intro, .download-resources__intro { margin-bottom: 30px; max-width: 720px; }
 .download-details .section__title, .download-resources .section__title { font-size: 29px; }

@@ -93,7 +93,7 @@ const COPY = {
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/YBg8gqaQ";
 const DOWNLOAD_LINKS = {
   android: { href: "https://download.itmanager.top/TrashVPN-1.1.5-2.apk", download: "TrashVPN.apk", name: "Android" },
-  windows: { href: "https://download.itmanager.top/TrashVPN-Setup-1.6-x64-1.exe", name: "Windows" },
+  windows: { href: "https://download.itmanager.top/TrashVPN-1.0.0-Windows-x64-Signed-Setup.exe", name: "Windows" },
   ios: { href: TESTFLIGHT_URL, name: "iOS" },
   macos: { href: TESTFLIGHT_URL, name: "macOS" },
 };

@@ -5,11 +5,11 @@ import { detectSupportedPlatform } from "./platform.js";
 const DOWNLOAD_DETAILS = {
   zh: {
     guideTitle: "下载与安装说明",
-    actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windows: "下载 Windows 版", macos: "通过 TestFlight 安装" },
+    actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windowsExe: "下载 EXE 安装版", windowsZip: "下载 ZIP 便携版", macos: "通过 TestFlight 安装" },
     guideIntro: "请选择与你的设备匹配的客户端，并在安装前确认下载来源与系统提示。",
     cards: [
       ["Android 客户端", "下载 APK 后，可由系统安装器完成安装。如果系统要求允许安装未知来源应用，请仅在你主动安装本次官方下载文件时授权。"],
-      ["Windows 客户端", "双击运行 EXE 安装包，先同意协议，然后选择安装路径，最后点击安装即可。"],
+      ["Windows 客户端", "EXE 版可按向导安装；ZIP 版解压后运行程序。EXE 使用自签名证书，Windows 可能显示安全警告，请核对下载来源。"],
       ["iOS 与 macOS 客户端", "先下载 TestFlight 这个 App，然后点击上方下载按钮跳转安装。"],
     ],
     resourcesTitle: "客户端政策与开源信息",
@@ -24,11 +24,11 @@ const DOWNLOAD_DETAILS = {
   },
   en: {
     guideTitle: "Download and Installation Guidance",
-    actions: { ios: "Install via TestFlight", android: "Download APK", windows: "Download for Windows", macos: "Install via TestFlight" },
+    actions: { ios: "Install via TestFlight", android: "Download APK", windowsExe: "Download EXE installer", windowsZip: "Download portable ZIP", macos: "Install via TestFlight" },
     guideIntro: "Choose the client that matches your device and confirm the download source and system prompts before installing.",
     cards: [
       ["Android Client", "After downloading the APK, complete installation through the system installer. If Android asks to allow installation from an unknown source, grant it only while you intentionally install this official download."],
-      ["Windows Client", "Double-click the EXE installer, accept the agreement, choose an installation path, and click Install."],
+      ["Windows Client", "Use the EXE installer, or extract the portable ZIP and run the application. The EXE uses a self-signed certificate, so Windows may show a security warning; verify the download source."],
       ["iOS and macOS Clients", "First download the TestFlight app, then click the download button above to open the installation link."],
     ],
     resourcesTitle: "Client Policies and Open-Source Notices",
@@ -43,11 +43,11 @@ const DOWNLOAD_DETAILS = {
   },
   fa: {
     guideTitle: "راهنمای دانلود و نصب",
-    actions: { ios: "نصب با TestFlight", android: "دانلود APK", windows: "دانلود برای Windows", macos: "نصب با TestFlight" },
+    actions: { ios: "نصب با TestFlight", android: "دانلود APK", windowsExe: "دانلود نصب‌کننده EXE", windowsZip: "دانلود نسخه قابل حمل ZIP", macos: "نصب با TestFlight" },
     guideIntro: "نسخه متناسب با دستگاه خود را انتخاب کنید و پیش از نصب، منبع دانلود و پیام‌های سیستم را بررسی کنید.",
     cards: [
       ["نسخه Android", "پس از دانلود APK، نصب را با نصب‌کننده سیستم انجام دهید. اگر Android برای نصب از منبع ناشناس اجازه خواست، فقط هنگامی اجازه دهید که خودتان همین فایل رسمی را نصب می‌کنید."],
-      ["نسخه Windows", "روی فایل نصب EXE دوبار کلیک کنید، ابتدا موافقت‌نامه را بپذیرید، سپس مسیر نصب را انتخاب کنید و در پایان روی دکمه نصب کلیک کنید."],
+      ["نسخه Windows", "نسخه EXE را نصب کنید یا فایل ZIP قابل حمل را استخراج کرده و برنامه را اجرا کنید. EXE از گواهی خودامضا استفاده می‌کند و ممکن است Windows هشدار امنیتی نشان دهد؛ منبع دانلود را بررسی کنید."],
       ["نسخه‌های iOS و macOS", "ابتدا برنامه TestFlight را دانلود کنید، سپس روی دکمه دانلود در بالا بزنید تا به صفحه نصب هدایت شوید."],
     ],
     resourcesTitle: "سیاست‌ها و اطلاعیه‌های متن‌باز برنامه",

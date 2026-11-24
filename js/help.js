@@ -61,7 +61,7 @@ const ARTICLES = {
             <li>不会要求你关闭所有安全软件、长期信任未知证书，或把系统代理、DNS、路由器管理密码交给陌生人。</li>
           </ul>
           <p>如果浏览器、系统或安全软件提示风险，请先停止安装，核对下载来源、文件名、域名和校验信息。Windows 版本目前可能因为没有商业代码签名而出现“未知发布者”提示，但这并不意味着任何来源的安装包都可以信任。</p>
-          <p>推荐只从官网和官方下载域名获取客户端。对于 Android APK，安装前请确认包名、签名来源和页面地址；对于 Windows MSI，请尽量保存下载来源并在需要时计算 SHA-256 校验值。</p>
+          <p>推荐只从官网和官方下载域名获取客户端。对于 Android APK，安装前请确认包名、签名来源和页面地址；对于 Windows EXE 或 ZIP，请尽量保存下载来源并在需要时计算 SHA-256 校验值。</p>
           <div class="help-callout help-callout--warning">如果某个页面或联系人提出以上要求，请停止操作，不要提供敏感信息，不要运行未知文件，并尽量回到官网重新获取下载入口。</div>
         `,
       },
@@ -138,7 +138,7 @@ const ARTICLES = {
             <li>We will not ask you to disable all security software, permanently trust unknown certificates, or hand over system proxy, DNS, or router administration credentials.</li>
           </ul>
           <p>If your browser, operating system, or security software shows a warning, stop first and verify the download source, file name, domain, and checksum information. The current Windows build may show an “unknown publisher” warning because it is not commercially code-signed, but that does not mean installers from any source should be trusted.</p>
-          <p>Only download clients from the official website and official download domain. For Android APKs, check the package source and page address before installation; for Windows MSI files, keep the download source and calculate SHA-256 checksums when needed.</p>
+          <p>Only download clients from the official website and official download domain. For Android APKs, check the package source and page address before installation; for Windows EXE or ZIP files, keep the download source and calculate SHA-256 checksums when needed.</p>
           <div class="help-callout help-callout--warning">If a page or contact asks for any of the actions above, stop immediately, do not provide sensitive information, do not run unknown files, and return to the official website for the download link.</div>
         `,
       },
@@ -215,7 +215,7 @@ const ARTICLES = {
             <li>از شما نمی‌خواهیم همه نرم‌افزارهای امنیتی را خاموش کنید، برای همیشه به گواهی ناشناس اعتماد کنید یا اطلاعات پروکسی سیستم، DNS یا رمز مدیریت روتر را به فردی بدهید.</li>
           </ul>
           <p>اگر مرورگر، سیستم‌عامل یا نرم‌افزار امنیتی هشدار داد، ابتدا نصب را متوقف کنید و منبع دانلود، نام فایل، دامنه و اطلاعات checksum را بررسی کنید. نسخه Windows فعلی ممکن است به دلیل نداشتن امضای تجاری پیام «ناشر ناشناس» نشان دهد، اما این به معنی قابل اعتماد بودن فایل از هر منبعی نیست.</p>
-          <p>کلاینت‌ها را فقط از وب‌سایت رسمی و دامنه رسمی دانلود دریافت کنید. برای APK اندروید، قبل از نصب منبع بسته و آدرس صفحه را بررسی کنید؛ برای فایل MSI ویندوز، منبع دانلود را نگه دارید و در صورت نیاز SHA-256 را محاسبه کنید.</p>
+          <p>کلاینت‌ها را فقط از وب‌سایت رسمی و دامنه رسمی دانلود دریافت کنید. برای APK اندروید، قبل از نصب منبع بسته و آدرس صفحه را بررسی کنید؛ برای فایل EXE یا ZIP ویندوز، منبع دانلود را نگه دارید و در صورت نیاز SHA-256 را محاسبه کنید.</p>
           <div class="help-callout help-callout--warning">اگر صفحه یا فردی چنین درخواست‌هایی داشت، فوراً متوقف شوید، اطلاعات حساس ندهید، فایل ناشناس اجرا نکنید و برای دریافت لینک دانلود به وب‌سایت رسمی برگردید.</div>
         `,
       },
