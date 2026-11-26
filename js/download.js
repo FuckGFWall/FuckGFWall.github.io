@@ -6,7 +6,6 @@ const DOWNLOAD_DETAILS = {
   zh: {
     guideTitle: "下载与安装说明",
     actions: { ios: "通过 TestFlight 安装", android: "下载 APK", windowsExe: "exe安装版", windowsZip: "zip便携版", macos: "通过 TestFlight 安装" },
-    statuses: { ios: "暂不可用", macos: "暂不可用" },
     guideIntro: "请选择与你的设备匹配的客户端，并在安装前确认下载来源与系统提示。",
     cards: [
       ["Android 客户端", "Android 1.0.0 需要 Android 8.0 或更高版本。新版与旧版包名不同，将作为独立应用安装，不会覆盖旧版或自动迁移数据。下载 APK 后，请通过系统安装器安装，并仅在主动安装官方文件时允许未知来源安装。"],
@@ -26,7 +25,6 @@ const DOWNLOAD_DETAILS = {
   en: {
     guideTitle: "Download and Installation Guidance",
     actions: { ios: "Install via TestFlight", android: "Download APK", windowsExe: "EXE Installer", windowsZip: "Portable ZIP", macos: "Install via TestFlight" },
-    statuses: { ios: "Temporarily unavailable", macos: "Temporarily unavailable" },
     guideIntro: "Choose the client that matches your device and confirm the download source and system prompts before installing.",
     cards: [
       ["Android Client", "Android 1.0.0 requires Android 8.0 or later. Its package name differs from the old version, so it installs separately and does not replace the old app or automatically migrate its data. Install the APK through the system installer and allow unknown-source installation only when intentionally installing this official file."],
@@ -46,7 +44,6 @@ const DOWNLOAD_DETAILS = {
   fa: {
     guideTitle: "راهنمای دانلود و نصب",
     actions: { ios: "نصب با TestFlight", android: "دانلود APK", windowsExe: "نصب EXE", windowsZip: "ZIP قابل حمل", macos: "نصب با TestFlight" },
-    statuses: { ios: "موقتاً در دسترس نیست", macos: "موقتاً در دسترس نیست" },
     guideIntro: "نسخه متناسب با دستگاه خود را انتخاب کنید و پیش از نصب، منبع دانلود و پیام‌های سیستم را بررسی کنید.",
     cards: [
       ["نسخه Android", "نسخه Android 1.0.0 به Android 8.0 یا بالاتر نیاز دارد. نام بسته آن با نسخه قبلی متفاوت است؛ بنابراین جداگانه نصب می‌شود و جایگزین برنامه قبلی نمی‌شود یا داده‌های آن را به‌طور خودکار منتقل نمی‌کند. فایل APK را با نصب‌کننده سیستم نصب کنید و فقط هنگام نصب عمدی این فایل رسمی، نصب از منابع ناشناس را مجاز کنید."],
@@ -102,9 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setDocumentMeta(download.meta);
   document.querySelectorAll("[data-platform-action]").forEach((element) => {
     element.textContent = details.actions[element.dataset.platformAction];
-  });
-  document.querySelectorAll("[data-platform-status]").forEach((element) => {
-    element.textContent = details.statuses[element.dataset.platformStatus] || "";
   });
   const heroImage = document.querySelector(".hero__media");
   const heroTitle = document.querySelector(".hero .section__title");
