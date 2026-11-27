@@ -526,3 +526,10 @@ html[dir="rtl"] .text-link .icon, html[dir="rtl"] .hero-secondary .icon { transf
   .reveal-on-scroll[data-reveal-pending] { opacity: 1; transform: none; }
   .download-glow { display: none; }
 }
+
+/* Keep the mobile download cards' action areas compact and content-sized. */
+@media (max-width: 640px) {
+  .download-grid { align-items: start; }
+  #windows .download-grid__actions { flex: 0 0 auto; padding-top: 6px; }
+  #windows .download-grid__action { padding-block: 4px; }
+}
